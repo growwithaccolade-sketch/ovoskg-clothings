@@ -28,8 +28,8 @@ const pageTitles={
 }
 
 const reveal={
-  hidden:{opacity:0,y:30},
-  show:{opacity:1,y:0,transition:{duration:.72,ease:[.22,1,.36,1]}}
+  hidden:{opacity:0,y:14},
+  show:{opacity:1,y:0,transition:{duration:.58,ease:[.22,1,.36,1]}}
 }
 
 function AppMeta(){
@@ -53,7 +53,10 @@ function ScrollProgress(){
 }
 
 function Logo({light=false}){
-  return <Link to="/" aria-label="OVOSKG homepage" className="inline-flex items-center"><img src="/ovoskg-logo.webp" alt="OVOSKG Clothings" className={`brand-logo h-14 w-auto object-contain sm:h-[66px] ${light?'brightness-0 invert':''}`}/></Link>
+  return <Link to="/" aria-label="OVOSKG homepage" className="brand-logo inline-flex items-center gap-3">
+    <svg aria-hidden="true" viewBox="0 0 64 64" className="h-9 w-9 shrink-0 sm:h-10 sm:w-10"><path d="M8 32c0-8.8 5.8-15 13.2-15 5.4 0 8.9 3 12.3 8.3C36.7 20 40.6 17 46 17c7.1 0 10.8 5.3 10.8 12.4S52.8 42 46 42c-5.2 0-9.2-3-12.5-8.2C30.1 39 26.5 42 21.2 42 13.8 42 8 40.8 8 32Zm8 0c0 4.3 2.5 6.6 5.7 6.6 3.3 0 5.5-2.5 8.4-6.6-2.9-4.2-5.1-6.7-8.4-6.7-3.2 0-5.7 2.4-5.7 6.7Zm21.5 0c2.8 4.1 5.2 6.6 8.3 6.6 2.7 0 4.9-2.5 4.9-6.6 0-4.2-2.2-6.7-4.9-6.7-3.2 0-5.5 2.6-8.3 6.7Z" fill="currentColor"/></svg>
+    <span className="leading-none"><span className={`block text-[22px] font-medium tracking-[.08em] sm:text-[25px] ${light?'text-[#caa177]':'text-[#8f6b48]'}`}>OVOSKG</span><span className={`mt-1 block text-[7px] font-semibold uppercase tracking-[.38em] ${light?'text-white/52':'text-black/46'}`}>Clothings</span></span>
+  </Link>
 }
 
 function Announcement(){
@@ -75,17 +78,16 @@ function Header(){
     return()=>document.body.classList.remove('menu-open')
   },[menu])
   return <>
-    <Announcement/>
-    <header className="glass sticky top-0 z-50 border-b border-black/10">
-      <div className="mx-auto flex h-[90px] max-w-[1540px] items-center gap-5 px-4 sm:px-7">
-        <Logo/>
+    <header className="luxury-header sticky top-0 z-50 border-b border-white/8 text-white">
+      <div className="mx-auto flex h-[88px] max-w-[1540px] items-center gap-5 px-4 sm:px-7">
+        <Logo light/>
         <nav className="ml-auto hidden items-center gap-5 2xl:flex">
-          {navItems.map(([label,path])=><NavLink key={path} to={path} className={({isActive})=>`line-link text-[10px] font-bold uppercase tracking-[.13em] ${isActive?'active text-bronze':'text-ink/68 hover:text-ink'}`}>{label}</NavLink>)}
+          {navItems.map(([label,path])=><NavLink key={path} to={path} className={({isActive})=>`line-link text-[10px] font-semibold uppercase tracking-[.12em] ${isActive?'active text-[#caa177]':'text-white/58 hover:text-white'}`}>{label}</NavLink>)}
         </nav>
         <div className="ml-auto flex items-center gap-2 2xl:ml-3">
-          <button onClick={()=>setShortlist(true)} aria-label="Open style shortlist" className="focus-ring relative grid h-10 w-10 place-items-center rounded-full border border-black/12 transition hover:border-black/40"><ShoppingBag size={17}/>{count>0&&<span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-bronze px-1 text-[9px] font-bold text-white">{count}</span>}</button>
-          <Link to="/bespoke" className="hidden rounded-full bg-ink px-5 py-3 text-[10px] font-bold uppercase tracking-[.13em] text-white md:inline-flex">Start bespoke</Link>
-          <button onClick={()=>setMenu(true)} aria-label="Open navigation" className="focus-ring grid h-10 w-10 place-items-center rounded-full border border-black/12 2xl:hidden"><Menu size={19}/></button>
+          <button onClick={()=>setShortlist(true)} aria-label="Open style shortlist" className="focus-ring relative grid h-10 w-10 place-items-center rounded-full border border-white/16 text-white/80 transition hover:border-white/34 hover:text-white"><ShoppingBag size={17}/>{count>0&&<span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-bronze px-1 text-[9px] font-bold text-white">{count}</span>}</button>
+          <Link to="/bespoke" className="hidden rounded-full bg-[#f7f3eb] px-5 py-3 text-[10px] font-bold uppercase tracking-[.12em] text-ink transition hover:bg-white md:inline-flex">Start an order</Link>
+          <button onClick={()=>setMenu(true)} aria-label="Open navigation" className="focus-ring grid h-10 w-10 place-items-center rounded-full border border-white/16 text-white/80 2xl:hidden"><Menu size={19}/></button>
         </div>
       </div>
     </header>
@@ -153,16 +155,17 @@ function HomePage(){
       <div className="noise absolute inset-0 opacity-[.035]"/>
       <div className="relative mx-auto grid min-h-[790px] max-w-[1540px] px-4 sm:px-7 lg:h-[calc(100svh-118px)] lg:min-h-[730px] lg:grid-cols-[.84fr_1.16fr]">
         <div className="relative z-10 flex flex-col justify-between py-10 sm:py-14 lg:pr-14 lg:py-16">
-          <div className="flex items-center gap-5"><Kicker light>OVOSKG Clothings</Kicker><div className="h-px w-12 bg-white/18"/></div>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-5"><Kicker light>OVOSKG Clothings</Kicker><div className="h-px w-12 bg-white/18"/></div>
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/12 bg-white/[.035] px-3 py-2 text-[8px] font-semibold uppercase tracking-[.14em] text-white/55"><ShieldCheck size={12} className="text-[#caa177]"/>800+ custom pieces reported by founder</div>
+          </div>
           <motion.div initial={{opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{duration:.72,ease:[.22,1,.36,1]}} className="py-10 sm:py-12 lg:py-4">
             <div className="mb-5 text-[9px] font-bold uppercase tracking-[.15em] text-[#caa177]">Bespoke for men and women</div>
-            <h1 className="display-tight max-w-[790px] font-display text-[clamp(4.25rem,8.65vw,9.25rem)] font-medium leading-[.76]">Made for your body.<br/><span className="italic text-[#caa177]">Ready for the occasion.</span></h1>
+            <h1 className="display-tight max-w-[760px] font-display text-[clamp(4rem,7.6vw,8.1rem)] font-medium leading-[.79]">Made for your body.<br/><span className="italic text-[#caa177]">Ready for the occasion.</span></h1>
             <p className="mt-7 max-w-xl text-sm leading-7 text-white/62 sm:text-base">Suits and luxury kaftans for work, ceremonies and personal occasions. Choose the look. OVOSKG handles measurements, cloth and final details.</p>
             <div className="mt-7 flex flex-wrap gap-3"><PrimaryLink to="/bespoke" light>Start an order</PrimaryLink><Link to="/lookbook" className="inline-flex items-center gap-2 rounded-full border border-white/24 px-6 py-3.5 text-[10px] font-bold uppercase tracking-[.13em]">View lookbook <ArrowUpRight size={14}/></Link></div>
           </motion.div>
-          <div className="grid grid-cols-3 gap-px border-y border-white/10 bg-white/10">
-            {[['Made','to measure'],['Remote','orders checked'],['Online','order tracking']].map(([big,small])=><div key={big} className="bg-ink/92 px-3 py-4 sm:p-4"><div className="font-display text-2xl text-[#caa177] sm:text-3xl">{big}</div><div className="mt-1 text-[8px] font-bold uppercase tracking-[.14em] text-white/34">{small}</div></div>)}
-          </div>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 border-t border-white/10 pt-5 text-[8px] font-semibold uppercase tracking-[.14em] text-white/38"><span>Made to measure</span><span>Remote orders checked</span><span>Online order tracking</span></div>
         </div>
         <div className="relative -mx-4 min-h-[54svh] overflow-hidden sm:-mx-7 lg:mx-0 lg:min-h-0">
           <div className="absolute inset-0 grid grid-cols-[1.48fr_.72fr] gap-2 bg-black">
@@ -175,9 +178,10 @@ function HomePage(){
               <motion.div initial={{opacity:0,scale:.99}} animate={{opacity:1,scale:1}} transition={{delay:.2,duration:.7}} className="relative overflow-hidden"><img src="https://images.unsplash.com/photo-1620932934088-fbdb2920e484?auto=format&fit=crop&w=1500&q=94" alt="Nigerian man in a white kaftan" className="h-full w-full object-cover object-top"/></motion.div>
             </div>
           </div>
-          <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 bg-black/48 p-4 backdrop-blur-sm sm:left-7 sm:right-auto sm:max-w-[360px] sm:p-5">
-            <div><Kicker light>Men · Women · Kaftan</Kicker><div className="mt-1 font-display text-2xl">Choose what you want to make.</div></div>
-            <Link to="/collections" className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/25"><ArrowUpRight size={15}/></Link>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black/82 via-black/28 to-transparent"/>
+          <div className="absolute bottom-5 right-5 flex max-w-[350px] items-end justify-between gap-4 border border-white/10 bg-[#090807]/82 p-4 shadow-[0_18px_55px_rgba(0,0,0,.26)] backdrop-blur-md sm:bottom-7 sm:right-7 sm:p-5">
+            <div><Kicker light>Men · Women · Kaftan</Kicker><div className="mt-1 font-display text-2xl leading-none text-white">Choose what you want to make.</div></div>
+            <Link to="/collections" className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/20 text-white/80 transition hover:border-white/40 hover:text-white"><ArrowUpRight size={15}/></Link>
           </div>
         </div>
       </div>
@@ -207,12 +211,12 @@ function EntryPaths(){
     {n:'02',title:'Still choosing?',text:'Browse suits, women’s tailoring and kaftans.',to:'/collections'},
     {n:'03',title:'Order already placed?',text:'Check the current production stage.',to:'/track'}
   ]
-  return <section className="mx-auto max-w-[1540px] px-4 py-20 sm:px-7 lg:py-28"><div className="grid gap-8 lg:grid-cols-[.64fr_1.36fr]"><div><Kicker>Where to begin</Kicker><h2 className="display-tight mt-4 font-display text-6xl leading-[.88] sm:text-8xl">Choose the next step.</h2></div><div className="grid gap-3">{paths.map(p=><motion.div key={p.n} initial="hidden" whileInView="show" viewport={{once:true,amount:.3}} variants={reveal}><Link to={p.to} className="card-lift group grid min-h-36 grid-cols-[58px_1fr_auto] items-center gap-5 border border-black/10 bg-white p-5 sm:grid-cols-[80px_1fr_auto] sm:p-7"><div className="font-display text-4xl text-bronze">{p.n}</div><div><h3 className="font-display text-3xl leading-none sm:text-4xl">{p.title}</h3><p className="mt-3 max-w-xl text-xs leading-6 text-black/50 sm:text-sm">{p.text}</p></div><div className="hidden h-12 w-12 place-items-center rounded-full border border-black/12 transition group-hover:bg-ink group-hover:text-white sm:grid"><ArrowUpRight size={16}/></div></Link></motion.div>)}</div></div></section>
+  return <section className="mx-auto max-w-[1540px] px-4 py-20 sm:px-7 lg:py-28"><div className="grid gap-8 lg:grid-cols-[.64fr_1.36fr]"><div><Kicker>Where to begin</Kicker><h2 className="display-tight mt-4 font-display text-6xl leading-[.88] sm:text-7xl">Choose the next step.</h2></div><div className="grid gap-3">{paths.map(p=><motion.div key={p.n} initial="hidden" whileInView="show" viewport={{once:true,amount:.3}} variants={reveal}><Link to={p.to} className="card-lift group grid min-h-36 grid-cols-[58px_1fr_auto] items-center gap-5 border border-black/10 bg-white p-5 sm:grid-cols-[80px_1fr_auto] sm:p-7"><div className="font-display text-4xl text-bronze">{p.n}</div><div><h3 className="font-display text-3xl leading-none sm:text-4xl">{p.title}</h3><p className="mt-3 max-w-xl text-xs leading-6 text-black/50 sm:text-sm">{p.text}</p></div><div className="hidden h-12 w-12 place-items-center rounded-full border border-black/12 transition group-hover:bg-ink group-hover:text-white sm:grid"><ArrowUpRight size={16}/></div></Link></motion.div>)}</div></div></section>
 }
 
 function HomeCollections(){
   return <section className="bg-oat py-24 lg:py-32"><div className="mx-auto max-w-[1540px] px-4 sm:px-7">
-    <div className="flex flex-col justify-between gap-7 lg:flex-row lg:items-end"><div><Kicker>Collections</Kicker><h2 className="display-tight mt-4 max-w-4xl font-display text-6xl leading-[.86] sm:text-8xl lg:text-9xl">Pick the garment.<br/>OVOSKG shapes it to you.</h2></div><div className="max-w-md"><p className="text-sm leading-7 text-black/55">See the cut and proportion before you book. Save any reference you want to discuss.</p><TextLink to="/collections">Browse collections</TextLink></div></div>
+    <div className="flex flex-col justify-between gap-7 lg:flex-row lg:items-end"><div><Kicker>Collections</Kicker><h2 className="display-tight mt-4 max-w-4xl font-display text-6xl leading-[.86] sm:text-7xl lg:text-8xl">Pick the garment.<br/>OVOSKG shapes it to you.</h2></div><div className="max-w-md"><p className="text-sm leading-7 text-black/55">See the cut and proportion before you book. Save any reference you want to discuss.</p><TextLink to="/collections">Browse collections</TextLink></div></div>
     <div className="mt-14 grid gap-4 lg:grid-cols-12 lg:grid-rows-[420px_420px]">{collections.map((c,i)=><motion.div key={c.id} initial={{opacity:0,y:18}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.18}} transition={{duration:.6,delay:i*.06}} className={`${i===0?'lg:col-span-7 lg:row-span-2':'lg:col-span-5'}`}><Link to={`/collections/${c.id}`} className="image-zoom group relative block h-full min-h-[420px] overflow-hidden bg-ink"><img src={c.image} alt={c.imageAlt} className="absolute inset-0 h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/4 to-transparent"/><div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8"><Kicker light>{c.index}</Kicker><h3 className="mt-2 max-w-xl font-display text-4xl leading-none sm:text-5xl">{c.title}</h3><p className="mt-3 max-w-md text-xs leading-5 text-white/58">{c.short}</p><div className="mt-5 flex items-center gap-2 text-[9px] font-bold uppercase tracking-[.14em]">See references <ArrowUpRight size={13}/></div></div></Link></motion.div>)}</div>
   </div></section>
 }
@@ -226,28 +230,28 @@ function ProcessSection(){
     ['05','Handover','Collect or receive the finished piece.']
   ]
   return <section className="bg-ink py-24 text-white lg:py-32"><div className="mx-auto grid max-w-[1540px] gap-12 px-4 sm:px-7 lg:grid-cols-[.82fr_1.18fr]">
-    <div className="lg:sticky lg:top-32 lg:self-start"><Kicker light>Order process</Kicker><h2 className="display-tight mt-4 font-display text-6xl leading-[.86] sm:text-8xl">From brief<br/><span className="italic text-[#caa177]">to handover.</span></h2><p className="mt-7 max-w-lg text-sm leading-7 text-white/52">Each stage is clear before the next one begins.</p><PrimaryLink to="/bespoke" light className="mt-8">Build your brief</PrimaryLink></div>
+    <div className="lg:sticky lg:top-32 lg:self-start"><Kicker light>Order process</Kicker><h2 className="display-tight mt-4 font-display text-6xl leading-[.86] sm:text-7xl">From brief<br/><span className="italic text-[#caa177]">to handover.</span></h2><p className="mt-7 max-w-lg text-sm leading-7 text-white/52">Each stage is clear before the next one begins.</p><PrimaryLink to="/bespoke" light className="mt-8">Build your brief</PrimaryLink></div>
     <div className="divide-y divide-white/10 border-y border-white/10">{process.map(([n,title,text])=><motion.div key={n} initial={{opacity:.25,y:10}} whileInView={{opacity:1,y:0}} viewport={{amount:.55}} transition={{duration:.45}} className="grid min-h-32 grid-cols-[64px_1fr] gap-6 py-7 sm:grid-cols-[90px_1fr]"><div className="font-display text-4xl text-[#caa177]">{n}</div><div><h3 className="font-display text-4xl">{title}</h3><p className="mt-2 max-w-xl text-sm leading-6 text-white/45">{text}</p></div></motion.div>)}</div>
   </div></section>
 }
 
 function HomeLookbook(){
-  return <section className="bg-bone py-24 lg:py-32"><div className="mx-auto max-w-[1540px] px-4 sm:px-7"><div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><Kicker>Lookbook</Kicker><h2 className="display-tight mt-4 font-display text-6xl leading-none sm:text-8xl">See the cut up close.</h2></div><TextLink to="/lookbook">Open lookbook</TextLink></div><div className="scrollbar-hide -mx-4 mt-12 flex snap-x gap-3 overflow-x-auto px-4 sm:-mx-7 sm:px-7">{lookbook.slice(0,8).map((item,i)=><motion.article key={item.id} initial={{opacity:0,x:16}} whileInView={{opacity:1,x:0}} viewport={{once:true}} transition={{duration:.55,delay:i*.035}} className="image-zoom relative aspect-[4/5] w-[78vw] shrink-0 snap-start overflow-hidden bg-oat sm:w-[46vw] lg:w-[27vw]"><img src={item.image} alt={item.label} className="h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-black/62 via-transparent to-transparent"/><div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5 text-white"><div><div className="text-[8px] font-bold uppercase tracking-[.16em] text-white/50">{item.category}</div><div className="mt-1 font-display text-3xl">{item.label}</div></div><Link to="/bespoke" className="grid h-10 w-10 place-items-center rounded-full border border-white/25 backdrop-blur"><ArrowUpRight size={15}/></Link></div></motion.article>)}</div></div></section>
+  return <section className="bg-bone py-24 lg:py-32"><div className="mx-auto max-w-[1540px] px-4 sm:px-7"><div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><Kicker>Lookbook</Kicker><h2 className="display-tight mt-4 font-display text-6xl leading-none sm:text-7xl">See the cut up close.</h2></div><TextLink to="/lookbook">Open lookbook</TextLink></div><div className="scrollbar-hide -mx-4 mt-12 flex snap-x gap-3 overflow-x-auto px-4 sm:-mx-7 sm:px-7">{lookbook.slice(0,8).map((item,i)=><motion.article key={item.id} initial={{opacity:0,x:16}} whileInView={{opacity:1,x:0}} viewport={{once:true}} transition={{duration:.55,delay:i*.035}} className="image-zoom relative aspect-[4/5] w-[78vw] shrink-0 snap-start overflow-hidden bg-oat sm:w-[46vw] lg:w-[27vw]"><img src={item.image} alt={item.label} className="h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-black/62 via-transparent to-transparent"/><div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5 text-white"><div><div className="text-[8px] font-bold uppercase tracking-[.16em] text-white/50">{item.category}</div><div className="mt-1 font-display text-3xl">{item.label}</div></div><Link to="/bespoke" className="grid h-10 w-10 place-items-center rounded-full border border-white/25 backdrop-blur"><ArrowUpRight size={15}/></Link></div></motion.article>)}</div></div></section>
 }
 
 function FounderSection(){
   return <section className="luxury-grid bg-oat py-24 lg:py-32"><div className="mx-auto grid max-w-[1540px] gap-12 px-4 sm:px-7 lg:grid-cols-[.92fr_1.08fr] lg:items-center">
     <motion.div initial={{opacity:0,scale:.99}} whileInView={{opacity:1,scale:1}} viewport={{once:true}} transition={{duration:.7}} className="relative min-h-[620px] overflow-hidden bg-ink"><img src="https://images.unsplash.com/photo-1622031093531-f4e641788763?auto=format&fit=crop&w=2000&q=94" alt="African man wearing a tailored suit" className="absolute inset-0 h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/5"/><div className="absolute inset-x-0 bottom-0 p-7 text-white"><Kicker light>OVOSKG</Kicker><div className="mt-2 max-w-lg font-display text-4xl leading-none">A better garment starts with a clear process.</div></div></motion.div>
-    <motion.div initial="hidden" whileInView="show" viewport={{once:true,amount:.3}} variants={reveal} className="lg:pl-8"><Kicker>Company story</Kicker><h2 className="display-tight mt-4 font-display text-6xl leading-[.88] sm:text-8xl">Built through the work.</h2><p className="mt-7 max-w-xl text-sm leading-7 text-black/56">OVOSKG grew from hands-on tailoring into a structured bespoke company. The focus is the garment, the agreed fit and the service around the order.</p><div className="mt-9 grid grid-cols-2 gap-px bg-black/10"><div className="bg-bone p-5"><div className="font-display text-5xl text-bronze">2023</div><p className="mt-2 text-xs text-black/45">company formally established</p></div><div className="bg-bone p-5"><div className="font-display text-5xl text-bronze">800+</div><p className="mt-2 text-xs text-black/45">custom pieces reported by the founder</p></div></div><div className="mt-8 flex flex-wrap gap-5"><TextLink to="/about">Read the story</TextLink><a href={instagram} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.14em] text-black/55">Instagram <ArrowUpRight size={14}/></a></div></motion.div>
+    <motion.div initial="hidden" whileInView="show" viewport={{once:true,amount:.3}} variants={reveal} className="lg:pl-8"><Kicker>Company story</Kicker><h2 className="display-tight mt-4 font-display text-6xl leading-[.88] sm:text-7xl">Built through the work.</h2><p className="mt-7 max-w-xl text-sm leading-7 text-black/56">OVOSKG grew from hands-on tailoring into a structured bespoke company. The focus is the garment, the agreed fit and the service around the order.</p><div className="mt-9 grid grid-cols-2 gap-px bg-black/10"><div className="bg-bone p-5"><div className="font-display text-5xl text-bronze">2023</div><p className="mt-2 text-xs text-black/45">company formally established</p></div><div className="bg-bone p-5"><div className="font-display text-5xl text-bronze">800+</div><p className="mt-2 text-xs text-black/45">custom pieces reported by the founder</p></div></div><div className="mt-8 flex flex-wrap gap-5"><TextLink to="/about">Read the story</TextLink><a href={instagram} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.14em] text-black/55">Instagram <ArrowUpRight size={14}/></a></div></motion.div>
   </div></section>
 }
 
 function ConversionBand(){
-  return <section className="relative overflow-hidden bg-bronze py-24 text-white lg:py-28"><div className="noise absolute inset-0 opacity-10"/><div className="relative mx-auto max-w-[1540px] px-4 sm:px-7"><Kicker light>Next step</Kicker><h2 className="display-tight mt-5 max-w-6xl font-display text-6xl leading-[.86] sm:text-8xl lg:text-9xl">Tell OVOSKG what you want to make.</h2><div className="mt-10 flex flex-wrap gap-3"><PrimaryLink to="/bespoke" light>Build a brief</PrimaryLink><Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-white/35 px-6 py-3.5 text-[10px] font-bold uppercase tracking-[.13em]">Contact OVOSKG <MessageCircle size={14}/></Link></div></div></section>
+  return <section className="relative overflow-hidden bg-bronze py-24 text-white lg:py-28"><div className="noise absolute inset-0 opacity-10"/><div className="relative mx-auto max-w-[1540px] px-4 sm:px-7"><Kicker light>Next step</Kicker><h2 className="display-tight mt-5 max-w-6xl font-display text-6xl leading-[.86] sm:text-7xl lg:text-8xl">Tell OVOSKG what you want to make.</h2><div className="mt-10 flex flex-wrap gap-3"><PrimaryLink to="/bespoke" light>Build a brief</PrimaryLink><Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-white/35 px-6 py-3.5 text-[10px] font-bold uppercase tracking-[.13em]">Contact OVOSKG <MessageCircle size={14}/></Link></div></div></section>
 }
 
 function PageHero({eyebrow,title,intro,aside}){
-  return <section className="hero-grid relative overflow-hidden bg-ink py-20 text-white sm:py-28"><div className="noise absolute inset-0 opacity-15"/><div className="relative mx-auto grid max-w-[1540px] gap-8 px-4 sm:px-7 lg:grid-cols-[1.2fr_.8fr] lg:items-end"><div><Kicker light>{eyebrow}</Kicker><h1 className="display-tight mt-5 max-w-6xl font-display text-6xl leading-[.84] sm:text-8xl lg:text-[8.4rem]">{title}</h1></div><div><p className="max-w-xl text-sm leading-7 text-white/55 sm:text-base">{intro}</p>{aside}</div></div></section>
+  return <section className="hero-grid relative overflow-hidden bg-ink py-20 text-white sm:py-24"><div className="relative mx-auto grid max-w-[1540px] gap-8 px-4 sm:px-7 lg:grid-cols-[1.16fr_.84fr] lg:items-end"><motion.div initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} transition={{duration:.52,ease:[.22,1,.36,1]}}><Kicker light>{eyebrow}</Kicker><h1 className="display-tight mt-5 max-w-5xl font-display text-6xl leading-[.86] sm:text-7xl lg:text-[7.2rem]">{title}</h1></motion.div><div><p className="max-w-xl text-sm leading-7 text-white/52 sm:text-base">{intro}</p>{aside}</div></div></section>
 }
 
 function CollectionsPage(){
@@ -269,7 +273,7 @@ function CollectionDetailPage(){
     window.dispatchEvent(new Event('ovoskg-shortlist'))
   }
   return <main>
-    <section className="cloth-deep relative overflow-hidden text-white"><div className="mx-auto grid min-h-[680px] max-w-[1540px] lg:grid-cols-[.82fr_1.18fr]"><div className="flex flex-col justify-end px-4 py-16 sm:px-7 lg:p-14"><Kicker light>{collection.index} / Mini lookbook</Kicker><h1 className="display-tight mt-5 font-display text-6xl leading-[.84] sm:text-8xl">{collection.title}</h1><p className="mt-6 max-w-xl text-sm leading-7 text-white/55">{collection.body}</p><div className="mt-7 flex flex-wrap gap-2">{collection.tags.map(tag=><span key={tag} className="rounded-full border border-white/16 px-3 py-2 text-[8px] font-bold uppercase tracking-[.13em] text-white/62">{tag}</span>)}</div></div><div className="relative min-h-[430px] overflow-hidden lg:min-h-0"><img src={collection.image} alt={collection.imageAlt} className="absolute inset-0 h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-black/48 via-transparent to-transparent"/><div className="absolute bottom-5 left-5 bg-bone px-4 py-3 text-ink"><div className="text-[8px] font-bold uppercase tracking-[.15em] text-bronze">{collection.styles.length} references</div><div className="mt-1 font-display text-2xl">Review the options before you order.</div></div></div></div></section>
+    <section className="cloth-deep relative overflow-hidden text-white"><div className="mx-auto grid min-h-[680px] max-w-[1540px] lg:grid-cols-[.82fr_1.18fr]"><div className="flex flex-col justify-end px-4 py-16 sm:px-7 lg:p-14"><Kicker light>{collection.index} / Mini lookbook</Kicker><h1 className="display-tight mt-5 font-display text-6xl leading-[.84] sm:text-7xl">{collection.title}</h1><p className="mt-6 max-w-xl text-sm leading-7 text-white/55">{collection.body}</p><div className="mt-7 flex flex-wrap gap-2">{collection.tags.map(tag=><span key={tag} className="rounded-full border border-white/16 px-3 py-2 text-[8px] font-bold uppercase tracking-[.13em] text-white/62">{tag}</span>)}</div></div><div className="relative min-h-[430px] overflow-hidden lg:min-h-0"><img src={collection.image} alt={collection.imageAlt} className="absolute inset-0 h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-black/48 via-transparent to-transparent"/><div className="absolute bottom-5 left-5 bg-bone px-4 py-3 text-ink"><div className="text-[8px] font-bold uppercase tracking-[.15em] text-bronze">{collection.styles.length} references</div><div className="mt-1 font-display text-2xl">Review the options before you order.</div></div></div></div></section>
     <section className="mx-auto max-w-[1540px] px-4 py-20 sm:px-7 lg:py-28"><div className="grid gap-8 lg:grid-cols-[.33fr_.67fr]"><div className="lg:sticky lg:top-28 lg:self-start"><Kicker>References</Kicker><h2 className="display-tight mt-4 font-display text-5xl leading-[.9] sm:text-6xl">Save the ones you want to discuss.</h2><p className="mt-5 text-sm leading-7 text-black/52">Use these images to explain the shape and details you prefer.</p><PrimaryLink to="/bespoke" className="mt-7">Start bespoke</PrimaryLink></div><div className="grid gap-x-4 gap-y-10 sm:grid-cols-2">{collection.styles.map((style,i)=>{const id=`${collection.id}-${style.name.toLowerCase().replace(/[^a-z0-9]+/g,'-')}`;const isSaved=saved.some(x=>x.id===id);return <motion.article key={style.name} initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:Math.min(i*.05,.22)}} className="group"><div className="image-zoom relative aspect-[4/5] overflow-hidden bg-oat"><img src={style.image} alt={style.name} className="h-full w-full object-cover"/><div className="absolute left-4 top-4 rounded-full bg-black/58 px-3 py-2 text-[8px] font-bold uppercase tracking-[.13em] text-white backdrop-blur">{style.detail}</div></div><div className="pt-5"><div className="text-[8px] font-bold uppercase tracking-[.16em] text-bronze">{String(i+1).padStart(2,'0')} / Reference</div><h3 className="mt-2 font-display text-3xl leading-none sm:text-4xl">{style.name}</h3><p className="mt-3 text-sm leading-6 text-black/50">{style.note}</p><button onClick={()=>useReference(style)} className={`mt-5 inline-flex items-center gap-2 rounded-full px-5 py-3 text-[9px] font-bold uppercase tracking-[.13em] ${isSaved?'bg-bronze text-white':'border border-black/16 text-ink'}`}>{isSaved?<><Check size={13}/> Saved as reference</>:<>Use as reference <Plus size={13}/></>}</button></div></motion.article>})}</div></div></section>
     <ConversionBand/>
   </main>
@@ -370,7 +374,7 @@ function FloatingDesktop(){
 }
 
 export default function App(){
-  return <div className="mobile-safe min-h-screen bg-bone text-ink"><AppMeta/><ScrollProgress/><Header/><RouteFrame><Routes>
+  return <div className="mobile-safe min-h-screen bg-bone text-ink"><AppMeta/><Header/><RouteFrame><Routes>
     <Route path="/" element={<HomePage/>}/>
     <Route path="/collections" element={<CollectionsPage/>}/>
     <Route path="/collections/:collectionId" element={<CollectionDetailPage/>}/>

@@ -7,6 +7,7 @@ test.describe('OVOSKG customer journey', () => {
     await expect(page.getByRole('link', { name: /Start bespoke/i }).first()).toBeVisible()
     await expect(page.getByRole('img', { name: /Nigerian man in a tailored suit/i }).first()).toBeVisible()
     await expect(page.getByText(/Bespoke for men and women/i).first()).toBeVisible()
+    await expect(page.getByText(/800\+ custom pieces reported by founder/i)).toBeVisible()
   })
 
   test('major routes render', async ({ page }) => {
@@ -119,4 +120,12 @@ test('favicon assets are wired in', async ({ page }) => {
   await page.goto('/')
   await expect(page.locator('link[rel="icon"][href="/favicon.svg"]')).toHaveCount(1)
   await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute('href','/apple-touch-icon.png')
+})
+
+
+test('header uses transparent brand mark and dark luxury treatment', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.getByRole('link', { name: /OVOSKG homepage/i }).first().locator('svg')).toBeVisible()
+  await expect(page.locator('header')).toHaveClass(/luxury-header/)
+  await expect(page.locator('header img[src="/ovoskg-logo.webp"]')).toHaveCount(0)
 })
