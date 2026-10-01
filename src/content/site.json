@@ -3,7 +3,7 @@
     "trust": "800+ custom pieces delivered across Nigeria",
     "headingPrimary": "Made for your body.",
     "headingAccent": "Ready for the occasion.",
-    "body": "Bespoke suits, women’s tailoring and luxury kaftans for work, weddings and important occasions."
+    "body": "Bespoke suits, women’s tailoring and luxury kaftans, made to your measurements."
   },
   "sticky": {
     "kicker": "Bespoke service",
@@ -59,6 +59,12 @@
       "title": "The cloth changes the whole garment.",
       "body": "Explore material directions before you start the brief. OVOSKG confirms the exact composition, weight, colour and availability with your quote.",
       "note": "Material names below are design directions, not a live stock list."
+    },
+    "motion": {
+      "eyebrow": "Atelier in motion",
+      "title": "See the making, not just the finish.",
+      "body": "Short motion studies bring the handwork, cloth handling and precision behind bespoke tailoring closer.",
+      "note": "Illustrative editorial footage. Replace with real OVOSKG workshop film when available."
     }
   },
   "pages": {
@@ -193,5 +199,23 @@
     "fallbackPrice": "Quote after brief",
     "fallbackLead": "Confirmed with quote",
     "note": "Final price and timing depend on cloth, construction, fitting route and event date."
-  }
+  },
+  "motionClips": [
+    {
+      "id": "stitching",
+      "label": "Stitch detail",
+      "meta": "50 fps editorial study",
+      "url": "https://www.pexels.com/download/video/3755540/",
+      "sourceLabel": "Pexels · cottonbro studio",
+      "sourceUrl": "https://www.pexels.com/video/a-woman-preparing-a-fabric-cloth-3755540/"
+    },
+    {
+      "id": "measuring",
+      "label": "Measure & cut",
+      "meta": "59.94 fps editorial study",
+      "url": "https://www.pexels.com/download/video/36302127/",
+      "sourceLabel": "Pexels · JS Shariff",
+      "sourceUrl": "https://www.pexels.com/video/tailor-measuring-fabric-for-precision-cutting-36302127/"
+    }
+  ]
 }

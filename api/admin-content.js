@@ -35,6 +35,9 @@ function validContent(value){
     &&Array.isArray(value.materials)
     &&value.materials.length>=4
     &&value.materials.every(item=>typeof item?.id==='string'&&typeof item?.name==='string'&&typeof item?.label==='string'&&typeof item?.use==='string'&&typeof item?.feel==='string'&&typeof item?.description==='string'&&typeof item?.source==='string')
+    &&Array.isArray(value.motionClips)
+    &&value.motionClips.length>=2
+    &&value.motionClips.every(item=>typeof item?.id==='string'&&typeof item?.label==='string'&&typeof item?.meta==='string'&&typeof item?.url==='string'&&typeof item?.sourceLabel==='string'&&typeof item?.sourceUrl==='string')
     &&value.pages&&requiredPages.every(key=>typeof value.pages[key]?.eyebrow==='string'&&typeof value.pages[key]?.title==='string'&&typeof value.pages[key]?.intro==='string')
     &&JSON.stringify(value).length<100000
 }

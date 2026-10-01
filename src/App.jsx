@@ -263,14 +263,8 @@ function HomePage(){
                 <div className="mt-1 font-display text-[1.35rem] leading-none text-white">{siteContent.planning.leadTime||siteContent.planning.fallbackLead}</div>
               </div>
             </div>
-            <p className="mt-2 text-[8px] leading-4 text-white/32">{siteContent.planning.note}</p>
 
-            <div data-testid="hero-material-teaser" className="mt-5">
-              <div className="mb-2.5 flex items-center justify-between gap-4"><span className="text-[7px] font-semibold uppercase tracking-[.17em] text-white/32">Material directions</span><a href="#materials" className="text-[7px] font-semibold uppercase tracking-[.15em] text-[#caa177]">Explore fabrics</a></div>
-              <div className="scrollbar-hide flex gap-2 overflow-x-auto pb-1">{siteContent.materials.map(item=><a key={item.id} href="#materials" className="shrink-0 border border-white/12 px-3 py-2 text-[8px] font-semibold text-white/58 transition hover:border-[#caa177]/55 hover:text-white">{item.name}</a>)}</div>
-            </div>
-
-            <div className="mt-6 grid max-w-[450px] gap-2.5 sm:flex sm:items-center sm:gap-3">
+            <div className="mt-5 grid max-w-[450px] gap-2.5 sm:flex sm:items-center sm:gap-3">
               <PrimaryLink to="/bespoke" light className="w-full sm:w-auto">Start an order</PrimaryLink>
               <Link to="/collections" className="group inline-flex w-full items-center justify-center gap-2 border border-white/16 px-5 py-3.5 text-[10px] font-semibold uppercase tracking-[.13em] text-white/74 transition hover:border-white/36 hover:text-white sm:w-auto">View collections <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"/></Link>
             </div>
@@ -284,9 +278,9 @@ function HomePage(){
           <div className="hero-main-frame absolute inset-0 lg:bottom-8 lg:left-0 lg:right-[82px] lg:top-8">
             <img loading="eager" fetchPriority="high" decoding="async" src={heroImage} alt="Nigerian man in a tailored suit" className="hero-main-image absolute inset-0 h-full w-full object-cover"/>
             <div className="hero-image-blend pointer-events-none absolute inset-0"/>
-            <div data-testid="hero-trust-mobile" className="hero-mobile-trust absolute left-4 right-4 top-4 z-10 flex items-center justify-between gap-3 border border-[#e1c4a5]/70 bg-[#f7efe5]/96 px-4 py-3.5 text-[#18120e] shadow-[0_14px_34px_rgba(0,0,0,.22)] backdrop-blur-md sm:left-6 sm:right-auto sm:top-6 sm:max-w-[390px] lg:hidden">
-              <div className="inline-flex items-center gap-2.5 text-[9px] font-bold uppercase tracking-[.09em] leading-4"><span className="grid h-7 w-7 shrink-0 place-items-center bg-[#9a744f] text-white"><ShieldCheck size={14}/></span><span>{siteContent.hero.trust}</span></div>
-              <span className="hidden shrink-0 font-display text-2xl text-[#8f6b48] min-[390px]:block">01</span>
+            <div data-testid="hero-trust-mobile" className="hero-mobile-trust absolute left-4 right-4 top-4 z-10 flex items-center justify-between gap-3 border border-[#f1d2b2] bg-[#d9a36f] px-4 py-3.5 text-[#120d09] shadow-[0_16px_38px_rgba(0,0,0,.3)] sm:left-6 sm:right-auto sm:top-6 sm:max-w-[390px] lg:hidden">
+              <div className="inline-flex items-center gap-2.5 text-[9px] font-bold uppercase tracking-[.09em] leading-4"><span className="grid h-8 w-8 shrink-0 place-items-center bg-[#100c09] text-[#f6d5b5]"><ShieldCheck size={15}/></span><span>{siteContent.hero.trust}</span></div>
+              <span className="hidden shrink-0 font-display text-2xl text-[#392719] min-[390px]:block">01</span>
             </div>
           </div>
 
@@ -310,6 +304,7 @@ function HomePage(){
     <EntryPaths/>
     <HomeCollections/>
     <FabricSection/>
+    <WorkshopMotion/>
     <ProcessSection/>
     <HomeLookbook/>
     <FounderSection/>
@@ -392,6 +387,45 @@ function FabricSection(){
             <div><div className="text-[8px] font-semibold uppercase tracking-[.17em] text-black/35">Current direction</div><div className="mt-1 font-display text-3xl">{material.name}</div></div>
             <Link to="/bespoke" onClick={saveDirection} className="group inline-flex items-center justify-center gap-3 border border-ink bg-ink px-6 py-4 text-[9px] font-semibold uppercase tracking-[.13em] text-white transition hover:bg-[#1a1714]">Use this in my brief <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1"/></Link>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
+function WorkshopMotion(){
+  return <section id="workshop-motion" className="workshop-motion cv-auto overflow-hidden bg-[#0b0908] text-white">
+    <div className="mx-auto max-w-[1480px] px-4 py-24 sm:px-7 lg:py-32">
+      <div className="grid gap-10 lg:grid-cols-[.38fr_.62fr] lg:items-end">
+        <div>
+          <div className="flex items-center gap-3"><span className="h-px w-8 bg-[#d0a476]"/><Kicker light>{siteContent.homeSections.motion.eyebrow}</Kicker></div>
+          <h2 className="display-tight mt-5 max-w-xl font-display text-6xl leading-[.88] sm:text-7xl lg:text-[5.6rem]">{siteContent.homeSections.motion.title}</h2>
+          <p className="mt-7 max-w-lg text-sm leading-7 text-white/55">{siteContent.homeSections.motion.body}</p>
+          <p className="mt-6 max-w-md border-l border-[#d0a476]/45 pl-4 text-[9px] leading-5 text-white/35">{siteContent.homeSections.motion.note}</p>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {siteContent.motionClips.map((clip,i)=><article key={clip.id} className={`workshop-clip group relative overflow-hidden border border-white/10 bg-[#15110e] ${i===0?'sm:translate-y-8':''}`}>
+            <div className="relative aspect-[4/5] overflow-hidden bg-[#17120f]">
+              <video
+                className="workshop-video h-full w-full object-cover"
+                src={clip.url}
+                muted
+                autoPlay
+                loop
+                playsInline
+                preload="metadata"
+                aria-label={clip.label}
+              />
+              <div className="workshop-video-fallback absolute inset-0 hidden bg-[radial-gradient(circle_at_40%_30%,rgba(205,162,119,.18),transparent_34%),linear-gradient(135deg,#2a211b,#0d0b09)]"/>
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/78 via-transparent to-black/8"/>
+              <div className="absolute left-4 top-4 grid h-9 w-9 place-items-center border border-white/18 bg-black/22 text-[8px] font-semibold text-white/65">{String(i+1).padStart(2,'0')}</div>
+              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                <div className="text-[7px] font-semibold uppercase tracking-[.18em] text-[#d4ab83]">{clip.meta}</div>
+                <div className="mt-1 font-display text-3xl">{clip.label}</div>
+                <a href={clip.sourceUrl} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-1.5 text-[8px] font-semibold uppercase tracking-[.12em] text-white/42 transition hover:text-white/72">{clip.sourceLabel}<ArrowUpRight size={10}/></a>
+              </div>
+            </div>
+          </article>)}
         </div>
       </div>
     </div>
@@ -673,6 +707,7 @@ function AdminPage(){
     ['collections','Collections section',['eyebrow','titlePrimary','titleAccent','body']],
     ['process','Order process',['eyebrow','titlePrimary','titleAccent','body']],
     ['materials','Fabric & materials',['eyebrow','title','body','note']],
+    ['motion','Workshop motion',['eyebrow','title','body','note']],
     ['selected','Selected work',['eyebrow','title']],
     ['founder','Company story',['eyebrow','title','body','imageCaption']],
     ['conversion','Final CTA',['eyebrow','title']]
@@ -707,6 +742,7 @@ function AdminPage(){
               <div className="bg-white p-5 sm:p-7"><h3 className="font-display text-3xl">Hero</h3><div className="mt-6 grid gap-6 sm:grid-cols-2"><Field label="Trust line"><input value={content.hero.trust} onChange={e=>setGroup('hero','trust',e.target.value)}/></Field><Field label="First headline"><input value={content.hero.headingPrimary} onChange={e=>setGroup('hero','headingPrimary',e.target.value)}/></Field><Field label="Accent headline"><input value={content.hero.headingAccent} onChange={e=>setGroup('hero','headingAccent',e.target.value)}/></Field><div className="sm:col-span-2"><Field label="Hero body"><textarea rows="4" value={content.hero.body} onChange={e=>setGroup('hero','body',e.target.value)}/></Field></div></div></div>
               {homeFields.map(([id,label,fields])=><div key={id} className="bg-white p-5 sm:p-7"><div className="flex items-center justify-between gap-4"><h3 className="font-display text-3xl">{label}</h3><span className="text-[8px] font-semibold uppercase tracking-[.14em] text-black/30">{fields.length} fields</span></div><div className="mt-6 grid gap-6 sm:grid-cols-2">{fields.map(key=><div key={key} className={key==='body'||key==='imageCaption'||key==='note'?'sm:col-span-2':''}><Field label={key.replace(/([A-Z])/g,' $1')} >{key==='body'||key==='imageCaption'||key==='note'?<textarea rows="4" value={content.homeSections[id]?.[key]||''} onChange={e=>setNested('homeSections',id,key,e.target.value)}/>:<input value={content.homeSections[id]?.[key]||''} onChange={e=>setNested('homeSections',id,key,e.target.value)}/>}</Field></div>)}</div></div>)}
               <div className="bg-[#15110e] p-5 text-white sm:p-7"><div className="flex items-end justify-between gap-5"><div><div className="text-[8px] font-semibold uppercase tracking-[.18em] text-[#caa177]">Material directions</div><h3 className="mt-2 font-display text-4xl">Fabric cards</h3></div><span className="text-[8px] uppercase tracking-[.14em] text-white/30">4 editable cards</span></div><div className="mt-6 grid gap-4 lg:grid-cols-2">{content.materials.map((item,i)=><div key={item.id} className="border border-white/10 bg-white/[.035] p-4"><div className="mb-4 flex items-center justify-between"><span className="font-display text-2xl">{item.index}</span><span className="text-[8px] uppercase tracking-[.14em] text-white/35">{item.id}</span></div><div className="grid gap-4"><Field label="Name"><input className="!text-white" value={item.name} onChange={e=>setContent(prev=>({...prev,materials:prev.materials.map((m,n)=>n===i?{...m,name:e.target.value}:m)}))}/></Field><Field label="Label"><input className="!text-white" value={item.label} onChange={e=>setContent(prev=>({...prev,materials:prev.materials.map((m,n)=>n===i?{...m,label:e.target.value}:m)}))}/></Field><Field label="Best considered for"><input className="!text-white" value={item.use} onChange={e=>setContent(prev=>({...prev,materials:prev.materials.map((m,n)=>n===i?{...m,use:e.target.value}:m)}))}/></Field><Field label="Feel"><input className="!text-white" value={item.feel} onChange={e=>setContent(prev=>({...prev,materials:prev.materials.map((m,n)=>n===i?{...m,feel:e.target.value}:m)}))}/></Field><Field label="Description"><textarea className="!text-white" rows="3" value={item.description} onChange={e=>setContent(prev=>({...prev,materials:prev.materials.map((m,n)=>n===i?{...m,description:e.target.value}:m)}))}/></Field><Field label="Mill / source note"><textarea className="!text-white" rows="2" value={item.source||''} onChange={e=>setContent(prev=>({...prev,materials:prev.materials.map((m,n)=>n===i?{...m,source:e.target.value}:m)}))}/></Field></div></div>)}</div></div>
+              <div className="bg-white p-5 sm:p-7"><div className="flex items-end justify-between gap-5"><div><Kicker>Workshop motion</Kicker><h3 className="mt-2 font-display text-4xl">Video clips</h3></div><span className="text-[8px] uppercase tracking-[.14em] text-black/30">Replace stock with OVOSKG footage anytime</span></div><div className="mt-6 grid gap-5 lg:grid-cols-2">{content.motionClips.map((clip,i)=><div key={clip.id} className="border border-black/10 p-4"><div className="grid gap-4"><Field label="Clip label"><input value={clip.label} onChange={e=>setContent(prev=>({...prev,motionClips:prev.motionClips.map((m,n)=>n===i?{...m,label:e.target.value}:m)}))}/></Field><Field label="Meta line"><input value={clip.meta} onChange={e=>setContent(prev=>({...prev,motionClips:prev.motionClips.map((m,n)=>n===i?{...m,meta:e.target.value}:m)}))}/></Field><Field label="Video URL"><textarea rows="2" value={clip.url} onChange={e=>setContent(prev=>({...prev,motionClips:prev.motionClips.map((m,n)=>n===i?{...m,url:e.target.value}:m)}))}/></Field><Field label="Source label"><input value={clip.sourceLabel} onChange={e=>setContent(prev=>({...prev,motionClips:prev.motionClips.map((m,n)=>n===i?{...m,sourceLabel:e.target.value}:m)}))}/></Field><Field label="Source page"><textarea rows="2" value={clip.sourceUrl} onChange={e=>setContent(prev=>({...prev,motionClips:prev.motionClips.map((m,n)=>n===i?{...m,sourceUrl:e.target.value}:m)}))}/></Field></div></div>)}</div></div>
             </div></div>}
 
             {tab==='business'&&<div><Kicker>Global settings</Kicker><h2 className="mt-2 font-display text-5xl leading-none">Business, pricing & CTA</h2><div className="mt-8 grid gap-6 xl:grid-cols-2">
@@ -735,7 +771,7 @@ function Footer(){
     ['Explore',[['Home','/'],['Collections','/collections'],['Shop','/shop']]],
     ['Customer',[['Bespoke','/bespoke'],['Measurements','/measurements'],['Track Order','/track'],['Contact','/contact']]],
     ['Company',[['Our Story','/about'],['Company','/company'],['Instagram',instagram],['TikTok',tiktok]]]
-  ].map(([heading,links])=><div key={heading}><div className="text-[9px] font-bold uppercase tracking-[.17em] text-white/30">{heading}</div><div className="mt-5 grid gap-3">{links.map(([label,url])=>url.startsWith('http')?<a key={label} href={url} target="_blank" rel="noreferrer" className="text-sm text-white/65 transition hover:text-white">{label}</a>:<Link key={label} to={url} className="text-sm text-white/65 transition hover:text-white">{label}</Link>)}</div></div>)}</div><div className="mt-16 grid gap-4 border-t border-white/10 pt-6 text-[9px] uppercase tracking-[.13em] text-white/25 sm:grid-cols-[1fr_auto_1fr] sm:items-center"><span>© 2026 OVOSKG Clothings</span><a href="https://mikeaccolade.xyz" target="_blank" rel="noreferrer" className="group inline-flex w-fit items-center gap-2 text-white/42 transition hover:text-[#d0aa82] sm:justify-self-center"><span>Custom built by</span><span className="font-semibold text-white/72 transition group-hover:text-[#d0aa82]">Mike Accolade</span><ArrowUpRight size={11}/></a><span className="flex flex-wrap gap-x-4 gap-y-2 sm:justify-self-end"><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link><Link to="/delivery">Delivery</Link><Link to="/returns">Returns</Link></span></div></div></footer>
+  ].map(([heading,links])=><div key={heading}><div className="text-[9px] font-bold uppercase tracking-[.17em] text-white/30">{heading}</div><div className="mt-5 grid gap-3">{links.map(([label,url])=>url.startsWith('http')?<a key={label} href={url} target="_blank" rel="noreferrer" className="text-sm text-white/65 transition hover:text-white">{label}</a>:<Link key={label} to={url} className="text-sm text-white/65 transition hover:text-white">{label}</Link>)}</div></div>)}</div><div className="mt-16 grid gap-4 border-t border-white/10 pt-6 text-[9px] uppercase tracking-[.13em] text-white/25 sm:grid-cols-[1fr_auto_1fr] sm:items-center"><span>© 2026 OVOSKG Clothings</span><a href="https://mikeaccolade.xyz" target="_blank" rel="noreferrer" className="footer-credit group inline-flex w-fit items-center gap-2.5 border border-[#caa177]/32 bg-[#15100c] px-4 py-3 text-[10px] tracking-[.11em] text-white/60 shadow-[0_10px_28px_rgba(0,0,0,.18)] transition hover:border-[#d8b48f]/60 hover:bg-[#1b140f] sm:justify-self-center"><span>Custom built by</span><span className="font-bold text-[#e0b78f] transition group-hover:text-[#f0d0ae]">Mike Accolade</span><ArrowUpRight size={12} className="text-[#d0aa82]"/></a><span className="flex flex-wrap gap-x-4 gap-y-2 sm:justify-self-end"><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link><Link to="/delivery">Delivery</Link><Link to="/returns">Returns</Link></span></div></div></footer>
 }
 
 function FloatingDesktop(){

@@ -353,3 +353,21 @@ test('hero uses a dedicated blend layer around the fashion image', async ({ page
   await expect(page.locator('.hero-image-blend')).toHaveCount(1)
   await expect(page.locator('.hero-main-image')).toBeVisible()
 })
+
+
+test('workshop motion section uses short editorial tailoring clips', async ({ page }) => {
+  await page.goto('/')
+  const section=page.locator('#workshop-motion')
+  await expect(section.getByRole('heading',{name:/See the making, not just the finish/i})).toBeVisible()
+  await expect(section.locator('video')).toHaveCount(2)
+  await expect(section.getByText(/Illustrative editorial footage/i)).toBeVisible()
+})
+
+test('Mike Accolade build credit is prominent and linked', async ({ page }) => {
+  await page.goto('/')
+  const credit=page.locator('footer a.footer-credit')
+  await expect(credit).toBeVisible()
+  await expect(credit).toContainText('Custom built by')
+  await expect(credit).toContainText('Mike Accolade')
+  await expect(credit).toHaveAttribute('href','https://mikeaccolade.xyz')
+})
