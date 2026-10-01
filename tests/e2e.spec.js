@@ -3,23 +3,23 @@ import { expect, test } from '@playwright/test'
 test.describe('OVOSKG customer journey', () => {
   test('homepage exposes core conversion paths', async ({ page }) => {
     await page.goto('/')
-    await expect(page.getByRole('heading', { name: /Your presence/i })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /Made for your body/i })).toBeVisible()
     await expect(page.getByRole('link', { name: /Start a commission/i }).first()).toBeVisible()
-    await expect(page.getByRole('img', { name: /OVOSKG client in a navy bespoke suit/i }).first()).toBeVisible()
+    await expect(page.getByRole('img', { name: /Black man in a tailored suit in a clean studio portrait/i }).first()).toBeVisible()
     await expect(page.getByText(/Men and women bespoke/i).first()).toBeVisible()
   })
 
   test('major routes render', async ({ page }) => {
     const routes = [
       ['/collections', /Start with the silhouette/i],
-      ['/shop', /Browse like a client/i],
-      ['/lookbook', /Real OVOSKG clients/i],
+      ['/shop', /Find the look before we make it yours/i],
+      ['/lookbook', /Find the look. We tailor it to you/i],
       ['/bespoke', /A better brief/i],
-      ['/measurements', /Remote does not mean unchecked/i],
+      ['/measurements', /Measure once. We verify before cutting/i],
       ['/track', /Track the work/i],
-      ['/about', /The system came before/i],
-      ['/company', /A serious clothing company/i],
-      ['/contact', /Talk before you commit/i]
+      ['/about', /Built through the work/i],
+      ['/company', /Good clothing needs a good system behind it/i],
+      ['/contact', /Tell us what you need/i]
     ]
 
     for (const [route, heading] of routes) {
@@ -41,9 +41,9 @@ test.describe('OVOSKG customer journey', () => {
 
   test('remote fitting safeguards are visible before commitment', async ({ page }) => {
     await page.goto('/bespoke')
-    await expect(page.getByRole('heading', { name: /How remote fitting is protected/i })).toBeVisible()
-    await expect(page.getByText(/Measurement review/i).first()).toBeVisible()
-    await expect(page.getByText(/After-delivery fit review/i).first()).toBeVisible()
+    await expect(page.getByRole('heading', { name: /Remote fitting, without guesswork/i })).toBeVisible()
+    await expect(page.getByText(/Send measurements/i).first()).toBeVisible()
+    await expect(page.getByText(/Fit support/i).first()).toBeVisible()
   })
 
   test('public pages contain no staging placeholder copy', async ({ page }) => {
@@ -51,6 +51,14 @@ test.describe('OVOSKG customer journey', () => {
       await page.goto(route)
       const body = await page.locator('body').innerText()
       expect(body).not.toMatch(/FOUNDER PORTRAIT SLOT|replace with|final media pass|media note|editorial image reference/i)
+    }
+  })
+
+  test('core visual routes do not use low-resolution reel covers', async ({ page }) => {
+    for (const route of ['/', '/collections', '/lookbook', '/measurements']) {
+      await page.goto(route)
+      const sources = await page.locator('img').evaluateAll(imgs => imgs.map(img => img.getAttribute('src') || ''))
+      expect(sources.some(src => src.includes('/images/ovoskg/'))).toBeFalsy()
     }
   })
 
