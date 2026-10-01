@@ -15,7 +15,7 @@ test.describe('OVOSKG customer journey', () => {
       ['/shop', /Browse like a client/i],
       ['/lookbook', /Real OVOSKG clients/i],
       ['/bespoke', /A better brief/i],
-      ['/measurements', /Good tailoring starts/i],
+      ['/measurements', /Remote does not mean unchecked/i],
       ['/track', /Track the work/i],
       ['/about', /The system came before/i],
       ['/company', /A serious clothing company/i],
