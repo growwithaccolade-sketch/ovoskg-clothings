@@ -5,21 +5,21 @@ test.describe('OVOSKG customer journey', () => {
     await page.goto('/')
     await expect(page.getByRole('heading', { name: /Made for your body/i })).toBeVisible()
     await expect(page.getByRole('link', { name: /Start bespoke/i }).first()).toBeVisible()
-    await expect(page.getByRole('img', { name: /Black man in a tailored suit in a clean studio portrait/i }).first()).toBeVisible()
+    await expect(page.getByRole('img', { name: /Nigerian man in a tailored suit/i }).first()).toBeVisible()
     await expect(page.getByText(/Bespoke for men and women/i).first()).toBeVisible()
   })
 
   test('major routes render', async ({ page }) => {
     const routes = [
-      ['/collections', /Choose a direction. We tailor the rest/i],
-      ['/shop', /Find the look before we make it yours/i],
-      ['/lookbook', /Find the look. We tailor it to you/i],
-      ['/bespoke', /Start with a clear brief/i],
-      ['/measurements', /Measure once. We verify before cutting/i],
-      ['/track', /See exactly where your order is/i],
-      ['/about', /Built through the work/i],
-      ['/company', /Good clothing needs a good system behind it/i],
-      ['/contact', /Tell us what you need/i]
+      ['/collections', /Choose the garment first/i],
+      ['/shop', /Browse the current references/i],
+      ['/lookbook', /Men’s suits. Women’s suits. Kaftans/i],
+      ['/bespoke', /Tell us what you want made/i],
+      ['/measurements', /Send your measurements for review/i],
+      ['/track', /Check the current stage of your order/i],
+      ['/about', /From tailoring work to OVOSKG/i],
+      ['/company', /The team behind each order/i],
+      ['/contact', /Speak with OVOSKG/i]
     ]
 
     for (const [route, heading] of routes) {
@@ -41,9 +41,9 @@ test.describe('OVOSKG customer journey', () => {
 
   test('remote fitting safeguards are visible before commitment', async ({ page }) => {
     await page.goto('/bespoke')
-    await expect(page.getByRole('heading', { name: /Remote fitting, without guesswork/i })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /Remote measurements are checked before production/i })).toBeVisible()
     await expect(page.getByText(/Send measurements/i).first()).toBeVisible()
-    await expect(page.getByText(/Fit support/i).first()).toBeVisible()
+    await expect(page.getByText(/Fit correction/i).first()).toBeVisible()
   })
 
   test('public pages contain no staging placeholder copy', async ({ page }) => {
@@ -71,7 +71,7 @@ test.describe('OVOSKG customer journey', () => {
     await expect(page.getByText(/Style shortlist/i)).toBeVisible()
     await page.getByRole('button', { name: /Use shortlist in bespoke brief/i }).click()
     await expect(page).toHaveURL(/\/bespoke$/)
-    await expect(page.getByText(/Shortlist attached/i)).toBeVisible()
+    await expect(page.getByText(/Saved references/i)).toBeVisible()
   })
 
   test('bespoke builder completes a structured brief', async ({ page }) => {
@@ -112,4 +112,11 @@ test.describe('OVOSKG customer journey', () => {
     const send = page.getByRole('link', { name: /Send request on WhatsApp/i })
     await expect(send).toHaveAttribute('href', /wa\.me\/2347070489393/)
   })
+})
+
+
+test('favicon assets are wired in', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.locator('link[rel="icon"][href="/favicon.svg"]')).toHaveCount(1)
+  await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute('href','/apple-touch-icon.png')
 })
