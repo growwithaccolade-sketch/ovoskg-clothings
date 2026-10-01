@@ -143,3 +143,12 @@ test('primary navigation is reduced and excludes Lookbook', async ({ page }) => 
   await expect(primary.locator('a[href="/shop"]')).toHaveCount(0)
   await expect(primary.locator('a[href="/about"]')).toHaveCount(0)
 })
+
+
+test('hero uses fit focused single image', async ({ page }) => {
+  await page.goto('/')
+  const hero = page.locator('.hero-fit-frame')
+  await expect(hero).toBeVisible()
+  await expect(hero.locator('img.hero-fit-image')).toHaveCount(1)
+  await expect(hero.locator('img')).toHaveCount(1)
+})

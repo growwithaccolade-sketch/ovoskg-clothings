@@ -47,11 +47,6 @@ function AppMeta(){
   return null
 }
 
-function ScrollProgress(){
-  const {scrollYProgress}=useScroll()
-  return <motion.div className="fixed left-0 top-0 z-[120] h-[2px] origin-left bg-bronze" style={{scaleX:scrollYProgress,width:'100%'}}/>
-}
-
 function Logo({light=false}){
   return <Link to="/" aria-label="OVOSKG homepage" className="brand-logo inline-flex items-center gap-3">
     <svg aria-hidden="true" viewBox="0 0 64 64" className="h-9 w-9 shrink-0 sm:h-10 sm:w-10"><path d="M8 32c0-8.8 5.8-15 13.2-15 5.4 0 8.9 3 12.3 8.3C36.7 20 40.6 17 46 17c7.1 0 10.8 5.3 10.8 12.4S52.8 42 46 42c-5.2 0-9.2-3-12.5-8.2C30.1 39 26.5 42 21.2 42 13.8 42 8 40.8 8 32Zm8 0c0 4.3 2.5 6.6 5.7 6.6 3.3 0 5.5-2.5 8.4-6.6-2.9-4.2-5.1-6.7-8.4-6.7-3.2 0-5.7 2.4-5.7 6.7Zm21.5 0c2.8 4.1 5.2 6.6 8.3 6.6 2.7 0 4.9-2.5 4.9-6.6 0-4.2-2.2-6.7-4.9-6.7-3.2 0-5.5 2.6-8.3 6.7Z" fill="currentColor"/></svg>
@@ -148,22 +143,23 @@ function RouteFrame({children}){
 function HomePage(){
   return <main>
     <section className="bg-ink text-white">
-      <div className="mx-auto grid min-h-[690px] max-w-[1540px] lg:grid-cols-[.88fr_1.12fr]">
-        <div className="flex items-center px-4 py-16 sm:px-7 sm:py-20 lg:px-12 lg:py-24">
-          <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:.85,ease:[.22,1,.36,1]}} className="max-w-[690px]">
+      <div className="mx-auto grid max-w-[1540px] lg:min-h-[690px] lg:grid-cols-[.9fr_1.1fr]">
+        <div className="flex items-center px-4 py-14 sm:px-7 sm:py-16 md:px-10 lg:px-12 lg:py-24 xl:px-16">
+          <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:.85,ease:[.22,1,.36,1]}} className="w-full max-w-[680px]">
             <Kicker light>OVOSKG Clothings</Kicker>
-            <div className="mt-6 inline-flex items-center gap-2 text-[9px] font-semibold uppercase tracking-[.14em] text-white/48"><ShieldCheck size={12} className="text-[#caa177]"/>800+ custom pieces reported by founder</div>
-            <h1 className="display-tight mt-7 font-display text-[clamp(4.1rem,7vw,7.5rem)] font-medium leading-[.8]">Made for your body.<br/><span className="italic text-[#caa177]">Ready for the occasion.</span></h1>
-            <p className="mt-7 max-w-xl text-sm leading-7 text-white/58 sm:text-base">Suits and luxury kaftans for work, weddings and important occasions. OVOSKG handles the fit, cloth and finishing.</p>
-            <div className="mt-8 flex flex-wrap items-center gap-5">
-              <PrimaryLink to="/bespoke" light>Start an order</PrimaryLink>
-              <Link to="/collections" className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[.13em] text-white/66 transition hover:text-white">View collections <ArrowUpRight size={14}/></Link>
+            <div className="mt-5 inline-flex max-w-full items-center gap-2 text-[8px] font-semibold uppercase tracking-[.13em] text-white/48 sm:mt-6 sm:text-[9px]"><ShieldCheck size={12} className="shrink-0 text-[#caa177]"/>800+ custom pieces reported by founder</div>
+            <h1 className="display-tight mt-6 max-w-[650px] font-display text-[clamp(3.35rem,12.5vw,5.5rem)] font-medium leading-[.83] sm:mt-7 sm:text-[clamp(4.6rem,9vw,6.2rem)] lg:text-[clamp(5.2rem,6.1vw,7.25rem)]">Made for your body.<br/><span className="italic text-[#caa177]">Ready for the occasion.</span></h1>
+            <p className="mt-6 max-w-[540px] text-[13px] leading-6 text-white/58 sm:mt-7 sm:text-[15px] sm:leading-7">Suits and luxury kaftans for work, weddings and important occasions. OVOSKG handles the fit, cloth and finishing.</p>
+            <div className="mt-7 grid max-w-md gap-3 sm:mt-8 sm:flex sm:max-w-none sm:flex-wrap sm:items-center sm:gap-5">
+              <PrimaryLink to="/bespoke" light className="w-full sm:w-auto">Start an order</PrimaryLink>
+              <Link to="/collections" className="inline-flex w-full items-center justify-center gap-2 border border-white/14 px-5 py-3.5 text-[10px] font-semibold uppercase tracking-[.13em] text-white/66 transition hover:border-white/28 hover:text-white sm:w-auto sm:justify-start sm:border-0 sm:px-0 sm:py-3">View collections <ArrowUpRight size={14}/></Link>
             </div>
           </motion.div>
         </div>
-        <div className="relative min-h-[48svh] overflow-hidden lg:min-h-[690px]">
-          <img src="https://images.unsplash.com/photo-1668202849897-846a0c405763?auto=format&fit=crop&w=2400&q=94" alt="Nigerian man in a tailored suit" className="absolute inset-0 h-full w-full object-cover object-top"/>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/12 via-transparent to-transparent"/>
+        <div className="hero-fit-frame relative min-h-[430px] overflow-hidden sm:min-h-[560px] lg:min-h-[690px]">
+          <img src="https://images.unsplash.com/photo-1668202849897-846a0c405763?auto=format&fit=crop&w=2400&q=94" alt="Nigerian man in a tailored suit" className="hero-fit-image absolute inset-0 h-full w-full object-cover"/>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-transparent lg:from-black/16"/>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/16 to-transparent lg:hidden"/>
         </div>
       </div>
     </section>
