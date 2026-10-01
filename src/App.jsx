@@ -51,7 +51,7 @@ function Logo({light=false}){
 }
 
 function Announcement(){
-  return <div className="bg-ink text-white"><div className="mx-auto flex max-w-[1540px] items-center justify-between gap-5 px-4 py-2.5 text-[9px] font-bold uppercase tracking-[.18em] sm:px-7"><span>Men + women bespoke · Luxury kaftans</span><span className="hidden sm:inline">Men and women bespoke · Luxury men’s kaftans · BN 3795532</span></div></div>
+  return <div className="bg-ink text-white"><div className="mx-auto flex max-w-[1540px] items-center justify-between gap-5 px-4 py-2.5 text-[9px] font-bold uppercase tracking-[.18em] sm:px-7"><span>Men and women bespoke · Luxury kaftans</span><span className="hidden sm:inline">Men and women bespoke · Luxury men’s kaftans · BN 3795532</span></div></div>
 }
 
 function Header(){
