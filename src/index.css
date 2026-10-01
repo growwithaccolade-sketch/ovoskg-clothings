@@ -227,3 +227,48 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 @media (hover:hover){
   .mobile-sticky-cta a:first-child:hover{background:#866342}
 }
+
+.fabric-section{
+  background:
+    radial-gradient(circle at 8% 8%,rgba(255,255,255,.38),transparent 24%),
+    linear-gradient(135deg,#ddd2c3 0%,#d3c4b1 100%);
+}
+.fabric-stage{isolation:isolate}
+.fabric-swatch{
+  transform:scale(1.02);
+  background-size:cover;
+}
+.fabric-swatch:before,
+.fabric-swatch:after{
+  content:'';
+  position:absolute;
+  inset:0;
+}
+.fabric-swatch:before{
+  opacity:.88;
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.055) 0 1px,rgba(0,0,0,.045) 1px 3px),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 4px);
+  mix-blend-mode:soft-light;
+}
+.fabric-swatch:after{
+  background:radial-gradient(circle at 35% 26%,rgba(255,255,255,.16),transparent 28%),linear-gradient(125deg,transparent 8%,rgba(255,255,255,.07) 45%,transparent 72%);
+}
+.fabric-swatch--wool-blends{background:linear-gradient(138deg,#403d39 0%,#171715 52%,#70665b 100%)}
+.fabric-swatch--cashmere-blends{background:linear-gradient(138deg,#7b6856 0%,#332820 48%,#9b856f 100%)}
+.fabric-swatch--silk-satin{background:linear-gradient(138deg,#251d1a 0%,#71564b 46%,#b3947c 65%,#33251f 100%)}
+.fabric-swatch--cotton-linen{background:linear-gradient(138deg,#c8b79e 0%,#8e7b64 52%,#ded2c0 100%)}
+.fabric-selector button{position:relative}
+.fabric-selector button:after{
+  content:'';
+  position:absolute;
+  left:0;bottom:-1px;
+  width:0;height:2px;
+  background:#8f6b48;
+  transition:width .45s cubic-bezier(.22,1,.36,1);
+}
+.fabric-selector button[aria-pressed="true"]:after{width:100%}
+.group:hover .group-hover\:translate-x-1{transform:translateX(.25rem)}
+@media (max-width:639px){
+  .fabric-stage{min-height:470px}
+}

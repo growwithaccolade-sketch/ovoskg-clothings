@@ -53,6 +53,12 @@
     "conversion": {
       "eyebrow": "Next step",
       "title": "Tell OVOSKG what you want to make."
+    },
+    "materials": {
+      "eyebrow": "Fabric & materials",
+      "title": "The cloth changes the whole garment.",
+      "body": "Explore material directions before you start the brief. OVOSKG confirms the exact composition, weight, colour and availability with your quote.",
+      "note": "Material names below are design directions, not a live stock list."
     }
   },
   "pages": {
@@ -136,5 +142,43 @@
       "title": "Alterations and returns",
       "intro": "How fit concerns, workmanship issues and bespoke return requests are reviewed."
     }
-  }
+  },
+  "materials": [
+    {
+      "id": "wool-blends",
+      "index": "01",
+      "name": "Wool & wool blends",
+      "label": "Structured suiting",
+      "use": "Work, weddings and formal suits",
+      "feel": "Clean drape · adaptable weight",
+      "description": "A strong direction when the suit needs structure, shape and a polished fall through the jacket and trouser."
+    },
+    {
+      "id": "cashmere-blends",
+      "index": "02",
+      "name": "Cashmere blends",
+      "label": "Soft hand",
+      "use": "Special occasion tailoring",
+      "feel": "Soft touch · refined finish",
+      "description": "A softer, richer direction for clients who want the garment to feel as considered as it looks."
+    },
+    {
+      "id": "silk-satin",
+      "index": "03",
+      "name": "Silk & satin accents",
+      "label": "Detail fabric",
+      "use": "Lapels, lining and evening details",
+      "feel": "Smooth surface · subtle sheen",
+      "description": "Best treated as an accent direction for lapels, linings and selected details rather than assumed as the full garment cloth."
+    },
+    {
+      "id": "cotton-linen",
+      "index": "04",
+      "name": "Cotton & linen",
+      "label": "Lighter direction",
+      "use": "Kaftans and warm weather tailoring",
+      "feel": "Relaxed hand · lighter structure",
+      "description": "A useful direction when comfort, movement and a less rigid silhouette matter more than heavy structure."
+    }
+  ]
 }

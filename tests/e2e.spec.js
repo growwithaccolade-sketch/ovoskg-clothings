@@ -257,3 +257,20 @@ test('collection detail copy remains editable through managed content', async ({
   await expect(page.getByRole('heading',{name:"Men's bespoke suits"})).toBeVisible()
   await expect(page.getByText(/Choose the cut you prefer/i)).toBeVisible()
 })
+
+
+test('fabric and material section explains sourcing without claiming live stock', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.getByRole('heading',{name:/The cloth changes the whole garment/i})).toBeVisible()
+  await expect(page.getByRole('button',{name:/Wool & wool blends/i})).toBeVisible()
+  await expect(page.getByText(/Material names below are design directions, not a live stock list/i)).toBeVisible()
+})
+
+test('fabric direction carries into bespoke brief', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button',{name:/Cashmere blends/i}).click()
+  await page.getByRole('link',{name:/Use this in my brief/i}).click()
+  await expect(page).toHaveURL(/\/bespoke$/)
+  await page.getByRole('button',{name:/Continue/i}).click()
+  await expect(page.getByLabel('Preferred cloth')).toHaveValue('Cashmere blends')
+})
