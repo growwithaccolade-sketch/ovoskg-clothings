@@ -4,7 +4,7 @@ test.describe('OVOSKG customer journey', () => {
   test('homepage exposes core conversion paths', async ({ page }) => {
     await page.goto('/')
     await expect(page.getByRole('heading', { name: /Made for your body/i })).toBeVisible()
-    await expect(page.getByRole('link', { name: /Start bespoke/i }).first()).toBeVisible()
+    await expect(page.getByRole('link', { name: /Start an order/i }).first()).toBeVisible()
     await expect(page.getByRole('img', { name: /Nigerian man in a tailored suit/i }).first()).toBeVisible()
     await expect(page.getByText(/Bespoke for men and women/i).first()).toBeVisible()
     await expect(page.getByText(/800\+ custom pieces reported by founder/i)).toBeVisible()
@@ -32,7 +32,7 @@ test.describe('OVOSKG customer journey', () => {
   test('collection mini lookbook saves a reference and nudges to bespoke', async ({ page }) => {
     await page.goto('/collections/mens-bespoke')
     await expect(page.getByRole('heading', { name: /Men's bespoke suits/i })).toBeVisible()
-    await expect(page.getByText(/6 curated references/i)).toBeVisible()
+    await expect(page.getByText(/6 references/i)).toBeVisible()
     const referenceButtons = page.getByRole('button', { name: /Use as reference/i })
     await expect(referenceButtons.first()).toBeVisible()
     await referenceButtons.first().click()
