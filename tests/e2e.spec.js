@@ -129,3 +129,15 @@ test('header uses transparent brand mark and dark luxury treatment', async ({ pa
   await expect(page.locator('header')).toHaveClass(/luxury-header/)
   await expect(page.locator('header img[src="/ovoskg-logo.webp"]')).toHaveCount(0)
 })
+
+
+test('primary navigation is reduced and excludes Lookbook', async ({ page }) => {
+  await page.goto('/')
+  const header = page.locator('header')
+  await expect(header.getByRole('link', { name: 'Home', exact: true })).toBeVisible()
+  await expect(header.getByRole('link', { name: 'Collections', exact: true })).toBeVisible()
+  await expect(header.getByRole('link', { name: 'Bespoke', exact: true })).toBeVisible()
+  await expect(header.getByRole('link', { name: 'Track Order', exact: true })).toBeVisible()
+  await expect(header.getByRole('link', { name: 'Contact', exact: true })).toBeVisible()
+  await expect(header.getByRole('link', { name: 'Lookbook', exact: true })).toHaveCount(0)
+})

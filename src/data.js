@@ -1,11 +1,8 @@
 export const navItems = [
   ['Home','/'],
   ['Collections','/collections'],
-  ['Shop','/shop'],
-  ['Lookbook','/lookbook'],
   ['Bespoke','/bespoke'],
   ['Track Order','/track'],
-  ['About','/about'],
   ['Contact','/contact']
 ]
 

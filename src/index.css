@@ -35,17 +35,17 @@ a{text-decoration:none}
   background:currentColor;
   transform:scaleX(0);
   transform-origin:right;
-  transition:transform .35s cubic-bezier(.22,1,.36,1)
+  transition:transform .6s cubic-bezier(.22,1,.36,1)
 }
 .line-link:hover:after,.line-link.active:after{transform:scaleX(1);transform-origin:left}
 .luxury-grid{background:#ebe3d7}
 .hero-grid{background:#090807}
 .cloth-deep{background:#090807}
 .editorial-shadow{box-shadow:0 28px 90px rgba(18,12,7,.12)}
-.card-lift{transition:transform .55s cubic-bezier(.22,1,.36,1),box-shadow .55s cubic-bezier(.22,1,.36,1),border-color .35s ease}
-.card-lift:hover{transform:translateY(-3px);box-shadow:0 18px 55px rgba(20,14,8,.09);border-color:rgba(11,10,9,.18)}
-.image-zoom img{transition:transform 1.25s cubic-bezier(.22,1,.36,1),filter .6s ease}
-.image-zoom:hover img{transform:scale(1.018)}
+.card-lift{transition:box-shadow .7s cubic-bezier(.22,1,.36,1),border-color .7s ease}
+.card-lift:hover{box-shadow:0 14px 46px rgba(20,14,8,.07);border-color:rgba(11,10,9,.16)}
+.image-zoom img{transition:transform 1.8s cubic-bezier(.22,1,.36,1)}
+.image-zoom:hover img{transform:scale(1.008)}
 .marquee-track{will-change:transform}
 .scrollbar-hide::-webkit-scrollbar{display:none}
 .scrollbar-hide{scrollbar-width:none}
@@ -60,7 +60,7 @@ input::placeholder,textarea::placeholder{color:rgba(11,10,9,.38)}
   *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
 }
 
-.brand-logo{transition:transform .45s cubic-bezier(.22,1,.36,1),filter .45s ease;filter:drop-shadow(0 3px 12px rgba(50,34,18,.08))}
-.brand-logo:hover{transform:scale(1.015)}
+.brand-logo{transition:opacity .6s ease;filter:drop-shadow(0 2px 10px rgba(50,34,18,.06))}
+.brand-logo:hover{opacity:.92}
 
-.luxury-header{background:rgba(9,8,7,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 10px 36px rgba(0,0,0,.12)}
+.luxury-header{background:rgba(9,8,7,.975);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 8px 28px rgba(0,0,0,.08)}
