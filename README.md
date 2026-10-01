@@ -59,6 +59,20 @@ The interface does not invent backend functionality or credentials. Before launc
 - exact boutique address and opening hours
 - legal policy content
 
-## Media note
+## Media provenance
 
-Current editorial images are visual direction references and are not presented as OVOSKG client work. Replace them with approved OVOSKG owned assets during the final media pass.
+The customer, fitting, wedding and garment imagery committed under `public/images/ovoskg/` was sourced from the public @ovoskg_clothings Instagram reel archive through the connected Instagram profile data source. These assets are used as OVOSKG work rather than generic stock imagery.
+
+The current public media set includes boutique fittings, client service moments, groom styling, traditional wedding work, a navy bespoke suit, white custom looks and the 2025 client archive.
+
+## Remote fitting UX
+
+The site now explains the remote fitting process before a client commits:
+
+1. measurements are reviewed before cutting,
+2. inconsistencies can trigger a remeasure, photo check or short video check,
+3. approved measurements become the production reference,
+4. post delivery fit issues are assessed against the approved measurements,
+5. alteration guidance, return correction or remake assessment is then confirmed according to the order terms.
+
+Exact alteration and remake terms should remain part of the quote/order agreement before payment.
