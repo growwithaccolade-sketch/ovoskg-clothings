@@ -11,12 +11,12 @@ test.describe('OVOSKG customer journey', () => {
 
   test('major routes render', async ({ page }) => {
     const routes = [
-      ['/collections', /Start with the silhouette/i],
+      ['/collections', /Choose a direction. We tailor the rest/i],
       ['/shop', /Find the look before we make it yours/i],
       ['/lookbook', /Find the look. We tailor it to you/i],
-      ['/bespoke', /A better brief/i],
+      ['/bespoke', /Start with a clear brief/i],
       ['/measurements', /Measure once. We verify before cutting/i],
-      ['/track', /Track the work/i],
+      ['/track', /See exactly where your order is/i],
       ['/about', /Built through the work/i],
       ['/company', /Good clothing needs a good system behind it/i],
       ['/contact', /Tell us what you need/i]
