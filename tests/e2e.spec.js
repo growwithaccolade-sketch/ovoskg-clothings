@@ -178,3 +178,55 @@ test('mobile sticky CTA is immediately available in black with white text', asyn
   await expect(sticky.getByRole('link', { name: /Start an order/i })).toBeVisible()
   await expect(sticky.getByRole('link', { name: /WhatsApp/i })).toBeVisible()
 })
+
+
+test('legal pages are real routes', async ({ page }) => {
+  for (const [route,title] of [['/privacy','Privacy policy'],['/terms','Terms of service'],['/delivery','Delivery policy'],['/returns','Alterations and returns']]) {
+    await page.goto(route)
+    await expect(page.getByRole('heading',{name:new RegExp(title,'i')})).toBeVisible()
+  }
+})
+
+test('canonical metadata uses production domain', async ({ page }) => {
+  await page.goto('/bespoke')
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href','https://ovoskgclothings.com/bespoke')
+  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content','https://ovoskgclothings.com/bespoke')
+})
+
+test('admin route is excluded from indexing', async ({ page }) => {
+  await page.goto('/admin')
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content','noindex,nofollow')
+  await expect(page.getByRole('heading',{name:/Content studio/i})).toBeVisible()
+})
+
+test('hero image is prioritized and below fold images are lazy', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.locator('img.hero-main-image')).toHaveAttribute('fetchpriority','high')
+  expect(await page.locator('img[loading="lazy"]').count()).toBeGreaterThan(2)
+})
+
+for (const viewport of [
+  {name:'phone-320',width:320,height:740},
+  {name:'phone-360',width:360,height:800},
+  {name:'phone-390',width:390,height:844},
+  {name:'phone-430',width:430,height:900},
+  {name:'tablet-768',width:768,height:1024},
+  {name:'laptop-1024',width:1024,height:768},
+  {name:'desktop-1440',width:1440,height:900}
+]) {
+  test(`responsive QA: ${viewport.name} has no horizontal overflow`, async ({ page }) => {
+    await page.setViewportSize({width:viewport.width,height:viewport.height})
+    await page.goto('/')
+    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth)
+    expect(overflow).toBeLessThanOrEqual(1)
+    await expect(page.getByRole('heading',{name:/Made for your body/i})).toBeVisible()
+    if(viewport.width<768) await expect(page.getByTestId('mobile-sticky-cta')).toBeVisible()
+  })
+}
+
+test('SEO discovery files are available', async ({ request }) => {
+  for (const path of ['/robots.txt','/sitemap.xml','/llms.txt']) {
+    const response=await request.get(path)
+    expect(response.ok()).toBeTruthy()
+  }
+})

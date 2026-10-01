@@ -10,7 +10,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="canonical" href="/" />
+    <link rel="canonical" href="https://ovoskgclothings.com/" />
+    <link rel="alternate" hreflang="en-NG" href="https://ovoskgclothings.com/" />
     <link rel="preconnect" href="https://images.unsplash.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,21 +19,44 @@
     <meta property="og:title" content="OVOSKG Clothings" />
     <meta property="og:description" content="Bespoke suits for men and women, luxury men's kaftans and custom made clothing." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/ovoskg-logo.webp" />
+    <meta property="og:url" content="https://ovoskgclothings.com/" />
+    <meta property="og:site_name" content="OVOSKG Clothings" />
+    <meta property="og:image" content="https://ovoskgclothings.com/ovoskg-logo.webp" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="OVOSKG Clothings | Bespoke Suits and Luxury Kaftans" />
+    <meta name="twitter:description" content="Bespoke suits for men and women, luxury men's kaftans and custom made clothing in Nigeria." />
+    <meta name="twitter:image" content="https://ovoskgclothings.com/ovoskg-logo.webp" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
     <script type="application/ld+json">
     {
       "@context":"https://schema.org",
-      "@type":"ClothingStore",
-      "name":"OVOSKG Clothings",
-      "description":"Bespoke suits for men and women, luxury men's kaftans and custom made clothing.",
-      "telephone":"+2347070489393",
-      "identifier":"BN 3795532",
-      "address":{"@type":"PostalAddress","addressLocality":"Ife","addressRegion":"Osun State","addressCountry":"NG"},
-      "sameAs":[
-        "https://www.instagram.com/ovoskg_clothings/",
-        "https://www.tiktok.com/@ovoskg_clothings",
-        "https://ng.linkedin.com/in/okunola-ogunmola"
+      "@graph":[
+        {
+          "@type":"ClothingStore",
+          "@id":"https://ovoskgclothings.com/#business",
+          "name":"OVOSKG Clothings",
+          "url":"https://ovoskgclothings.com/",
+          "description":"Bespoke suits for men and women, luxury men's kaftans and custom made clothing in Nigeria.",
+          "telephone":"+2347070489393",
+          "identifier":"BN 3795532",
+          "priceRange":"₦₦₦",
+          "areaServed":{"@type":"Country","name":"Nigeria"},
+          "address":{"@type":"PostalAddress","addressLocality":"Ife","addressRegion":"Osun State","addressCountry":"NG"},
+          "founder":{"@type":"Person","name":"Okunola Victor Ogunmola","url":"https://ng.linkedin.com/in/okunola-ogunmola"},
+          "sameAs":[
+            "https://www.instagram.com/ovoskg_clothings/",
+            "https://www.tiktok.com/@ovoskg_clothings",
+            "https://ng.linkedin.com/in/okunola-ogunmola"
+          ]
+        },
+        {
+          "@type":"WebSite",
+          "@id":"https://ovoskgclothings.com/#website",
+          "url":"https://ovoskgclothings.com/",
+          "name":"OVOSKG Clothings",
+          "inLanguage":"en-NG",
+          "publisher":{"@id":"https://ovoskgclothings.com/#business"}
+        }
       ]
     }
     </script>
