@@ -68,35 +68,35 @@ input::placeholder,textarea::placeholder{color:rgba(11,10,9,.38)}
 
 /* Hero tailoring crop: keep the frame on lapels, shoulder line, jacket waist and trouser break. */
 .hero-fit-image{
-  object-position:50% 17%;
-  transform:scale(1.18);
+  object-position:50% 18%;
+  transform:scale(1.06);
   transform-origin:50% 28%;
 }
 @media (min-width:640px){
   .hero-fit-image{
-    object-position:50% 17%;
-    transform:scale(1.13);
+    object-position:50% 16%;
+    transform:scale(1.05);
     transform-origin:50% 26%;
   }
 }
 @media (min-width:1024px){
   .hero-fit-image{
-    object-position:50% 20%;
-    transform:scale(1.16);
+    object-position:50% 17%;
+    transform:scale(1.08);
     transform-origin:50% 30%;
   }
 }
 @media (min-width:1280px){
   .hero-fit-image{
-    object-position:50% 18%;
-    transform:scale(1.18);
-    transform-origin:50% 31%;
+    object-position:50% 16%;
+    transform:scale(1.09);
+    transform-origin:50% 30%;
   }
 }
 @media (max-width:389px){
-  .hero-fit-frame{min-height:330px}
+  .hero-fit-frame{min-height:340px}
   .hero-fit-image{
-    object-position:50% 16%;
-    transform:scale(1.16);
+    object-position:50% 14%;
+    transform:scale(1.08);
   }
 }
