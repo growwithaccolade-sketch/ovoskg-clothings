@@ -151,7 +151,8 @@
       "label": "Structured suiting",
       "use": "Work, weddings and formal suits",
       "feel": "Clean drape · adaptable weight",
-      "description": "A strong direction when the suit needs structure, shape and a polished fall through the jacket and trouser."
+      "description": "A strong direction when the suit needs structure, shape and a polished fall through the jacket and trouser.",
+      "source": "Exact mill, fibre composition and availability are confirmed with your quote."
     },
     {
       "id": "cashmere-blends",
@@ -160,7 +161,8 @@
       "label": "Soft hand",
       "use": "Special occasion tailoring",
       "feel": "Soft touch · refined finish",
-      "description": "A softer, richer direction for clients who want the garment to feel as considered as it looks."
+      "description": "A softer, richer direction for clients who want the garment to feel as considered as it looks.",
+      "source": "Exact mill, fibre composition and availability are confirmed with your quote."
     },
     {
       "id": "silk-satin",
@@ -169,7 +171,8 @@
       "label": "Detail fabric",
       "use": "Lapels, lining and evening details",
       "feel": "Smooth surface · subtle sheen",
-      "description": "Best treated as an accent direction for lapels, linings and selected details rather than assumed as the full garment cloth."
+      "description": "Best treated as an accent direction for lapels, linings and selected details rather than assumed as the full garment cloth.",
+      "source": "Exact mill, fibre composition and availability are confirmed with your quote."
     },
     {
       "id": "cotton-linen",
@@ -178,7 +181,17 @@
       "label": "Lighter direction",
       "use": "Kaftans and warm weather tailoring",
       "feel": "Relaxed hand · lighter structure",
-      "description": "A useful direction when comfort, movement and a less rigid silhouette matter more than heavy structure."
+      "description": "A useful direction when comfort, movement and a less rigid silhouette matter more than heavy structure.",
+      "source": "Exact mill, fibre composition and availability are confirmed with your quote."
     }
-  ]
+  ],
+  "planning": {
+    "suitFrom": "",
+    "womensFrom": "",
+    "kaftanFrom": "",
+    "leadTime": "",
+    "fallbackPrice": "Quote after brief",
+    "fallbackLead": "Confirmed with quote",
+    "note": "Final price and timing depend on cloth, construction, fitting route and event date."
+  }
 }

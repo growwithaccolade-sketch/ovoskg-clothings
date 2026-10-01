@@ -28,12 +28,13 @@ function validContent(value){
   return value&&typeof value==='object'
     &&validCopy(value.hero)
     &&validCopy(value.sticky)
+    &&validCopy(value.planning)
     &&validCopy(value.contact)
     &&validCopy(value.business)
     &&validCopy(value.homeSections)
     &&Array.isArray(value.materials)
     &&value.materials.length>=4
-    &&value.materials.every(item=>typeof item?.id==='string'&&typeof item?.name==='string'&&typeof item?.label==='string'&&typeof item?.use==='string'&&typeof item?.feel==='string'&&typeof item?.description==='string')
+    &&value.materials.every(item=>typeof item?.id==='string'&&typeof item?.name==='string'&&typeof item?.label==='string'&&typeof item?.use==='string'&&typeof item?.feel==='string'&&typeof item?.description==='string'&&typeof item?.source==='string')
     &&value.pages&&requiredPages.every(key=>typeof value.pages[key]?.eyebrow==='string'&&typeof value.pages[key]?.title==='string'&&typeof value.pages[key]?.intro==='string')
     &&JSON.stringify(value).length<100000
 }

@@ -302,3 +302,37 @@ test('selected work uses editorial bento composition on desktop', async ({ page 
   const third=await cards.nth(2).boundingBox()
   expect(first.height).toBeGreaterThan(third.height)
 })
+
+
+test('homepage qualifies leads with pricing and timing signals before the order CTA', async ({ page }) => {
+  await page.goto('/')
+  const signals=page.getByTestId('hero-planning-signals')
+  await expect(signals).toBeVisible()
+  await expect(signals.getByText(/Suit starting rate/i)).toBeVisible()
+  await expect(signals.getByText(/Typical turnaround/i)).toBeVisible()
+  const signalsBox=await signals.boundingBox()
+  const ctaBox=await page.getByRole('link',{name:/Start an order/i}).first().boundingBox()
+  expect(signalsBox.y).toBeLessThan(ctaBox.y)
+})
+
+test('hero previews material directions before order entry', async ({ page }) => {
+  await page.goto('/')
+  const teaser=page.getByTestId('hero-material-teaser')
+  await expect(teaser).toBeVisible()
+  await expect(teaser.getByText(/Wool & wool blends/i)).toBeVisible()
+  await expect(teaser.getByText(/Cashmere blends/i)).toBeVisible()
+})
+
+test('bespoke page repeats pricing and lead-time qualification before the brief', async ({ page }) => {
+  await page.goto('/bespoke')
+  const strip=page.getByTestId('planning-strip')
+  await expect(strip).toBeVisible()
+  await expect(strip.getByText(/Men's suit/i)).toBeVisible()
+  await expect(strip.getByText(/Typical turnaround/i)).toBeVisible()
+})
+
+test('fabric section exposes sourcing note without inventing a mill', async ({ page }) => {
+  await page.goto('/')
+  await page.locator('#materials').scrollIntoViewIfNeeded()
+  await expect(page.locator('#materials').getByText(/Exact mill, fibre composition and availability are confirmed with your quote/i)).toBeVisible()
+})

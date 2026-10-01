@@ -409,3 +409,30 @@ p{text-wrap:pretty}
 @media (max-width:639px){
   .collection-card{min-height:470px}
 }
+
+.hero-signals>div{min-width:0}
+.hero-signals .font-display{overflow-wrap:anywhere}
+@media (max-width:767px){
+  .hero-stage{padding-bottom:20px}
+  .hero-artboard{min-height:500px}
+  .hero-main-image{
+    object-position:50% 7%;
+    transform:scale(1.012);
+    transform-origin:50% 18%;
+  }
+  .hero-main-frame:after{inset:9px}
+  .hero-copy{
+    border-color:rgba(202,161,119,.2);
+    box-shadow:0 20px 48px rgba(0,0,0,.28);
+  }
+  .hero-copy h1{max-width:330px}
+  .hero-copy p{max-width:340px}
+}
+@media (max-width:389px){
+  .hero-artboard{min-height:470px}
+  .hero-copy{margin-left:.75rem;margin-right:.75rem}
+  .hero-copy h1{font-size:3rem}
+}
+@media (hover:hover){
+  [data-testid="hero-material-teaser"] a:hover{background:rgba(255,255,255,.045)}
+}
