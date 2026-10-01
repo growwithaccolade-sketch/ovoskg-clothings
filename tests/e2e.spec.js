@@ -4,7 +4,7 @@ test.describe('OVOSKG customer journey', () => {
   test('homepage exposes core conversion paths', async ({ page }) => {
     await page.goto('/')
     await expect(page.getByRole('heading', { name: /Made for your body/i })).toBeVisible()
-    await expect(page.getByRole('link', { name: /Start a commission/i }).first()).toBeVisible()
+    await expect(page.getByRole('link', { name: /Start bespoke/i }).first()).toBeVisible()
     await expect(page.getByRole('img', { name: /Black man in a tailored suit in a clean studio portrait/i }).first()).toBeVisible()
     await expect(page.getByText(/Men and women bespoke/i).first()).toBeVisible()
   })
@@ -36,7 +36,7 @@ test.describe('OVOSKG customer journey', () => {
     await expect(referenceButtons.first()).toBeVisible()
     await referenceButtons.first().click()
     await expect(page.getByRole('button', { name: /Saved as reference/i }).first()).toBeVisible()
-    await expect(page.getByRole('link', { name: /Continue to bespoke/i })).toBeVisible()
+    await expect(page.getByRole('link', { name: /Start bespoke/i })).toBeVisible()
   })
 
   test('remote fitting safeguards are visible before commitment', async ({ page }) => {
