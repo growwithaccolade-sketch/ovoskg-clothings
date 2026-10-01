@@ -106,10 +106,11 @@ export const statusSteps = [
 ]
 
 export const faqs = [
-  ['Can I order without visiting the boutique?','Yes. Start with the bespoke brief, then choose virtual measurements. OVOSKG can confirm whether your order still needs a physical fitting before production starts.'],
+  ['Can I order without visiting the boutique?','Yes. Remote measurements are reviewed before cutting. If the numbers do not line up, OVOSKG can request a remeasure, photos or a short video check before production starts.'],
   ['How do bespoke prices work?','Pricing depends on the garment, fabric, construction, finishing and deadline. The site does not invent a flat price before those choices are known.'],
   ['Can I reuse my measurements?','The production version is designed to save approved measurements to your customer account so repeat orders are faster.'],
   ['Can I track a custom order online?','Yes. The order tracker is designed for production stages, not just courier delivery.'],
+  ['What if the fit is off after delivery?','OVOSKG reviews the finished garment against the approved measurement set and then confirms the appropriate next step, which may be alteration guidance, return correction or a remake assessment. Exact terms are confirmed before payment.'],
   ['Do you make women’s suits?','Yes. OVOSKG offers bespoke suits for men and women, alongside luxury men’s kaftans and other custom commissions.'],
   ['Where is OVOSKG based?','OVOSKG operates from Ife, Osun State, Nigeria. The exact boutique directions should be confirmed with the team before a visit.']
 ]
