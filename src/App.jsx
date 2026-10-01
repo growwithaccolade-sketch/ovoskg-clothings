@@ -159,15 +159,15 @@ function Header(){
   },[menu])
   return <>
     <header className="luxury-header sticky top-0 z-50 border-b border-white/8 text-white">
-      <div className="mx-auto flex h-[72px] max-w-[1540px] items-center gap-3 px-4 sm:h-[82px] sm:gap-5 sm:px-7">
+      <div className="mx-auto flex h-[74px] max-w-[1480px] items-center gap-3 px-4 sm:h-[84px] sm:gap-5 sm:px-7">
         <Logo light/>
-        <nav className="ml-auto hidden items-center gap-5 2xl:flex">
+        <nav className="ml-auto hidden items-center gap-6 xl:flex">
           {navItems.map(([label,path])=><NavLink key={path} to={path} className={({isActive})=>`line-link text-[10px] font-semibold uppercase tracking-[.12em] ${isActive?'active text-[#caa177]':'text-white/58 hover:text-white'}`}>{label}</NavLink>)}
         </nav>
-        <div className="ml-auto flex items-center gap-2 2xl:ml-3">
-          <button onClick={()=>setShortlist(true)} aria-label="Open style shortlist" className="focus-ring relative grid h-9 w-9 place-items-center rounded-full border border-white/16 sm:h-10 sm:w-10 text-white/80 transition hover:border-white/34 hover:text-white"><ShoppingBag size={17}/>{count>0&&<span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-bronze px-1 text-[9px] font-bold text-white">{count}</span>}</button>
+        <div className="ml-auto flex items-center gap-2 xl:ml-4">
+          <button onClick={()=>setShortlist(true)} aria-label="Open style shortlist" className="focus-ring relative grid h-9 w-9 place-items-center rounded-[2px] border border-white/16 sm:h-10 sm:w-10 text-white/80 transition hover:border-white/34 hover:text-white"><ShoppingBag size={17}/>{count>0&&<span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-bronze px-1 text-[9px] font-bold text-white">{count}</span>}</button>
           <Link to="/bespoke" className="hidden rounded-[2px] border border-white/14 bg-[#f7f3eb] px-5 py-3 text-[10px] font-semibold uppercase tracking-[.12em] text-ink transition hover:bg-white md:inline-flex">Start an order</Link>
-          <button onClick={()=>setMenu(true)} aria-label="Open navigation" className="focus-ring grid h-9 w-9 place-items-center rounded-full border border-white/16 sm:h-10 sm:w-10 text-white/80 2xl:hidden"><Menu size={19}/></button>
+          <button onClick={()=>setMenu(true)} aria-label="Open navigation" className="focus-ring grid h-9 w-9 place-items-center rounded-[2px] border border-white/16 sm:h-10 sm:w-10 text-white/80 xl:hidden"><Menu size={19}/></button>
         </div>
       </div>
     </header>
@@ -230,7 +230,7 @@ function MobileConversionBar(){
 }
 
 function Kicker({children,light=false}){return <div className={`text-[9px] font-bold uppercase tracking-[.21em] ${light?'text-white/50':'text-bronze'}`}>{children}</div>}
-function PrimaryLink({to,children,light=false,className=''}){return <Link to={to} className={`group inline-flex items-center justify-center gap-2 rounded-[2px] border px-6 py-3.5 text-[10px] font-semibold uppercase tracking-[.13em] transition duration-500 ${light?'border-white bg-white text-ink hover:bg-[#eee7db]':'border-ink bg-ink text-white hover:bg-[#171411]'} ${className}`}>{children}<ArrowRight size={14}/></Link>}
+function PrimaryLink({to,children,light=false,className=''}){return <Link to={to} className={`group inline-flex items-center justify-center gap-3 rounded-[2px] border px-6 py-3.5 text-[10px] font-semibold uppercase tracking-[.13em] transition duration-500 ${light?'border-white bg-white text-ink hover:bg-[#eee7db]':'border-ink bg-ink text-white hover:bg-[#171411]'} ${className}`}><span>{children}</span><ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1"/></Link>}
 function TextLink({to,children,light=false}){return <Link to={to} className={`group inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.14em] ${light?'text-white':'text-ink'}`}>{children}<ArrowUpRight size={14}/></Link>}
 
 function RouteFrame({children}){
@@ -242,53 +242,48 @@ function HomePage(){
   const heroImage='https://images.unsplash.com/photo-1668202849897-846a0c405763?auto=format&fit=crop&w=2400&q=94'
   return <main>
     <section id="home-hero" className="hero-stage relative overflow-hidden bg-ink text-white">
-      <div className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px bg-white/[.045] lg:block"/>
-      <div className="mx-auto grid max-w-[1480px] lg:min-h-[760px] lg:grid-cols-[.88fr_1.12fr]">
-        <div className="relative z-20 flex items-center px-4 py-12 sm:px-7 sm:py-16 md:px-10 lg:px-12 lg:py-24 xl:px-16">
-          <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:.82,ease:[.22,1,.36,1]}} className="w-full max-w-[660px]">
-            <div className="inline-flex max-w-full items-center gap-2 border-b border-white/10 pb-3 text-[8px] font-semibold uppercase tracking-[.13em] text-white/52 sm:text-[9px]"><ShieldCheck size={12} className="shrink-0 text-[#caa177]"/>{siteContent.hero.trust}</div>
-            <h1 className="display-tight mt-6 max-w-[650px] font-display text-[clamp(3.15rem,11.8vw,5.15rem)] font-medium leading-[.82] sm:mt-7 sm:text-[clamp(4.6rem,9vw,6.2rem)] lg:text-[clamp(5.15rem,5.65vw,6.9rem)]">{siteContent.hero.headingPrimary}<br/><span className="italic text-[#caa177]">{siteContent.hero.headingAccent}</span></h1>
-            <p className="mt-6 max-w-[510px] text-[13px] leading-6 text-white/62 sm:mt-7 sm:text-[15px] sm:leading-7">{siteContent.hero.body}</p>
-            <div className="mt-7 flex max-w-[430px] flex-col gap-2.5 sm:mt-8 sm:flex-row sm:items-center sm:gap-4">
-              <PrimaryLink to="/bespoke" light className="w-full sm:w-auto">Start an order</PrimaryLink>
-              <Link to="/collections" className="inline-flex w-full items-center justify-center gap-2 border border-white/16 px-5 py-3.5 text-[10px] font-semibold uppercase tracking-[.13em] text-white/72 transition hover:border-white/34 hover:text-white sm:w-auto">View collections <ArrowUpRight size={14}/></Link>
+      <div className="pointer-events-none absolute left-[43%] top-0 hidden h-full w-px bg-white/[.04] lg:block"/>
+      <div className="hero-shell mx-auto grid max-w-[1480px] lg:min-h-[820px] lg:grid-cols-[.82fr_1.18fr]">
+        <div className="hero-copy order-2 relative z-20 mx-3 -mt-14 border border-white/10 bg-[#0b0908]/98 px-5 pb-9 pt-7 shadow-[0_28px_65px_rgba(0,0,0,.32)] backdrop-blur sm:mx-6 sm:-mt-20 sm:px-7 sm:pb-12 sm:pt-9 lg:order-1 lg:m-0 lg:flex lg:items-end lg:border-0 lg:bg-transparent lg:px-12 lg:pb-20 lg:pt-24 lg:shadow-none lg:backdrop-blur-none xl:px-16 xl:pb-24">
+          <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{duration:.78,ease:[.22,1,.36,1]}} className="w-full max-w-[650px]">
+            <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-3">
+              <div className="inline-flex max-w-full items-center gap-2 text-[8px] font-semibold uppercase tracking-[.13em] text-white/54 sm:text-[9px]"><ShieldCheck size={12} className="shrink-0 text-[#caa177]"/>{siteContent.hero.trust}</div>
+              <div className="hidden text-[8px] font-semibold uppercase tracking-[.18em] text-[#caa177]/70 sm:block lg:hidden">01 / Bespoke</div>
             </div>
-            <div className="mt-8 hidden items-center gap-6 border-t border-white/10 pt-5 text-[8px] font-semibold uppercase tracking-[.16em] text-white/38 sm:flex">
-              <span>Precision fit</span><span className="h-1 w-1 rounded-full bg-[#caa177]/70"/><span>Clean finishing</span><span className="h-1 w-1 rounded-full bg-[#caa177]/70"/><span>Made to measure</span>
+            <h1 className="display-tight mt-6 max-w-[650px] font-display text-[clamp(3.25rem,12.5vw,5.25rem)] font-medium leading-[.82] sm:text-[clamp(4.6rem,9vw,6.2rem)] lg:text-[clamp(5.2rem,5.45vw,6.75rem)]">{siteContent.hero.headingPrimary}<br/><span className="italic text-[#caa177]">{siteContent.hero.headingAccent}</span></h1>
+            <p className="mt-6 max-w-[510px] text-[13px] leading-6 text-white/62 sm:text-[15px] sm:leading-7">{siteContent.hero.body}</p>
+            <div className="mt-7 grid max-w-[450px] gap-2.5 sm:flex sm:items-center sm:gap-3">
+              <PrimaryLink to="/bespoke" light className="w-full sm:w-auto">Start an order</PrimaryLink>
+              <Link to="/collections" className="group inline-flex w-full items-center justify-center gap-2 border border-white/16 px-5 py-3.5 text-[10px] font-semibold uppercase tracking-[.13em] text-white/74 transition hover:border-white/36 hover:text-white sm:w-auto">View collections <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"/></Link>
+            </div>
+            <div className="mt-8 hidden grid-cols-3 border-y border-white/10 text-[8px] font-semibold uppercase tracking-[.14em] text-white/38 sm:grid">
+              <div className="py-4 pr-4">Precision fit</div><div className="border-x border-white/10 px-4 py-4">Clean finishing</div><div className="py-4 pl-4">Made to measure</div>
             </div>
           </motion.div>
         </div>
 
-        <div className="hero-artboard relative min-h-[500px] overflow-hidden sm:min-h-[620px] lg:min-h-[760px]">
-          <div className="hero-main-frame absolute inset-0 lg:inset-y-0 lg:left-0 lg:right-[132px]">
+        <div className="hero-artboard order-1 relative min-h-[545px] overflow-hidden sm:min-h-[650px] lg:order-2 lg:min-h-[820px] lg:overflow-visible">
+          <div className="hero-main-frame absolute inset-0 lg:bottom-8 lg:left-0 lg:right-[82px] lg:top-8">
             <img loading="eager" fetchPriority="high" decoding="async" src={heroImage} alt="Nigerian man in a tailored suit" className="hero-main-image absolute inset-0 h-full w-full object-cover"/>
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/26 via-black/4 to-transparent lg:from-black/34"/>
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/45 via-black/8 to-transparent"/>
-            <div className="absolute bottom-5 left-5 hidden border-l border-[#caa177]/65 pl-4 lg:block">
-              <div className="text-[8px] font-semibold uppercase tracking-[.2em] text-white/48">Fit in focus</div>
-              <div className="mt-1 font-display text-2xl text-white/90">Shoulder. Lapel. Line.</div>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/5 lg:from-black/28"/>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black/58 via-black/8 to-transparent"/>
+            <div className="absolute bottom-5 left-5 flex items-end gap-4 text-white sm:bottom-7 sm:left-7 lg:hidden">
+              <span className="font-display text-4xl leading-none text-[#caa177]">01</span>
+              <span className="border-l border-white/22 pl-4 text-[8px] font-semibold uppercase tracking-[.18em] text-white/68">Bespoke tailoring<br/>in proportion</span>
             </div>
           </div>
 
-          <div className="hero-detail-stack absolute right-0 top-0 hidden h-full w-[152px] flex-col border-l border-white/10 bg-[#0b0908] lg:flex">
-            <div className="hero-detail-panel hero-detail-lapel relative flex-1 overflow-hidden border-b border-white/10">
-              <img loading="lazy" decoding="async" src={heroImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover"/>
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-14">
-                <div className="text-[8px] font-semibold uppercase tracking-[.18em] text-white/70">Lapel detail</div>
-              </div>
-            </div>
-            <div className="hero-detail-panel hero-detail-cuff relative flex-1 overflow-hidden">
-              <img loading="lazy" decoding="async" src={heroImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover"/>
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-14">
-                <div className="text-[8px] font-semibold uppercase tracking-[.18em] text-white/70">Finish</div>
-              </div>
-            </div>
+          <div className="hero-rail absolute bottom-8 right-0 top-8 hidden w-[82px] border-y border-r border-white/10 bg-[#0c0a09] lg:flex lg:flex-col lg:items-center lg:justify-between lg:py-7">
+            <div className="font-display text-3xl text-[#caa177]">01</div>
+            <div className="vertical-rl text-[8px] font-semibold uppercase tracking-[.22em] text-white/42">Bespoke · fit · finish</div>
+            <div className="h-12 w-px bg-gradient-to-b from-[#caa177]/10 via-[#caa177]/70 to-[#caa177]/10"/>
           </div>
 
-          <div className="hero-mobile-detail absolute bottom-4 right-4 h-[150px] w-[112px] overflow-hidden border border-[#caa177]/45 bg-black shadow-[0_18px_44px_rgba(0,0,0,.28)] sm:bottom-6 sm:right-6 sm:h-[190px] sm:w-[138px] lg:hidden">
+          <div className="hero-detail-card absolute bottom-16 left-[-54px] z-10 hidden h-[225px] w-[168px] overflow-hidden border border-[#caa177]/35 bg-black shadow-[0_22px_60px_rgba(0,0,0,.38)] lg:block xl:left-[-72px] xl:h-[250px] xl:w-[186px]">
             <img loading="lazy" decoding="async" src={heroImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover"/>
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent px-3 pb-3 pt-10">
-              <div className="text-[7px] font-semibold uppercase tracking-[.18em] text-white/78">Tailored detail</div>
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/18 to-transparent p-4 pt-14">
+              <div className="text-[7px] font-semibold uppercase tracking-[.18em] text-white/48">Tailoring detail</div>
+              <div className="mt-1 font-display text-2xl text-white">Lapel & line</div>
             </div>
           </div>
         </div>
@@ -304,7 +299,6 @@ function HomePage(){
     <ConversionBand/>
   </main>
 }
-
 function RemoteFitAssurance({dark=false}){
   const steps=[
     ['01','Send measurements','Use the guide or book a fitting in Ife.'],
@@ -320,13 +314,13 @@ function EntryPaths(){
     {n:'02',title:'Still choosing?',text:'Browse suits, women’s tailoring and kaftans.',to:'/collections'},
     {n:'03',title:'Order already placed?',text:'Check the current production stage.',to:'/track'}
   ]
-  return <section className="cv-auto mx-auto max-w-[1480px] px-4 py-20 sm:px-7 lg:py-32"><div className="grid gap-10 lg:grid-cols-[.58fr_1.42fr]"><div><Kicker>{siteContent.homeSections.entry.eyebrow}</Kicker><h2 className="display-tight mt-4 font-display text-6xl leading-[.88] sm:text-7xl">{siteContent.homeSections.entry.title}</h2></div><div className="grid gap-0 border-t border-black/12">{paths.map(p=><motion.div key={p.n} initial="hidden" whileInView="show" viewport={{once:true,amount:.3}} variants={reveal}><Link to={p.to} className="card-lift group grid min-h-36 grid-cols-[54px_1fr_auto] items-center gap-5 border-b border-black/12 bg-transparent px-1 py-6 sm:grid-cols-[72px_1fr_auto] sm:px-2 sm:py-8"><div className="font-display text-4xl text-bronze">{p.n}</div><div><h3 className="font-display text-3xl leading-none sm:text-4xl">{p.title}</h3><p className="mt-3 max-w-xl text-xs leading-6 text-black/50 sm:text-sm">{p.text}</p></div><div className="hidden h-12 w-12 place-items-center rounded-full border border-black/12 transition group-hover:bg-ink group-hover:text-white sm:grid"><ArrowUpRight size={16}/></div></Link></motion.div>)}</div></div></section>
+  return <section className="cv-auto mx-auto max-w-[1480px] px-4 py-20 sm:px-7 lg:py-32"><div className="grid gap-10 lg:grid-cols-[.58fr_1.42fr]"><div><Kicker>{siteContent.homeSections.entry.eyebrow}</Kicker><h2 className="display-tight mt-4 font-display text-6xl leading-[.88] sm:text-7xl">{siteContent.homeSections.entry.title}</h2></div><div className="grid gap-0 border-t border-black/12">{paths.map(p=><motion.div key={p.n} initial="hidden" whileInView="show" viewport={{once:true,amount:.3}} variants={reveal}><Link to={p.to} className="card-lift group grid min-h-36 grid-cols-[54px_1fr_auto] items-center gap-5 border-b border-black/12 bg-transparent px-1 py-6 sm:grid-cols-[72px_1fr_auto] sm:px-2 sm:py-8"><div className="font-display text-4xl text-bronze">{p.n}</div><div><h3 className="font-display text-3xl leading-none sm:text-4xl">{p.title}</h3><p className="mt-3 max-w-xl text-xs leading-6 text-black/50 sm:text-sm">{p.text}</p></div><div className="hidden h-12 w-12 place-items-center rounded-[2px] border border-black/12 transition group-hover:bg-ink group-hover:text-white sm:grid"><ArrowUpRight size={16}/></div></Link></motion.div>)}</div></div></section>
 }
 
 function HomeCollections(){
   return <section className="cv-auto bg-[#e8dfd2] py-24 lg:py-32"><div className="mx-auto max-w-[1480px] px-4 sm:px-7">
     <div className="flex flex-col justify-between gap-7 lg:flex-row lg:items-end"><div><Kicker>{siteContent.homeSections.collections.eyebrow}</Kicker><h2 className="display-tight mt-4 max-w-4xl font-display text-5xl leading-[.9] sm:text-7xl lg:text-[6.8rem]">{siteContent.homeSections.collections.titlePrimary}<br/>{siteContent.homeSections.collections.titleAccent}</h2></div><div className="max-w-md"><p className="text-sm leading-7 text-black/55">{siteContent.homeSections.collections.body}</p><TextLink to="/collections">Browse collections</TextLink></div></div>
-    <div className="mt-14 grid gap-3 lg:grid-cols-12 lg:grid-rows-[430px_430px]">{collections.map((c,i)=><motion.div key={c.id} initial={{opacity:0}} whileInView={{opacity:1}} viewport={{once:true,amount:.18}} transition={{duration:.72,delay:i*.05}} className={`${i===0?'lg:col-span-7 lg:row-span-2':'lg:col-span-5'}`}><Link to={`/collections/${c.id}`} className="image-zoom group relative block h-full min-h-[420px] overflow-hidden bg-ink"><img loading="lazy" decoding="async" src={c.image} alt={c.imageAlt} className="absolute inset-0 h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/4 to-transparent"/><div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8"><Kicker light>{c.index}</Kicker><h3 className="mt-2 max-w-xl font-display text-4xl leading-none sm:text-5xl">{c.title}</h3><p className="mt-3 max-w-md text-xs leading-5 text-white/58">{c.short}</p><div className="mt-5 flex items-center gap-2 text-[9px] font-bold uppercase tracking-[.14em]">See references <ArrowUpRight size={13}/></div></div></Link></motion.div>)}</div>
+    <div className="mt-14 grid gap-3 lg:grid-cols-12 lg:grid-rows-[430px_430px]">{collections.map((c,i)=><motion.div key={c.id} initial={{opacity:0}} whileInView={{opacity:1}} viewport={{once:true,amount:.18}} transition={{duration:.72,delay:i*.05}} className={`${i===0?'lg:col-span-7 lg:row-span-2':'lg:col-span-5'}`}><Link to={`/collections/${c.id}`} className="collection-card image-zoom group relative block h-full min-h-[420px] overflow-hidden bg-ink"><img loading="lazy" decoding="async" src={c.image} alt={c.imageAlt} className="absolute inset-0 h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/4 to-transparent"/><div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8"><Kicker light>{c.index}</Kicker><h3 className="mt-2 max-w-xl font-display text-4xl leading-none sm:text-5xl">{c.title}</h3><p className="mt-3 max-w-md text-xs leading-5 text-white/58">{c.short}</p><div className="mt-5 flex items-center gap-2 text-[9px] font-bold uppercase tracking-[.14em]">See references <ArrowUpRight size={13}/></div></div></Link></motion.div>)}</div>
   </div></section>
 }
 
@@ -402,12 +396,15 @@ function ProcessSection(){
 }
 
 function HomeLookbook(){
-  return <section className="bg-bone py-24 lg:py-32"><div className="mx-auto max-w-[1480px] px-4 sm:px-7"><div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><Kicker>{siteContent.homeSections.selected.eyebrow}</Kicker><h2 className="display-tight mt-4 font-display text-6xl leading-none sm:text-7xl">{siteContent.homeSections.selected.title}</h2></div><TextLink to="/collections">Browse collections</TextLink></div><div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{lookbook.slice(0,4).map((item,i)=><motion.article key={item.id} initial={{opacity:0}} whileInView={{opacity:1}} viewport={{once:true}} transition={{duration:.7,delay:i*.06}} className="image-zoom relative aspect-[4/5] overflow-hidden bg-oat"><img loading="lazy" decoding="async" src={item.image} alt={item.label} className="h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-black/66 via-black/5 to-transparent"/><div className="absolute inset-x-0 bottom-0 p-5 text-white"><div className="text-[8px] font-bold uppercase tracking-[.16em] text-white/50">{item.category}</div><div className="mt-1 font-display text-3xl">{item.label}</div></div></motion.article>)}</div></div></section>
+  const layout=['lg:col-span-5 lg:row-span-2','lg:col-span-3 lg:row-span-2','lg:col-span-4 lg:row-span-1','lg:col-span-4 lg:row-span-1']
+  return <section className="bg-bone py-24 lg:py-32"><div className="mx-auto max-w-[1480px] px-4 sm:px-7">
+    <div className="flex flex-col justify-between gap-6 border-b border-black/10 pb-8 sm:flex-row sm:items-end"><div><Kicker>{siteContent.homeSections.selected.eyebrow}</Kicker><h2 className="display-tight mt-4 max-w-4xl font-display text-6xl leading-[.9] sm:text-7xl">{siteContent.homeSections.selected.title}</h2></div><TextLink to="/collections">Browse collections</TextLink></div>
+    <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-12 lg:auto-rows-[230px]">{lookbook.slice(0,4).map((item,i)=><motion.article key={item.id} initial={{opacity:0}} whileInView={{opacity:1}} viewport={{once:true,amount:.16}} transition={{duration:.68,delay:i*.05}} className={`image-zoom group relative min-h-[360px] overflow-hidden bg-oat sm:min-h-[440px] lg:min-h-0 ${layout[i]}`}><img loading="lazy" decoding="async" src={item.image} alt={item.label} className="h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/4 to-transparent"/><div className="absolute left-4 top-4 grid h-8 w-8 place-items-center border border-white/20 text-[8px] font-semibold text-white/70">{String(i+1).padStart(2,'0')}</div><div className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-6"><div className="text-[8px] font-bold uppercase tracking-[.16em] text-white/50">{item.category}</div><div className="mt-1 font-display text-3xl sm:text-4xl">{item.label}</div></div></motion.article>)}</div>
+  </div></section>
 }
-
 function FounderSection(){
   return <section className="luxury-grid bg-oat py-24 lg:py-32"><div className="mx-auto grid max-w-[1480px] gap-14 px-4 sm:px-7 lg:grid-cols-[.94fr_1.06fr] lg:items-center">
-    <motion.div initial={{opacity:0,scale:.99}} whileInView={{opacity:1,scale:1}} viewport={{once:true}} transition={{duration:.7}} className="relative min-h-[620px] overflow-hidden bg-ink"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1622031093531-f4e641788763?auto=format&fit=crop&w=2000&q=94" alt="African man wearing a tailored suit" className="absolute inset-0 h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/5"/><div className="absolute inset-x-0 bottom-0 p-7 text-white"><Kicker light>OVOSKG</Kicker><div className="mt-2 max-w-lg font-display text-4xl leading-none">{siteContent.homeSections.founder.imageCaption}</div></div></motion.div>
+    <motion.div initial={{opacity:0,scale:.99}} whileInView={{opacity:1,scale:1}} viewport={{once:true}} transition={{duration:.7}} className="founder-frame relative min-h-[540px] overflow-hidden bg-ink sm:min-h-[620px] lg:min-h-[680px]"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1622031093531-f4e641788763?auto=format&fit=crop&w=2000&q=94" alt="African man wearing a tailored suit" className="absolute inset-0 h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/5"/><div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8"><div className="flex items-end justify-between gap-5"><div><Kicker light>OVOSKG</Kicker><div className="mt-2 max-w-lg font-display text-4xl leading-none">{siteContent.homeSections.founder.imageCaption}</div></div><div className="hidden border-l border-white/18 pl-4 text-[8px] font-semibold uppercase tracking-[.18em] text-white/42 sm:block">Established<br/>2023</div></div></div></motion.div>
     <motion.div initial="hidden" whileInView="show" viewport={{once:true,amount:.3}} variants={reveal} className="lg:pl-8"><Kicker>{siteContent.homeSections.founder.eyebrow}</Kicker><h2 className="display-tight mt-4 font-display text-6xl leading-[.88] sm:text-7xl">{siteContent.homeSections.founder.title}</h2><p className="mt-7 max-w-xl text-sm leading-7 text-black/56">{siteContent.homeSections.founder.body}</p><div className="mt-9 grid grid-cols-2 border-y border-black/12"><div className="py-5 pr-5"><div className="font-display text-5xl text-bronze">2023</div><p className="mt-2 text-xs text-black/45">formally established</p></div><div className="border-l border-black/12 py-5 pl-5"><div className="font-display text-5xl text-bronze">800+</div><p className="mt-2 text-xs text-black/45">custom pieces delivered across Nigeria</p></div></div><div className="mt-8 flex flex-wrap gap-5"><TextLink to="/about">Read the story</TextLink><a href={instagram} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.14em] text-black/55">Instagram <ArrowUpRight size={14}/></a></div></motion.div>
   </div></section>
 }
@@ -455,7 +452,7 @@ function CollectionDetailPage(){
     track('reference_saved',{collection:collection.id,style:style.name})
   }
   return <main>
-    <section className="cloth-deep relative overflow-hidden text-white"><div className="mx-auto grid min-h-[680px] max-w-[1540px] lg:grid-cols-[.82fr_1.18fr]"><div className="flex flex-col justify-end px-4 py-16 sm:px-7 lg:p-14"><Kicker light>{collection.index} / {collectionCopy.eyebrow||'Mini lookbook'}</Kicker><h1 className="display-tight mt-5 font-display text-6xl leading-[.84] sm:text-7xl">{collectionCopy.title||collection.title}</h1><p className="mt-6 max-w-xl text-sm leading-7 text-white/55">{collectionCopy.intro||collection.body}</p><div className="mt-7 flex flex-wrap gap-2">{collection.tags.map(tag=><span key={tag} className="rounded-full border border-white/16 px-3 py-2 text-[8px] font-bold uppercase tracking-[.13em] text-white/62">{tag}</span>)}</div></div><div className="relative min-h-[430px] overflow-hidden lg:min-h-0"><img loading="lazy" decoding="async" src={collection.image} alt={collection.imageAlt} className="absolute inset-0 h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-black/48 via-transparent to-transparent"/><div className="absolute bottom-5 left-5 bg-bone px-4 py-3 text-ink"><div className="text-[8px] font-bold uppercase tracking-[.15em] text-bronze">{collection.styles.length} references</div><div className="mt-1 font-display text-2xl">Review the options before you order.</div></div></div></div></section>
+    <section className="cloth-deep relative overflow-hidden text-white"><div className="mx-auto grid min-h-[680px] max-w-[1540px] lg:grid-cols-[.82fr_1.18fr]"><div className="flex flex-col justify-end px-4 py-16 sm:px-7 lg:p-14"><Kicker light>{collection.index} / {collectionCopy.eyebrow||'Mini lookbook'}</Kicker><h1 className="display-tight mt-5 font-display text-6xl leading-[.84] sm:text-7xl">{collectionCopy.title||collection.title}</h1><p className="mt-6 max-w-xl text-sm leading-7 text-white/55">{collectionCopy.intro||collection.body}</p><div className="mt-7 flex flex-wrap gap-2">{collection.tags.map(tag=><span key={tag} className="rounded-[2px] border border-white/16 px-3 py-2 text-[8px] font-bold uppercase tracking-[.13em] text-white/62">{tag}</span>)}</div></div><div className="relative min-h-[430px] overflow-hidden lg:min-h-0"><img loading="lazy" decoding="async" src={collection.image} alt={collection.imageAlt} className="absolute inset-0 h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-black/48 via-transparent to-transparent"/><div className="absolute bottom-5 left-5 bg-bone px-4 py-3 text-ink"><div className="text-[8px] font-bold uppercase tracking-[.15em] text-bronze">{collection.styles.length} references</div><div className="mt-1 font-display text-2xl">Review the options before you order.</div></div></div></div></section>
     <section className="mx-auto max-w-[1540px] px-4 py-20 sm:px-7 lg:py-28"><div className="grid gap-8 lg:grid-cols-[.33fr_.67fr]"><div className="lg:sticky lg:top-28 lg:self-start"><Kicker>References</Kicker><h2 className="display-tight mt-4 font-display text-5xl leading-[.9] sm:text-6xl">Save the ones you want to discuss.</h2><p className="mt-5 text-sm leading-7 text-black/52">Use these images to explain the shape and details you prefer.</p><PrimaryLink to="/bespoke" className="mt-7">Start bespoke</PrimaryLink></div><div className="grid gap-x-4 gap-y-10 sm:grid-cols-2">{collection.styles.map((style,i)=>{const id=`${collection.id}-${style.name.toLowerCase().replace(/[^a-z0-9]+/g,'-')}`;const isSaved=saved.some(x=>x.id===id);return <motion.article key={style.name} initial={{opacity:0}} whileInView={{opacity:1}} viewport={{once:true}} transition={{delay:Math.min(i*.05,.22)}} className="group"><div className="image-zoom relative aspect-[4/5] overflow-hidden bg-oat"><img loading="lazy" decoding="async" src={style.image} alt={style.name} className="h-full w-full object-cover"/><div className="absolute left-4 top-4 rounded-full bg-black/58 px-3 py-2 text-[8px] font-bold uppercase tracking-[.13em] text-white backdrop-blur">{style.detail}</div></div><div className="pt-5"><div className="text-[8px] font-bold uppercase tracking-[.16em] text-bronze">{String(i+1).padStart(2,'0')} / Reference</div><h3 className="mt-2 font-display text-3xl leading-none sm:text-4xl">{style.name}</h3><p className="mt-3 text-sm leading-6 text-black/50">{style.note}</p><button onClick={()=>useReference(style)} className={`mt-5 inline-flex items-center gap-2 rounded-full px-5 py-3 text-[9px] font-bold uppercase tracking-[.13em] ${isSaved?'bg-bronze text-white':'border border-black/16 text-ink'}`}>{isSaved?<><Check size={13}/> Saved as reference</>:<>Use as reference <Plus size={13}/></>}</button></div></motion.article>})}</div></div></section>
     <ConversionBand/>
   </main>

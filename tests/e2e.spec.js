@@ -151,7 +151,7 @@ test('hero uses layered fit focused imagery', async ({ page }) => {
   const hero = page.locator('#home-hero')
   await expect(hero).toBeVisible()
   await expect(hero.locator('img[alt="Nigerian man in a tailored suit"]')).toHaveCount(1)
-  await expect(hero.locator('.hero-detail-panel')).toHaveCount(2)
+  await expect(hero.locator('.hero-detail-card')).toHaveCount(1)
 })
 
 
@@ -167,7 +167,13 @@ test('mobile hero keeps primary actions visible', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByRole('heading', { name: /Made for your body/i })).toBeVisible()
   await expect(page.getByRole('link', { name: /Start an order/i }).first()).toBeVisible()
-  await expect(page.locator('.hero-artboard')).toBeVisible()
+  const artboard=page.locator('.hero-artboard')
+  const copy=page.locator('.hero-copy')
+  await expect(artboard).toBeVisible()
+  await expect(copy).toBeVisible()
+  const artBox=await artboard.boundingBox()
+  const copyBox=await copy.boundingBox()
+  expect(artBox.y).toBeLessThan(copyBox.y)
 })
 
 
@@ -273,4 +279,26 @@ test('fabric direction carries into bespoke brief', async ({ page }) => {
   await expect(page).toHaveURL(/\/bespoke$/)
   await page.getByRole('button',{name:/Continue/i}).click()
   await expect(page.getByLabel('Preferred cloth')).toHaveValue('Cashmere blends')
+})
+
+
+test('desktop hero keeps image and copy in balanced side by side composition', async ({ page }) => {
+  await page.setViewportSize({width:1440,height:900})
+  await page.goto('/')
+  const copy=page.locator('.hero-copy')
+  const art=page.locator('.hero-artboard')
+  const copyBox=await copy.boundingBox()
+  const artBox=await art.boundingBox()
+  expect(copyBox.x).toBeLessThan(artBox.x)
+  expect(artBox.height).toBeGreaterThan(700)
+})
+
+test('selected work uses editorial bento composition on desktop', async ({ page }) => {
+  await page.setViewportSize({width:1440,height:900})
+  await page.goto('/')
+  const cards=page.locator('section').filter({hasText:/A few directions worth considering/i}).locator('article')
+  await expect(cards).toHaveCount(4)
+  const first=await cards.nth(0).boundingBox()
+  const third=await cards.nth(2).boundingBox()
+  expect(first.height).toBeGreaterThan(third.height)
 })
