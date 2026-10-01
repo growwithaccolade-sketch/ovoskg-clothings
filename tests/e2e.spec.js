@@ -194,10 +194,16 @@ test('canonical metadata uses production domain', async ({ page }) => {
   await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content','https://ovoskgclothings.com/bespoke')
 })
 
-test('admin route is excluded from indexing', async ({ page }) => {
+test('admin route is excluded from indexing and opens secure login popup', async ({ page }) => {
   await page.goto('/admin')
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content','noindex,nofollow')
-  await expect(page.getByRole('heading',{name:/Content studio/i})).toBeVisible()
+  const dialog=page.getByRole('dialog')
+  await expect(dialog).toBeVisible()
+  await expect(dialog.getByRole('heading',{name:/Admin login/i})).toBeVisible()
+  await expect(dialog.getByLabel('Username')).toHaveValue('admin')
+  await expect(dialog.getByLabel('Username')).toHaveAttribute('readonly','')
+  await expect(dialog.getByLabel('Password')).toBeVisible()
+  await expect(dialog.getByRole('button',{name:/Login to admin/i})).toBeDisabled()
 })
 
 test('hero image is prioritized and below fold images are lazy', async ({ page }) => {

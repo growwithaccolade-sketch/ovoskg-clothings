@@ -2,6 +2,7 @@ const OWNER=process.env.GITHUB_OWNER||'growwithaccolade-sketch'
 const REPO=process.env.GITHUB_REPO||'ovoskg-clothings'
 const BRANCH=process.env.GITHUB_BRANCH||'main'
 const CONTENT_PATH='src/content/site.json'
+const ADMIN_USERNAME='admin'
 
 const send=(res,status,body)=>res.status(status).json(body)
 
@@ -38,6 +39,7 @@ export default async function handler(req,res){
   if(!process.env.ADMIN_PASSWORD||!process.env.GITHUB_TOKEN){
     return send(res,503,{error:'Admin is not configured. Add ADMIN_PASSWORD and GITHUB_TOKEN to the Vercel project environment.'})
   }
+  if(req.headers['x-admin-username']!==ADMIN_USERNAME) return send(res,401,{error:'Invalid admin username.'})
   if(req.headers['x-admin-password']!==process.env.ADMIN_PASSWORD) return send(res,401,{error:'Invalid admin password.'})
   if(!['GET','PUT'].includes(req.method)) return send(res,405,{error:'Method not allowed.'})
 

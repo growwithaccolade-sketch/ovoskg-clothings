@@ -461,16 +461,22 @@ function LegalPage({type}){
 }
 
 function AdminPage(){
+  const ADMIN_USERNAME='admin'
   const [password,setPassword]=useState(()=>sessionStorage.getItem('ovoskg_admin_password')||'')
   const [content,setContent]=useState(siteContent)
   const [status,setStatus]=useState(password?'loading':'locked')
   const [message,setMessage]=useState('')
 
+  const authHeaders=pass=>({
+    'x-admin-username':ADMIN_USERNAME,
+    'x-admin-password':pass
+  })
+
   const load=async(pass=password)=>{
     if(!pass){setStatus('locked');return}
     setStatus('loading');setMessage('')
     try{
-      const res=await fetch('/api/admin-content',{headers:{'x-admin-password':pass}})
+      const res=await fetch('/api/admin-content',{headers:authHeaders(pass)})
       const body=await res.json()
       if(!res.ok){
         setStatus(res.status===503?'setup':'locked')
@@ -481,7 +487,8 @@ function AdminPage(){
       setContent(body.content)
       setStatus('ready')
     }catch{
-      setStatus('error');setMessage('Could not reach the admin API.')
+      setStatus('locked')
+      setMessage('Could not reach the admin API.')
     }
   }
 
@@ -491,23 +498,77 @@ function AdminPage(){
   const save=async()=>{
     setStatus('saving');setMessage('')
     try{
-      const res=await fetch('/api/admin-content',{method:'PUT',headers:{'content-type':'application/json','x-admin-password':password},body:JSON.stringify({content})})
+      const res=await fetch('/api/admin-content',{
+        method:'PUT',
+        headers:{'content-type':'application/json',...authHeaders(password)},
+        body:JSON.stringify({content})
+      })
       const body=await res.json()
-      if(!res.ok){setStatus(res.status===503?'setup':'ready');setMessage(body.error||'Save failed.');return}
-      setStatus('ready');setMessage('Saved to GitHub. Vercel will redeploy the updated content automatically.')
+      if(!res.ok){
+        setStatus(res.status===503?'setup':'ready')
+        setMessage(body.error||'Save failed.')
+        return
+      }
+      setStatus('ready')
+      setMessage('Saved to GitHub. Vercel will redeploy the updated content automatically.')
       track('admin_content_saved',{commit:body.commit||'created'})
     }catch{
-      setStatus('ready');setMessage('Save failed. Check the server configuration and try again.')
+      setStatus('ready')
+      setMessage('Save failed. Check the server configuration and try again.')
     }
   }
 
-  if(status==='locked') return <main className="min-h-[70vh] bg-bone"><section className="mx-auto max-w-xl px-4 py-20 sm:px-7"><Kicker>OVOSKG Admin</Kicker><h1 className="mt-4 font-display text-6xl leading-none">Content studio</h1><p className="mt-5 text-sm leading-7 text-black/55">Enter the server-side admin password to edit approved website content.</p><div className="mt-8 bg-white p-6 editorial-shadow"><Field label="Admin password"><input type="password" value={password} onChange={e=>setPassword(e.target.value)} onKeyDown={e=>e.key==='Enter'&&load(password)} placeholder="••••••••"/></Field><button onClick={()=>load(password)} className="mt-6 w-full bg-ink px-5 py-4 text-[10px] font-semibold uppercase tracking-[.14em] text-white">Open admin</button>{message&&<p className="mt-4 text-xs text-red-700">{message}</p>}</div></section></main>
+  if(status==='locked') return <main className="relative min-h-screen overflow-hidden bg-[#0b0908]">
+    <div className="absolute inset-0 opacity-25 luxury-grid"/>
+    <div className="absolute inset-x-0 top-0 flex items-center justify-between px-5 py-5 sm:px-8">
+      <Logo/>
+      <Link to="/" className="text-[9px] font-semibold uppercase tracking-[.16em] text-white/55">Back to website</Link>
+    </div>
+    <div className="grid min-h-screen place-items-center px-4 py-24">
+      <motion.section
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="admin-login-title"
+        initial={{opacity:0,scale:.985,y:8}}
+        animate={{opacity:1,scale:1,y:0}}
+        transition={{duration:.32,ease:[.22,1,.36,1]}}
+        className="relative z-10 w-full max-w-[460px] border border-white/12 bg-[#f7f3eb] p-6 shadow-[0_28px_100px_rgba(0,0,0,.45)] sm:p-8"
+      >
+        <div className="mb-7 flex items-start justify-between gap-5 border-b border-black/10 pb-6">
+          <div>
+            <Kicker>Secure access</Kicker>
+            <h1 id="admin-login-title" className="mt-2 font-display text-5xl leading-none">Admin login</h1>
+          </div>
+          <ShieldCheck size={22} className="mt-1 text-bronze"/>
+        </div>
+        <div className="grid gap-5">
+          <Field label="Username">
+            <input value={ADMIN_USERNAME} readOnly aria-readonly="true" className="cursor-default text-black/60"/>
+          </Field>
+          <Field label="Password">
+            <input
+              autoFocus
+              type="password"
+              value={password}
+              onChange={e=>setPassword(e.target.value)}
+              onKeyDown={e=>e.key==='Enter'&&load(password)}
+              placeholder="Enter admin password"
+              autoComplete="current-password"
+            />
+          </Field>
+        </div>
+        <button onClick={()=>load(password)} disabled={!password} className="mt-7 w-full bg-ink px-5 py-4 text-[10px] font-semibold uppercase tracking-[.14em] text-white transition hover:bg-[#171411] disabled:cursor-not-allowed disabled:opacity-35">Login to admin</button>
+        {message&&<p className="mt-4 border-l-2 border-red-700/50 pl-3 text-xs leading-5 text-red-800">{message}</p>}
+        <p className="mt-6 text-[10px] leading-5 text-black/42">Username is fixed to <strong className="font-semibold text-black/65">admin</strong>. Your password is checked securely on the server and is not stored in the website code.</p>
+      </motion.section>
+    </div>
+  </main>
 
-  if(status==='setup') return <main className="min-h-[70vh] bg-bone"><section className="mx-auto max-w-2xl px-4 py-20 sm:px-7"><Kicker>Admin setup</Kicker><h1 className="mt-4 font-display text-6xl leading-none">Secure publishing is ready to connect.</h1><p className="mt-5 text-sm leading-7 text-black/55">The admin interface is deployed, but publishing stays locked until the Vercel project has <code>ADMIN_PASSWORD</code> and <code>GITHUB_TOKEN</code> environment variables. The GitHub token should have permission to update this repository only.</p><div className="mt-7 border border-black/10 bg-white p-5 text-xs leading-6 text-black/55">No secret is stored in the browser or committed to the repository. Once the two environment variables are added, redeploy and sign in here.</div></section></main>
+  if(status==='setup') return <main className="min-h-[70vh] bg-bone"><section className="mx-auto max-w-2xl px-4 py-20 sm:px-7"><Kicker>Admin setup</Kicker><h1 className="mt-4 font-display text-6xl leading-none">Secure publishing is ready to connect.</h1><p className="mt-5 text-sm leading-7 text-black/55">The admin login is ready with username <strong>admin</strong>, but publishing stays locked until the Vercel project has <code>ADMIN_PASSWORD</code> and <code>GITHUB_TOKEN</code> environment variables.</p><div className="mt-7 border border-black/10 bg-white p-5 text-xs leading-6 text-black/55">The password is never committed to GitHub or exposed in the browser bundle. Add the two environment variables in Vercel, redeploy, then return to <code>/admin</code>.</div></section></main>
 
-  if(status==='loading') return <main className="grid min-h-[70vh] place-items-center bg-bone"><div className="text-[10px] font-semibold uppercase tracking-[.16em] text-black/45">Loading admin…</div></main>
+  if(status==='loading') return <main className="grid min-h-[70vh] place-items-center bg-bone"><div className="text-[10px] font-semibold uppercase tracking-[.16em] text-black/45">Checking admin access…</div></main>
 
-  return <main className="min-h-screen bg-bone"><section className="mx-auto max-w-5xl px-4 py-16 sm:px-7 lg:py-20"><div className="flex flex-col justify-between gap-6 border-b border-black/10 pb-8 sm:flex-row sm:items-end"><div><Kicker>OVOSKG Admin</Kicker><h1 className="mt-3 font-display text-6xl leading-none">Content studio</h1></div><button onClick={()=>{sessionStorage.removeItem('ovoskg_admin_password');setPassword('');setStatus('locked')}} className="text-[9px] font-semibold uppercase tracking-[.14em] text-black/45">Lock admin</button></div>
+  return <main className="min-h-screen bg-bone"><section className="mx-auto max-w-5xl px-4 py-16 sm:px-7 lg:py-20"><div className="flex flex-col justify-between gap-6 border-b border-black/10 pb-8 sm:flex-row sm:items-end"><div><Kicker>OVOSKG Admin</Kicker><h1 className="mt-3 font-display text-6xl leading-none">Content studio</h1><p className="mt-3 text-xs text-black/45">Signed in as admin</p></div><button onClick={()=>{sessionStorage.removeItem('ovoskg_admin_password');setPassword('');setStatus('locked');setMessage('')}} className="text-[9px] font-semibold uppercase tracking-[.14em] text-black/45">Lock admin</button></div>
     <div className="mt-10 grid gap-6 lg:grid-cols-2">
       <div className="bg-white p-6 sm:p-8 editorial-shadow"><Kicker>Homepage hero</Kicker><div className="mt-7 grid gap-6"><Field label="Trust line"><input value={content.hero.trust} onChange={e=>setPath('hero','trust',e.target.value)}/></Field><Field label="Headline first line"><input value={content.hero.headingPrimary} onChange={e=>setPath('hero','headingPrimary',e.target.value)}/></Field><Field label="Headline accent line"><input value={content.hero.headingAccent} onChange={e=>setPath('hero','headingAccent',e.target.value)}/></Field><Field label="Hero body"><textarea rows="5" value={content.hero.body} onChange={e=>setPath('hero','body',e.target.value)}/></Field></div></div>
       <div className="bg-white p-6 sm:p-8 editorial-shadow"><Kicker>Business details</Kicker><div className="mt-7 grid gap-6"><Field label="Phone display"><input value={content.contact.phoneDisplay} onChange={e=>setPath('contact','phoneDisplay',e.target.value)}/></Field><Field label="Phone international"><input value={content.contact.phoneE164} onChange={e=>setPath('contact','phoneE164',e.target.value)}/></Field><Field label="Location"><input value={content.contact.location} onChange={e=>setPath('contact','location',e.target.value)}/></Field><Field label="Registration"><input value={content.business.registration} onChange={e=>setPath('business','registration',e.target.value)}/></Field></div></div>
