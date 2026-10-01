@@ -5,7 +5,7 @@ test.describe('OVOSKG customer journey', () => {
     await page.goto('/')
     await expect(page.getByRole('heading', { name: /Your presence/i })).toBeVisible()
     await expect(page.getByRole('link', { name: /Start a commission/i }).first()).toBeVisible()
-    await expect(page.getByRole('img', { name: /Editorial reference of a tailored suit/i })).toBeVisible()
+    await expect(page.getByRole('img', { name: /OVOSKG client in a navy bespoke suit/i })).toBeVisible()
     await expect(page.getByText(/Men and women bespoke/i).first()).toBeVisible()
   })
 
@@ -37,6 +37,21 @@ test.describe('OVOSKG customer journey', () => {
     await referenceButtons.first().click()
     await expect(page.getByRole('button', { name: /Saved as reference/i }).first()).toBeVisible()
     await expect(page.getByRole('link', { name: /Continue to bespoke/i })).toBeVisible()
+  })
+
+  test('remote fitting safeguards are visible before commitment', async ({ page }) => {
+    await page.goto('/bespoke')
+    await expect(page.getByRole('heading', { name: /How remote fitting is protected/i })).toBeVisible()
+    await expect(page.getByText(/Measurement review/i).first()).toBeVisible()
+    await expect(page.getByText(/After-delivery fit review/i).first()).toBeVisible()
+  })
+
+  test('public pages contain no staging placeholder copy', async ({ page }) => {
+    for (const route of ['/', '/lookbook', '/measurements', '/about']) {
+      await page.goto(route)
+      const body = await page.locator('body').innerText()
+      expect(body).not.toMatch(/FOUNDER PORTRAIT SLOT|replace with|final media pass|media note|editorial image reference/i)
+    }
   })
 
   test('shop shortlist flows into bespoke', async ({ page }) => {
@@ -71,7 +86,7 @@ test.describe('OVOSKG customer journey', () => {
     const inputs = page.locator('input[inputmode="decimal"]')
     await inputs.first().fill('16')
     await page.getByRole('button', { name: /Save measurement profile/i }).click()
-    await expect(page.getByRole('button', { name: /Saved on this device/i })).toBeVisible()
+    await expect(page.getByRole('button', { name: /Draft saved/i })).toBeVisible()
   })
 
   test('demo order tracker shows production status', async ({ page }) => {
