@@ -83,10 +83,10 @@ function AppMeta(){
     setMeta('meta[property="og:title"]',{property:'og:title',content:meta.title})
     setMeta('meta[property="og:description"]',{property:'og:description',content:meta.description})
     setMeta('meta[property="og:url"]',{property:'og:url',content:canonical})
-    setMeta('meta[property="og:image"]',{property:'og:image',content:`${SITE_URL}/ovoskg-logo.webp`})
+    setMeta('meta[property="og:image"]',{property:'og:image',content:`${SITE_URL}/ovoskg-logo.svg`})
     setMeta('meta[name="twitter:title"]',{name:'twitter:title',content:meta.title})
     setMeta('meta[name="twitter:description"]',{name:'twitter:description',content:meta.description})
-    setMeta('meta[name="twitter:image"]',{name:'twitter:image',content:`${SITE_URL}/ovoskg-logo.webp`})
+    setMeta('meta[name="twitter:image"]',{name:'twitter:image',content:`${SITE_URL}/ovoskg-logo.svg`})
     setMeta('meta[name="robots"]',{name:'robots',content:pathname==='/admin'?'noindex,nofollow':'index,follow,max-image-preview:large'})
     window.scrollTo({top:0,behavior:'instant'})
   },[pathname])
@@ -113,7 +113,7 @@ function ConversionAnalytics(){
 
 function Logo(){
   return <Link to="/" aria-label="OVOSKG homepage" className="brand-logo inline-flex min-w-0 items-center">
-    <img src="/ovoskg-logo.webp" alt="OVOSKG Clothings" className="h-[38px] w-auto max-w-[150px] object-contain sm:h-[46px] sm:max-w-[182px] lg:h-[50px] lg:max-w-[198px]" loading="eager" decoding="async"/>
+    <img src="/ovoskg-logo.svg" alt="OVOSKG Clothings" className="h-[38px] w-auto max-w-[150px] object-contain sm:h-[46px] sm:max-w-[182px] lg:h-[50px] lg:max-w-[198px]" loading="eager" decoding="async"/>
   </Link>
 }
 
