@@ -168,3 +168,13 @@ test('mobile hero keeps primary actions visible', async ({ page }) => {
   await expect(page.getByRole('link', { name: /Start an order/i }).first()).toBeVisible()
   await expect(page.locator('.hero-fit-frame')).toBeVisible()
 })
+
+
+test('mobile sticky CTA starts after hero', async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 800 })
+  await page.goto('/')
+  await expect(page.getByTestId('mobile-sticky-cta')).toHaveCount(0)
+  await page.locator('#home-after-hero').scrollIntoViewIfNeeded()
+  await page.waitForTimeout(100)
+  await expect(page.getByTestId('mobile-sticky-cta')).toBeVisible()
+})

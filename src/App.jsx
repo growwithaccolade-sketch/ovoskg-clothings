@@ -128,7 +128,36 @@ function ShortlistDrawer({open,close}){
 }
 
 function MobileConversionBar(){
-  return <div className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-[1fr_auto] gap-2 rounded-xl border border-white/10 bg-ink/96 p-1.5 text-white shadow-[0_14px_34px_rgba(0,0,0,.2)] backdrop-blur md:hidden"><Link to="/bespoke" className="flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-2.5 text-[9px] font-bold uppercase tracking-[.11em] text-ink">Start order <ArrowRight size={12}/></Link><a href={wa()} target="_blank" rel="noreferrer" aria-label="WhatsApp OVOSKG" className="grid h-10 w-10 place-items-center rounded-lg border border-white/12 text-white/85"><MessageCircle size={15}/></a></div>
+  const {pathname}=useLocation()
+  const [visible,setVisible]=useState(pathname!=='/')
+  useEffect(()=>{
+    if(pathname!=='/'){
+      setVisible(true)
+      return
+    }
+    const update=()=>{
+      const second=document.getElementById('home-after-hero')
+      if(!second){setVisible(false);return}
+      const trigger=Math.max(0,second.offsetTop-16)
+      setVisible(window.scrollY>=trigger)
+    }
+    update()
+    window.addEventListener('scroll',update,{passive:true})
+    window.addEventListener('resize',update)
+    return()=>{
+      window.removeEventListener('scroll',update)
+      window.removeEventListener('resize',update)
+    }
+  },[pathname])
+
+  return <AnimatePresence>{visible&&<motion.div
+    initial={{opacity:0,y:12}}
+    animate={{opacity:1,y:0}}
+    exit={{opacity:0,y:12}}
+    transition={{duration:.28,ease:[.22,1,.36,1]}}
+    data-testid="mobile-sticky-cta"
+    className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-[1fr_auto] gap-2 rounded-xl border border-white/10 bg-ink/96 p-1.5 text-white shadow-[0_14px_34px_rgba(0,0,0,.18)] backdrop-blur md:hidden"
+  ><Link to="/bespoke" className="flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-2.5 text-[9px] font-bold uppercase tracking-[.11em] text-ink">Start order <ArrowRight size={12}/></Link><a href={wa()} target="_blank" rel="noreferrer" aria-label="WhatsApp OVOSKG" className="grid h-10 w-10 place-items-center rounded-lg border border-white/12 text-white/85"><MessageCircle size={15}/></a></motion.div>}</AnimatePresence>
 }
 
 function Kicker({children,light=false}){return <div className={`text-[9px] font-bold uppercase tracking-[.21em] ${light?'text-white/50':'text-bronze'}`}>{children}</div>}
@@ -142,27 +171,27 @@ function RouteFrame({children}){
 
 function HomePage(){
   return <main>
-    <section className="bg-ink text-white">
-      <div className="mx-auto grid max-w-[1540px] lg:min-h-[690px] lg:grid-cols-[.9fr_1.1fr]">
-        <div className="flex items-center px-4 py-10 sm:px-7 sm:py-14 md:px-10 lg:px-12 lg:py-24 xl:px-16">
+    <section id="home-hero" className="bg-ink text-white">
+      <div className="mx-auto grid max-w-[1540px] lg:min-h-[700px] lg:grid-cols-[.92fr_1.08fr]">
+        <div className="flex items-center px-4 py-11 sm:px-7 sm:py-16 md:px-10 lg:px-12 lg:py-24 xl:px-16">
           <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:.85,ease:[.22,1,.36,1]}} className="w-full max-w-[680px]">
             <div className="inline-flex max-w-full items-center gap-2 text-[8px] font-semibold uppercase tracking-[.12em] text-white/46 sm:text-[9px]"><ShieldCheck size={12} className="shrink-0 text-[#caa177]"/>800+ custom pieces reported by founder</div>
             <h1 className="display-tight mt-5 max-w-[650px] font-display text-[clamp(3.05rem,11.7vw,5rem)] font-medium leading-[.84] sm:mt-7 sm:text-[clamp(4.5rem,9vw,6.1rem)] lg:text-[clamp(5.15rem,6vw,7.15rem)]">Made for your body.<br/><span className="italic text-[#caa177]">Ready for the occasion.</span></h1>
             <p className="mt-5 max-w-[520px] text-[13px] leading-6 text-white/58 sm:mt-7 sm:text-[15px] sm:leading-7">Suits and luxury kaftans for work, weddings and important occasions. OVOSKG handles the fit, cloth and finishing.</p>
-            <div className="mt-6 grid max-w-md gap-2.5 sm:mt-8 sm:flex sm:max-w-none sm:flex-wrap sm:items-center sm:gap-5">
+            <div className="mt-7 grid max-w-[390px] gap-2.5 sm:mt-8 sm:flex sm:max-w-none sm:flex-wrap sm:items-center sm:gap-5">
               <PrimaryLink to="/bespoke" light className="w-full sm:w-auto">Start an order</PrimaryLink>
               <Link to="/collections" className="inline-flex w-full items-center justify-center gap-2 border border-white/14 px-5 py-3.5 text-[10px] font-semibold uppercase tracking-[.13em] text-white/66 transition hover:border-white/28 hover:text-white sm:w-auto sm:justify-start sm:border-0 sm:px-0 sm:py-3">View collections <ArrowUpRight size={14}/></Link>
             </div>
           </motion.div>
         </div>
-        <div className="hero-fit-frame relative min-h-[360px] overflow-hidden sm:min-h-[520px] md:min-h-[560px] lg:min-h-[690px]">
-          <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Jj44K9vvUC3TezHyyKE7MUf36Z/0afcb8b4-17d6-4f5e-b362-054923e2a0e8.webp" alt="Smiling Black man in a tailored brown designer suit" className="hero-fit-image absolute inset-0 h-full w-full object-cover"/>
+        <div className="hero-fit-frame relative min-h-[380px] overflow-hidden sm:min-h-[530px] md:min-h-[575px] lg:min-h-[700px]">
+          <img src="https://images.unsplash.com/photo-1668202849897-846a0c405763?auto=format&fit=crop&w=2400&q=94" alt="Nigerian man in a tailored suit" className="hero-fit-image absolute inset-0 h-full w-full object-cover"/>
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-transparent lg:from-black/16"/>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/16 to-transparent lg:hidden"/>
         </div>
       </div>
     </section>
-    <RemoteFitAssurance/>
+    <div id="home-after-hero"><RemoteFitAssurance/></div>
     <EntryPaths/>
     <HomeCollections/>
     <ProcessSection/>

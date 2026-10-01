@@ -66,37 +66,37 @@ input::placeholder,textarea::placeholder{color:rgba(11,10,9,.38)}
 
 .luxury-header{background:rgba(9,8,7,.975);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 8px 28px rgba(0,0,0,.08)}
 
-/* Hero tailoring crop: keep the frame on lapels, shoulder line, jacket waist and trouser break. */
+/* Hero tailoring crop: keep the face present while prioritising lapels, shoulders and jacket fit. */
 .hero-fit-image{
   object-position:50% 18%;
-  transform:scale(1.06);
-  transform-origin:50% 28%;
+  transform:scale(1.13);
+  transform-origin:50% 30%;
 }
 @media (min-width:640px){
   .hero-fit-image{
     object-position:50% 16%;
-    transform:scale(1.05);
-    transform-origin:50% 26%;
+    transform:scale(1.11);
+    transform-origin:50% 28%;
   }
 }
 @media (min-width:1024px){
   .hero-fit-image{
-    object-position:50% 17%;
-    transform:scale(1.08);
-    transform-origin:50% 30%;
+    object-position:50% 18%;
+    transform:scale(1.13);
+    transform-origin:50% 31%;
   }
 }
 @media (min-width:1280px){
   .hero-fit-image{
-    object-position:50% 16%;
-    transform:scale(1.09);
-    transform-origin:50% 30%;
+    object-position:50% 17%;
+    transform:scale(1.14);
+    transform-origin:50% 31%;
   }
 }
 @media (max-width:389px){
-  .hero-fit-frame{min-height:340px}
+  .hero-fit-frame{min-height:350px}
   .hero-fit-image{
-    object-position:50% 14%;
-    transform:scale(1.08);
+    object-position:50% 15%;
+    transform:scale(1.12);
   }
 }
