@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>/</loc></url>
   <url><loc>/collections</loc></url>
+  <url><loc>/collections/mens-bespoke</loc></url>
+  <url><loc>/collections/womens-bespoke</loc></url>
+  <url><loc>/collections/luxury-kaftan</loc></url>
   <url><loc>/shop</loc></url>
   <url><loc>/lookbook</loc></url>
   <url><loc>/bespoke</loc></url>
