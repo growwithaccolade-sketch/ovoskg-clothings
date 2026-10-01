@@ -48,9 +48,9 @@ function AppMeta(){
 }
 
 function Logo({light=false}){
-  return <Link to="/" aria-label="OVOSKG homepage" className="brand-logo inline-flex items-center gap-3">
-    <svg aria-hidden="true" viewBox="0 0 64 64" className="h-9 w-9 shrink-0 sm:h-10 sm:w-10"><path d="M8 32c0-8.8 5.8-15 13.2-15 5.4 0 8.9 3 12.3 8.3C36.7 20 40.6 17 46 17c7.1 0 10.8 5.3 10.8 12.4S52.8 42 46 42c-5.2 0-9.2-3-12.5-8.2C30.1 39 26.5 42 21.2 42 13.8 42 8 40.8 8 32Zm8 0c0 4.3 2.5 6.6 5.7 6.6 3.3 0 5.5-2.5 8.4-6.6-2.9-4.2-5.1-6.7-8.4-6.7-3.2 0-5.7 2.4-5.7 6.7Zm21.5 0c2.8 4.1 5.2 6.6 8.3 6.6 2.7 0 4.9-2.5 4.9-6.6 0-4.2-2.2-6.7-4.9-6.7-3.2 0-5.5 2.6-8.3 6.7Z" fill="currentColor"/></svg>
-    <span className="leading-none"><span className={`block text-[22px] font-medium tracking-[.08em] sm:text-[25px] ${light?'text-[#caa177]':'text-[#8f6b48]'}`}>OVOSKG</span><span className={`mt-1 block text-[7px] font-semibold uppercase tracking-[.38em] ${light?'text-white/52':'text-black/46'}`}>Clothings</span></span>
+  return <Link to="/" aria-label="OVOSKG homepage" className="brand-logo inline-flex min-w-0 items-center gap-2.5 sm:gap-3">
+    <svg aria-hidden="true" viewBox="0 0 64 64" className="h-8 w-8 shrink-0 sm:h-10 sm:w-10"><path d="M8 32c0-8.8 5.8-15 13.2-15 5.4 0 8.9 3 12.3 8.3C36.7 20 40.6 17 46 17c7.1 0 10.8 5.3 10.8 12.4S52.8 42 46 42c-5.2 0-9.2-3-12.5-8.2C30.1 39 26.5 42 21.2 42 13.8 42 8 40.8 8 32Zm8 0c0 4.3 2.5 6.6 5.7 6.6 3.3 0 5.5-2.5 8.4-6.6-2.9-4.2-5.1-6.7-8.4-6.7-3.2 0-5.7 2.4-5.7 6.7Zm21.5 0c2.8 4.1 5.2 6.6 8.3 6.6 2.7 0 4.9-2.5 4.9-6.6 0-4.2-2.2-6.7-4.9-6.7-3.2 0-5.5 2.6-8.3 6.7Z" fill="currentColor"/></svg>
+    <span className="leading-none"><span className={`block text-[19px] font-medium tracking-[.08em] sm:text-[25px] ${light?'text-[#caa177]':'text-[#8f6b48]'}`}>OVOSKG</span><span className={`mt-1 block text-[6px] font-semibold uppercase tracking-[.34em] sm:text-[7px] sm:tracking-[.38em] ${light?'text-white/52':'text-black/46'}`}>Clothings</span></span>
   </Link>
 }
 
@@ -74,15 +74,15 @@ function Header(){
   },[menu])
   return <>
     <header className="luxury-header sticky top-0 z-50 border-b border-white/8 text-white">
-      <div className="mx-auto flex h-[88px] max-w-[1540px] items-center gap-5 px-4 sm:px-7">
+      <div className="mx-auto flex h-[72px] max-w-[1540px] items-center gap-3 px-4 sm:h-[82px] sm:gap-5 sm:px-7">
         <Logo light/>
         <nav className="ml-auto hidden items-center gap-5 2xl:flex">
           {navItems.map(([label,path])=><NavLink key={path} to={path} className={({isActive})=>`line-link text-[10px] font-semibold uppercase tracking-[.12em] ${isActive?'active text-[#caa177]':'text-white/58 hover:text-white'}`}>{label}</NavLink>)}
         </nav>
         <div className="ml-auto flex items-center gap-2 2xl:ml-3">
-          <button onClick={()=>setShortlist(true)} aria-label="Open style shortlist" className="focus-ring relative grid h-10 w-10 place-items-center rounded-full border border-white/16 text-white/80 transition hover:border-white/34 hover:text-white"><ShoppingBag size={17}/>{count>0&&<span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-bronze px-1 text-[9px] font-bold text-white">{count}</span>}</button>
+          <button onClick={()=>setShortlist(true)} aria-label="Open style shortlist" className="focus-ring relative grid h-9 w-9 place-items-center rounded-full border border-white/16 sm:h-10 sm:w-10 text-white/80 transition hover:border-white/34 hover:text-white"><ShoppingBag size={17}/>{count>0&&<span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-bronze px-1 text-[9px] font-bold text-white">{count}</span>}</button>
           <Link to="/bespoke" className="hidden rounded-full bg-[#f7f3eb] px-5 py-3 text-[10px] font-bold uppercase tracking-[.12em] text-ink transition hover:bg-white md:inline-flex">Start an order</Link>
-          <button onClick={()=>setMenu(true)} aria-label="Open navigation" className="focus-ring grid h-10 w-10 place-items-center rounded-full border border-white/16 text-white/80 2xl:hidden"><Menu size={19}/></button>
+          <button onClick={()=>setMenu(true)} aria-label="Open navigation" className="focus-ring grid h-9 w-9 place-items-center rounded-full border border-white/16 sm:h-10 sm:w-10 text-white/80 2xl:hidden"><Menu size={19}/></button>
         </div>
       </div>
     </header>
@@ -97,7 +97,7 @@ function MenuOverlay({close}){
     <motion.aside initial={{x:'100%'}} animate={{x:0}} exit={{x:'100%'}} transition={{duration:.38,ease:[.22,1,.36,1]}} className="fixed right-0 top-0 z-[90] flex h-dvh w-full max-w-xl flex-col bg-bone">
       <div className="flex items-center justify-between border-b border-black/10 p-5 sm:p-7"><Logo/><button onClick={close} aria-label="Close menu" className="grid h-10 w-10 place-items-center rounded-full border border-black/15"><X size={19}/></button></div>
       <nav className="flex-1 overflow-auto px-5 py-4 sm:px-7">
-        {navItems.map(([label,path],i)=><Link key={path} to={path} onClick={close} className="group flex items-center justify-between border-b border-black/10 py-4 sm:py-5"><span className="font-display text-4xl leading-none sm:text-5xl">{label}</span><span className="flex items-center gap-3"><span className="hidden text-[9px] font-bold uppercase tracking-[.16em] text-black/35 sm:inline">{String(i+1).padStart(2,'0')}</span><ArrowUpRight size={17} className="transition group-hover:translate-x-1 group-hover:-translate-y-1"/></span></Link>)}
+        {navItems.map(([label,path],i)=><Link key={path} to={path} onClick={close} className="group flex items-center justify-between border-b border-black/10 py-3.5 sm:py-5"><span className="font-display text-[2rem] leading-none sm:text-5xl">{label}</span><span className="flex items-center gap-3"><span className="hidden text-[9px] font-bold uppercase tracking-[.16em] text-black/35 sm:inline">{String(i+1).padStart(2,'0')}</span><ArrowUpRight size={17} className="transition group-hover:translate-x-1 group-hover:-translate-y-1"/></span></Link>)}
       </nav>
       <div className="grid grid-cols-2 gap-px bg-black/10 border-t border-black/10"><a href={wa()} target="_blank" rel="noreferrer" className="bg-bone p-5 text-xs font-bold uppercase tracking-[.12em]">WhatsApp</a><a href={instagram} target="_blank" rel="noreferrer" className="bg-bone p-5 text-xs font-bold uppercase tracking-[.12em]">Instagram</a></div>
     </motion.aside>
@@ -128,7 +128,7 @@ function ShortlistDrawer({open,close}){
 }
 
 function MobileConversionBar(){
-  return <div className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-[1.25fr_.75fr] gap-2 rounded-2xl border border-white/20 bg-ink/95 p-2 text-white shadow-2xl backdrop-blur md:hidden"><Link to="/bespoke" className="flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-[10px] font-bold uppercase tracking-[.12em] text-ink">Start bespoke <ArrowRight size={13}/></Link><a href={wa()} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 rounded-xl border border-white/15 px-3 py-3 text-[10px] font-bold uppercase tracking-[.12em]"><MessageCircle size={14}/> Chat</a></div>
+  return <div className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-[1fr_auto] gap-2 rounded-xl border border-white/10 bg-ink/96 p-1.5 text-white shadow-[0_14px_34px_rgba(0,0,0,.2)] backdrop-blur md:hidden"><Link to="/bespoke" className="flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-2.5 text-[9px] font-bold uppercase tracking-[.11em] text-ink">Start order <ArrowRight size={12}/></Link><a href={wa()} target="_blank" rel="noreferrer" aria-label="WhatsApp OVOSKG" className="grid h-10 w-10 place-items-center rounded-lg border border-white/12 text-white/85"><MessageCircle size={15}/></a></div>
 }
 
 function Kicker({children,light=false}){return <div className={`text-[9px] font-bold uppercase tracking-[.21em] ${light?'text-white/50':'text-bronze'}`}>{children}</div>}
@@ -144,19 +144,18 @@ function HomePage(){
   return <main>
     <section className="bg-ink text-white">
       <div className="mx-auto grid max-w-[1540px] lg:min-h-[690px] lg:grid-cols-[.9fr_1.1fr]">
-        <div className="flex items-center px-4 py-14 sm:px-7 sm:py-16 md:px-10 lg:px-12 lg:py-24 xl:px-16">
+        <div className="flex items-center px-4 py-10 sm:px-7 sm:py-14 md:px-10 lg:px-12 lg:py-24 xl:px-16">
           <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:.85,ease:[.22,1,.36,1]}} className="w-full max-w-[680px]">
-            <Kicker light>OVOSKG Clothings</Kicker>
-            <div className="mt-5 inline-flex max-w-full items-center gap-2 text-[8px] font-semibold uppercase tracking-[.13em] text-white/48 sm:mt-6 sm:text-[9px]"><ShieldCheck size={12} className="shrink-0 text-[#caa177]"/>800+ custom pieces reported by founder</div>
-            <h1 className="display-tight mt-6 max-w-[650px] font-display text-[clamp(3.35rem,12.5vw,5.5rem)] font-medium leading-[.83] sm:mt-7 sm:text-[clamp(4.6rem,9vw,6.2rem)] lg:text-[clamp(5.2rem,6.1vw,7.25rem)]">Made for your body.<br/><span className="italic text-[#caa177]">Ready for the occasion.</span></h1>
-            <p className="mt-6 max-w-[540px] text-[13px] leading-6 text-white/58 sm:mt-7 sm:text-[15px] sm:leading-7">Suits and luxury kaftans for work, weddings and important occasions. OVOSKG handles the fit, cloth and finishing.</p>
-            <div className="mt-7 grid max-w-md gap-3 sm:mt-8 sm:flex sm:max-w-none sm:flex-wrap sm:items-center sm:gap-5">
+            <div className="inline-flex max-w-full items-center gap-2 text-[8px] font-semibold uppercase tracking-[.12em] text-white/46 sm:text-[9px]"><ShieldCheck size={12} className="shrink-0 text-[#caa177]"/>800+ custom pieces reported by founder</div>
+            <h1 className="display-tight mt-5 max-w-[650px] font-display text-[clamp(3.05rem,11.7vw,5rem)] font-medium leading-[.84] sm:mt-7 sm:text-[clamp(4.5rem,9vw,6.1rem)] lg:text-[clamp(5.15rem,6vw,7.15rem)]">Made for your body.<br/><span className="italic text-[#caa177]">Ready for the occasion.</span></h1>
+            <p className="mt-5 max-w-[520px] text-[13px] leading-6 text-white/58 sm:mt-7 sm:text-[15px] sm:leading-7">Suits and luxury kaftans for work, weddings and important occasions. OVOSKG handles the fit, cloth and finishing.</p>
+            <div className="mt-6 grid max-w-md gap-2.5 sm:mt-8 sm:flex sm:max-w-none sm:flex-wrap sm:items-center sm:gap-5">
               <PrimaryLink to="/bespoke" light className="w-full sm:w-auto">Start an order</PrimaryLink>
               <Link to="/collections" className="inline-flex w-full items-center justify-center gap-2 border border-white/14 px-5 py-3.5 text-[10px] font-semibold uppercase tracking-[.13em] text-white/66 transition hover:border-white/28 hover:text-white sm:w-auto sm:justify-start sm:border-0 sm:px-0 sm:py-3">View collections <ArrowUpRight size={14}/></Link>
             </div>
           </motion.div>
         </div>
-        <div className="hero-fit-frame relative min-h-[430px] overflow-hidden sm:min-h-[560px] lg:min-h-[690px]">
+        <div className="hero-fit-frame relative min-h-[360px] overflow-hidden sm:min-h-[520px] md:min-h-[560px] lg:min-h-[690px]">
           <img src="https://images.unsplash.com/photo-1668202849897-846a0c405763?auto=format&fit=crop&w=2400&q=94" alt="Nigerian man in a tailored suit" className="hero-fit-image absolute inset-0 h-full w-full object-cover"/>
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-transparent lg:from-black/16"/>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/16 to-transparent lg:hidden"/>

@@ -152,3 +152,19 @@ test('hero uses fit focused single image', async ({ page }) => {
   await expect(hero.locator('img.hero-fit-image')).toHaveCount(1)
   await expect(hero.locator('img')).toHaveCount(1)
 })
+
+
+test('hero omits repeated brand label and stays concise', async ({ page }) => {
+  await page.goto('/')
+  const hero = page.locator('main section').first()
+  await expect(hero.getByText('OVOSKG Clothings', { exact: true })).toHaveCount(0)
+  await expect(hero.getByRole('heading', { name: /Made for your body/i })).toBeVisible()
+})
+
+test('mobile hero keeps primary actions visible', async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 800 })
+  await page.goto('/')
+  await expect(page.getByRole('heading', { name: /Made for your body/i })).toBeVisible()
+  await expect(page.getByRole('link', { name: /Start an order/i }).first()).toBeVisible()
+  await expect(page.locator('.hero-fit-frame')).toBeVisible()
+})
