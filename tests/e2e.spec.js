@@ -5,13 +5,13 @@ test.describe('OVOSKG customer journey', () => {
     await page.goto('/')
     await expect(page.getByRole('heading', { name: /Your presence/i })).toBeVisible()
     await expect(page.getByRole('link', { name: /Start a commission/i }).first()).toBeVisible()
-    await expect(page.getByText(/800\+/).first()).toBeVisible()
+    await expect(page.getByRole('img', { name: /Editorial reference of a tailored suit/i })).toBeVisible()
     await expect(page.getByText(/Men and women bespoke/i).first()).toBeVisible()
   })
 
   test('major routes render', async ({ page }) => {
     const routes = [
-      ['/collections', /Start with the occasion/i],
+      ['/collections', /Start with the silhouette/i],
       ['/shop', /Browse like a client/i],
       ['/lookbook', /Bring references/i],
       ['/bespoke', /A better brief/i],
