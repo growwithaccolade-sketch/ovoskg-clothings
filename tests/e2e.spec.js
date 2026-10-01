@@ -6,7 +6,7 @@ test.describe('OVOSKG customer journey', () => {
     await expect(page.getByRole('heading', { name: /Made for your body/i })).toBeVisible()
     await expect(page.getByRole('link', { name: /Start an order/i }).first()).toBeVisible()
     await expect(page.getByRole('img', { name: /Nigerian man in a tailored suit/i }).first()).toBeVisible()
-    await expect(page.getByText(/Suits and luxury kaftans for work, weddings and important occasions/i)).toBeVisible()
+    await expect(page.getByText(/Bespoke suits, women’s tailoring and luxury kaftans for work, weddings and important occasions/i)).toBeVisible()
     await expect(page.getByText(/800\+ custom pieces delivered across Nigeria/i)).toBeVisible()
   })
 
