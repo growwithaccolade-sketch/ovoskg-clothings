@@ -28,6 +28,17 @@ test.describe('OVOSKG customer journey', () => {
     }
   })
 
+  test('collection mini lookbook saves a reference and nudges to bespoke', async ({ page }) => {
+    await page.goto('/collections/mens-bespoke')
+    await expect(page.getByRole('heading', { name: /Men's bespoke suits/i })).toBeVisible()
+    await expect(page.getByText(/6 curated references/i)).toBeVisible()
+    const referenceButtons = page.getByRole('button', { name: /Use as reference/i })
+    await expect(referenceButtons.first()).toBeVisible()
+    await referenceButtons.first().click()
+    await expect(page.getByRole('button', { name: /Saved as reference/i }).first()).toBeVisible()
+    await expect(page.getByRole('link', { name: /Continue to bespoke/i })).toBeVisible()
+  })
+
   test('shop shortlist flows into bespoke', async ({ page }) => {
     await page.goto('/shop')
     const saveButtons = page.getByRole('button', { name: /Add to shortlist/i })
