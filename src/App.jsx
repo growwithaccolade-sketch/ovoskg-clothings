@@ -147,39 +147,23 @@ function RouteFrame({children}){
 
 function HomePage(){
   return <main>
-    <section className="cloth-deep relative overflow-hidden text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_73%_22%,rgba(150,112,74,.13),transparent_29%)]"/>
-      <div className="noise absolute inset-0 opacity-[.035]"/>
-      <div className="relative mx-auto grid min-h-[790px] max-w-[1540px] px-4 sm:px-7 lg:h-[calc(100svh-118px)] lg:min-h-[730px] lg:grid-cols-[.84fr_1.16fr]">
-        <div className="relative z-10 flex flex-col justify-between py-10 sm:py-14 lg:pr-14 lg:py-16">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-5"><Kicker light>OVOSKG Clothings</Kicker><div className="h-px w-12 bg-white/18"/></div>
-            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/12 bg-white/[.035] px-3 py-2 text-[8px] font-semibold uppercase tracking-[.14em] text-white/55"><ShieldCheck size={12} className="text-[#caa177]"/>800+ custom pieces reported by founder</div>
-          </div>
-          <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:.8,ease:[.22,1,.36,1]}} className="py-10 sm:py-12 lg:py-4">
-            <div className="mb-5 text-[9px] font-bold uppercase tracking-[.15em] text-[#caa177]">Bespoke for men and women</div>
-            <h1 className="display-tight max-w-[760px] font-display text-[clamp(4rem,7.6vw,8.1rem)] font-medium leading-[.79]">Made for your body.<br/><span className="italic text-[#caa177]">Ready for the occasion.</span></h1>
-            <p className="mt-7 max-w-xl text-sm leading-7 text-white/62 sm:text-base">Suits and luxury kaftans for work, ceremonies and personal occasions. Choose the look. OVOSKG handles measurements, cloth and final details.</p>
-            <div className="mt-7 flex flex-wrap gap-3"><PrimaryLink to="/bespoke" light>Start an order</PrimaryLink><Link to="/collections" className="inline-flex items-center gap-2 border-b border-white/35 px-1 py-3 text-[10px] font-bold uppercase tracking-[.13em]">View collections <ArrowUpRight size={14}/></Link></div>
+    <section className="bg-ink text-white">
+      <div className="mx-auto grid min-h-[690px] max-w-[1540px] lg:grid-cols-[.88fr_1.12fr]">
+        <div className="flex items-center px-4 py-16 sm:px-7 sm:py-20 lg:px-12 lg:py-24">
+          <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:.85,ease:[.22,1,.36,1]}} className="max-w-[690px]">
+            <Kicker light>OVOSKG Clothings</Kicker>
+            <div className="mt-6 inline-flex items-center gap-2 text-[9px] font-semibold uppercase tracking-[.14em] text-white/48"><ShieldCheck size={12} className="text-[#caa177]"/>800+ custom pieces reported by founder</div>
+            <h1 className="display-tight mt-7 font-display text-[clamp(4.1rem,7vw,7.5rem)] font-medium leading-[.8]">Made for your body.<br/><span className="italic text-[#caa177]">Ready for the occasion.</span></h1>
+            <p className="mt-7 max-w-xl text-sm leading-7 text-white/58 sm:text-base">Suits and luxury kaftans for work, weddings and important occasions. OVOSKG handles the fit, cloth and finishing.</p>
+            <div className="mt-8 flex flex-wrap items-center gap-5">
+              <PrimaryLink to="/bespoke" light>Start an order</PrimaryLink>
+              <Link to="/collections" className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[.13em] text-white/66 transition hover:text-white">View collections <ArrowUpRight size={14}/></Link>
+            </div>
           </motion.div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 border-t border-white/10 pt-5 text-[8px] font-semibold uppercase tracking-[.14em] text-white/38"><span>Made to measure</span><span>Remote orders checked</span><span>Online order tracking</span></div>
         </div>
-        <div className="relative -mx-4 min-h-[54svh] overflow-hidden sm:-mx-7 lg:mx-0 lg:min-h-0">
-          <div className="absolute inset-0 grid grid-cols-[1.48fr_.72fr] gap-2 bg-black">
-            <div className="relative overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1668202849897-846a0c405763?auto=format&fit=crop&w=2400&q=94" alt="Nigerian man in a tailored suit" className="h-full w-full object-cover object-top"/>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/26 via-transparent to-black/5"/>
-            </div>
-            <div className="grid grid-rows-2 gap-2">
-              <div className="relative overflow-hidden"><img src="https://images.unsplash.com/photo-1760320484116-f08b51d2aafc?auto=format&fit=crop&w=1500&q=94" alt="Nigerian woman in a tailored suit" className="h-full w-full object-cover object-top"/></div>
-              <div className="relative overflow-hidden"><img src="https://images.unsplash.com/photo-1620932934088-fbdb2920e484?auto=format&fit=crop&w=1500&q=94" alt="Nigerian man in a white kaftan" className="h-full w-full object-cover object-top"/></div>
-            </div>
-          </div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black/82 via-black/28 to-transparent"/>
-          <div className="absolute bottom-5 right-5 flex max-w-[350px] items-end justify-between gap-4 border border-white/10 bg-[#090807]/82 p-4 shadow-[0_18px_55px_rgba(0,0,0,.26)] backdrop-blur-md sm:bottom-7 sm:right-7 sm:p-5">
-            <div><Kicker light>Men · Women · Kaftan</Kicker><div className="mt-1 font-display text-2xl leading-none text-white">Choose what you want to make.</div></div>
-            <Link to="/collections" className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/20 text-white/80 transition hover:border-white/40 hover:text-white"><ArrowUpRight size={15}/></Link>
-          </div>
+        <div className="relative min-h-[48svh] overflow-hidden lg:min-h-[690px]">
+          <img src="https://images.unsplash.com/photo-1668202849897-846a0c405763?auto=format&fit=crop&w=2400&q=94" alt="Nigerian man in a tailored suit" className="absolute inset-0 h-full w-full object-cover object-top"/>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/12 via-transparent to-transparent"/>
         </div>
       </div>
     </section>
