@@ -45,16 +45,22 @@ a{text-decoration:none}
 }
 .line-link:hover:after,.line-link.active:after{transform:scaleX(1);transform-origin:left}
 .luxury-grid{
+  background-color:#e9e0d3;
   background-image:
-    linear-gradient(rgba(154,113,70,.07) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(154,113,70,.07) 1px,transparent 1px);
-  background-size:68px 68px
+    repeating-linear-gradient(0deg,rgba(112,82,52,.025) 0,rgba(112,82,52,.025) 1px,transparent 1px,transparent 4px),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.13) 0,rgba(255,255,255,.13) 1px,transparent 1px,transparent 5px)
 }
 .hero-grid{
+  background-color:#0b0a09;
   background-image:
-    linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
-  background-size:80px 80px
+    repeating-linear-gradient(18deg,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 1px,transparent 4px),
+    repeating-linear-gradient(108deg,rgba(154,113,70,.025) 0,rgba(154,113,70,.025) 1px,transparent 1px,transparent 5px)
+}
+.cloth-deep{
+  background-color:#0b0a09;
+  background-image:
+    repeating-linear-gradient(20deg,rgba(255,255,255,.015) 0,rgba(255,255,255,.015) 1px,transparent 1px,transparent 4px),
+    repeating-linear-gradient(110deg,rgba(154,113,70,.024) 0,rgba(154,113,70,.024) 1px,transparent 1px,transparent 6px)
 }
 .editorial-shadow{box-shadow:0 35px 110px rgba(18,12,7,.16)}
 .card-lift{transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1)}
