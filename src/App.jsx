@@ -35,7 +35,13 @@ const reveal={
 function AppMeta(){
   const {pathname}=useLocation()
   useEffect(()=>{
-    document.title=pageTitles[pathname]||pageTitles['/']
+    if(pathname.startsWith('/collections/')){
+      const id=pathname.split('/')[2]
+      const collection=collections.find(item=>item.id===id)
+      document.title=collection?`${collection.title} | OVOSKG Clothings`:pageTitles['/collections']
+    }else{
+      document.title=pageTitles[pathname]||pageTitles['/']
+    }
     window.scrollTo({top:0,behavior:'instant'})
   },[pathname])
   return null
