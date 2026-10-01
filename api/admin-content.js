@@ -22,17 +22,17 @@ async function github(path,options={}){
   return body
 }
 
+const validCopy=obj=>obj&&typeof obj==='object'&&Object.values(obj).every(value=>typeof value==='string'||(value&&typeof value==='object'))
 function validContent(value){
+  const requiredPages=['collections','mens-bespoke','womens-bespoke','luxury-kaftan','shop','lookbook','bespoke','measurements','track','about','company','contact','privacy','terms','delivery','returns']
   return value&&typeof value==='object'
-    &&typeof value.hero?.trust==='string'
-    &&typeof value.hero?.headingPrimary==='string'
-    &&typeof value.hero?.headingAccent==='string'
-    &&typeof value.hero?.body==='string'
-    &&typeof value.contact?.phoneDisplay==='string'
-    &&typeof value.contact?.phoneE164==='string'
-    &&typeof value.contact?.location==='string'
-    &&typeof value.business?.registration==='string'
-    &&JSON.stringify(value).length<30000
+    &&validCopy(value.hero)
+    &&validCopy(value.sticky)
+    &&validCopy(value.contact)
+    &&validCopy(value.business)
+    &&validCopy(value.homeSections)
+    &&value.pages&&requiredPages.every(key=>typeof value.pages[key]?.eyebrow==='string'&&typeof value.pages[key]?.title==='string'&&typeof value.pages[key]?.intro==='string')
+    &&JSON.stringify(value).length<100000
 }
 
 export default async function handler(req,res){

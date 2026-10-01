@@ -171,7 +171,7 @@ test('mobile hero keeps primary actions visible', async ({ page }) => {
 })
 
 
-test('mobile sticky CTA is immediately available in black with white text', async ({ page }) => {
+test('mobile sticky CTA is immediately available in brand bronze and black', async ({ page }) => {
   await page.setViewportSize({ width: 360, height: 800 })
   await page.goto('/')
   const sticky=page.getByTestId('mobile-sticky-cta')
@@ -236,4 +236,24 @@ test('SEO discovery files are available', async ({ request }) => {
     const response=await request.get(path)
     expect(response.ok()).toBeTruthy()
   }
+})
+
+
+test('managed page content is visible across core routes', async ({ page }) => {
+  const pages=[
+    ['/collections','Choose the garment first.'],
+    ['/shop','Browse the current references.'],
+    ['/bespoke','Tell us what you want made.'],
+    ['/contact','Speak with OVOSKG.']
+  ]
+  for(const [route,title] of pages){
+    await page.goto(route)
+    await expect(page.getByRole('heading',{name:title})).toBeVisible()
+  }
+})
+
+test('collection detail copy remains editable through managed content', async ({ page }) => {
+  await page.goto('/collections/mens-bespoke')
+  await expect(page.getByRole('heading',{name:"Men's bespoke suits"})).toBeVisible()
+  await expect(page.getByText(/Choose the cut you prefer/i)).toBeVisible()
 })

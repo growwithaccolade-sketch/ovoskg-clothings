@@ -5,6 +5,11 @@
     "headingAccent": "Ready for the occasion.",
     "body": "Bespoke suits, women’s tailoring and luxury kaftans for work, weddings and important occasions."
   },
+  "sticky": {
+    "kicker": "Bespoke service",
+    "primary": "Start an order",
+    "whatsapp": "WhatsApp"
+  },
   "contact": {
     "phoneDisplay": "07070489393",
     "phoneE164": "+2347070489393",
@@ -12,5 +17,124 @@
   },
   "business": {
     "registration": "BN 3795532"
+  },
+  "homeSections": {
+    "remote": {
+      "eyebrow": "Ordering from another city?",
+      "title": "Remote measurements are checked before production.",
+      "body": "Any alteration or remake terms are stated with your quote before payment."
+    },
+    "entry": {
+      "eyebrow": "Where to begin",
+      "title": "Choose the next step."
+    },
+    "collections": {
+      "eyebrow": "Collections",
+      "titlePrimary": "Pick the garment.",
+      "titleAccent": "OVOSKG shapes it to you.",
+      "body": "See the cut and proportion before you book. Save any reference you want to discuss."
+    },
+    "process": {
+      "eyebrow": "Order process",
+      "titlePrimary": "From brief",
+      "titleAccent": "to handover.",
+      "body": "Each stage is clear before the next one begins."
+    },
+    "selected": {
+      "eyebrow": "Selected work",
+      "title": "A few directions worth considering."
+    },
+    "founder": {
+      "eyebrow": "Company story",
+      "title": "Built through the work.",
+      "body": "OVOSKG grew from hands-on tailoring into a structured bespoke company. The focus is the garment, the agreed fit and the service around the order.",
+      "imageCaption": "A better garment starts with a clear process."
+    },
+    "conversion": {
+      "eyebrow": "Next step",
+      "title": "Tell OVOSKG what you want to make."
+    }
+  },
+  "pages": {
+    "collections": {
+      "eyebrow": "Collections",
+      "title": "Choose the garment first.",
+      "intro": "Browse references for men’s suits, women’s suits and kaftans. Save anything you want OVOSKG to discuss with you."
+    },
+    "mens-bespoke": {
+      "eyebrow": "Mini lookbook",
+      "title": "Men's bespoke suits",
+      "intro": "Choose the cut you prefer. OVOSKG adjusts the shape, cloth and details to your measurements."
+    },
+    "womens-bespoke": {
+      "eyebrow": "Mini lookbook",
+      "title": "Women's bespoke suits",
+      "intro": "Use these references to show the jacket length, trouser shape and level of structure you prefer."
+    },
+    "luxury-kaftan": {
+      "eyebrow": "Mini lookbook",
+      "title": "Luxury men's kaftans",
+      "intro": "Choose how simple or detailed the garment should be. OVOSKG confirms the cloth, embroidery and fit before production."
+    },
+    "shop": {
+      "eyebrow": "Shop",
+      "title": "Browse the current references.",
+      "intro": "Filter by category, save the pieces you like and use them when you submit your order brief."
+    },
+    "lookbook": {
+      "eyebrow": "Lookbook",
+      "title": "Men’s suits. Women’s suits. Kaftans.",
+      "intro": "Use the lookbook to show OVOSKG the shape, cloth and level of detail you prefer."
+    },
+    "bespoke": {
+      "eyebrow": "Bespoke order",
+      "title": "Tell us what you want made.",
+      "intro": "Choose the garment, occasion, preferred date and fitting method. OVOSKG confirms the details and price before payment."
+    },
+    "measurements": {
+      "eyebrow": "Virtual measurements",
+      "title": "Send your measurements for review.",
+      "intro": "OVOSKG checks remote measurements before cutting. If a number looks wrong, the team can ask you to measure again or join a short video check."
+    },
+    "track": {
+      "eyebrow": "Order tracking",
+      "title": "Check the current stage of your order.",
+      "intro": "Use the order ID from your confirmation message to see the latest production update."
+    },
+    "about": {
+      "eyebrow": "Our story",
+      "title": "From tailoring work to OVOSKG.",
+      "intro": "The company developed from hands-on clothing work into a bespoke service for suits, kaftans and custom orders."
+    },
+    "company": {
+      "eyebrow": "Company",
+      "title": "The team behind each order.",
+      "intro": "OVOSKG separates design, production and client service so responsibilities stay clear throughout the order."
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Speak with OVOSKG.",
+      "intro": "Send an enquiry, request a fitting or ask about an order. Remote clients are welcome."
+    },
+    "privacy": {
+      "eyebrow": "Policies",
+      "title": "Privacy policy",
+      "intro": "How OVOSKG handles information shared through enquiries, measurements, fittings and website interactions."
+    },
+    "terms": {
+      "eyebrow": "Policies",
+      "title": "Terms of service",
+      "intro": "The practical terms that apply when you enquire about or commission custom work from OVOSKG."
+    },
+    "delivery": {
+      "eyebrow": "Policies",
+      "title": "Delivery policy",
+      "intro": "How collection, dispatch and delivery timing are handled for OVOSKG orders."
+    },
+    "returns": {
+      "eyebrow": "Policies",
+      "title": "Alterations and returns",
+      "intro": "How fit concerns, workmanship issues and bespoke return requests are reviewed."
+    }
   }
 }

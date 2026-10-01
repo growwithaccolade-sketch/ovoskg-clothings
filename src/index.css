@@ -188,3 +188,42 @@ input::placeholder,textarea::placeholder{color:rgba(11,10,9,.38)}
 @media (max-width:767px){
   input,textarea,select{font-size:16px}
 }
+
+.page-hero{
+  background:
+    radial-gradient(circle at 88% 18%,rgba(152,114,78,.12),transparent 26%),
+    linear-gradient(135deg,#090807 0%,#100d0b 100%);
+}
+.admin-shell input,.admin-shell textarea,.admin-shell select{
+  width:100%;
+  border-bottom:1px solid rgba(11,10,9,.18);
+  background:transparent;
+  padding:.7rem 0;
+  color:#0b0a09;
+  outline:none;
+  transition:border-color .25s ease,box-shadow .25s ease;
+}
+.admin-shell textarea{resize:vertical}
+.admin-shell input:focus,.admin-shell textarea:focus,.admin-shell select:focus{
+  border-color:#98724e;
+  box-shadow:0 1px 0 #98724e;
+}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+  outline:2px solid #a87e55;
+  outline-offset:3px;
+}
+.mobile-sticky-cta{
+  border-radius:2px;
+}
+@media (max-width:767px){
+  body:has(input:focus) .mobile-sticky-cta,
+  body:has(textarea:focus) .mobile-sticky-cta,
+  body:has(select:focus) .mobile-sticky-cta{
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(12px);
+  }
+}
+@media (hover:hover){
+  .mobile-sticky-cta a:first-child:hover{background:#866342}
+}
