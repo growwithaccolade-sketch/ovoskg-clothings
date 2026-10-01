@@ -123,11 +123,12 @@ test('favicon assets are wired in', async ({ page }) => {
 })
 
 
-test('header uses transparent brand mark and dark luxury treatment', async ({ page }) => {
+test('header uses the supplied OVOSKG logo and dark luxury treatment', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByRole('link', { name: /OVOSKG homepage/i }).first().locator('svg')).toBeVisible()
+  const logo=page.getByRole('link', { name: /OVOSKG homepage/i }).first().locator('img[src="/ovoskg-logo.webp"]')
+  await expect(logo).toBeVisible()
+  await expect(logo).toHaveAttribute('alt','OVOSKG Clothings')
   await expect(page.locator('header')).toHaveClass(/luxury-header/)
-  await expect(page.locator('header img[src="/ovoskg-logo.webp"]')).toHaveCount(0)
 })
 
 
