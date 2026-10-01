@@ -7,7 +7,7 @@ test.describe('OVOSKG customer journey', () => {
     await expect(page.getByRole('link', { name: /Start an order/i }).first()).toBeVisible()
     await expect(page.getByRole('img', { name: /Nigerian man in a tailored suit/i }).first()).toBeVisible()
     await expect(page.getByText(/Suits and luxury kaftans for work, weddings and important occasions/i)).toBeVisible()
-    await expect(page.getByText(/800\+ custom pieces reported by founder/i)).toBeVisible()
+    await expect(page.getByText(/800\+ custom pieces delivered across Nigeria/i)).toBeVisible()
   })
 
   test('major routes render', async ({ page }) => {
@@ -170,11 +170,10 @@ test('mobile hero keeps primary actions visible', async ({ page }) => {
 })
 
 
-test('mobile sticky CTA starts after hero', async ({ page }) => {
+test('mobile sticky CTA is immediately available in black with white text', async ({ page }) => {
   await page.setViewportSize({ width: 360, height: 800 })
   await page.goto('/')
-  await expect(page.getByTestId('mobile-sticky-cta')).toHaveCount(0)
-  await page.locator('#home-after-hero').scrollIntoViewIfNeeded()
-  await page.waitForTimeout(100)
-  await expect(page.getByTestId('mobile-sticky-cta')).toBeVisible()
+  const sticky=page.getByTestId('mobile-sticky-cta')
+  await expect(sticky).toBeVisible()
+  await expect(sticky.getByRole('link', { name: /Start an order/i })).toBeVisible()
 })

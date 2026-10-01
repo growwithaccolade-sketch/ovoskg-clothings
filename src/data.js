@@ -97,7 +97,7 @@ export const journey = [
   {year:'2017',title:'Early tailoring work',text:'Victor’s public account places the beginning around adjustments, repairs and small clothing jobs.'},
   {year:'2018–2022',title:'More complete garments',text:'The work expanded into trousers, full outfits and a more organised order process.'},
   {year:'29 Jan 2023',title:'OVOSKG is established',text:'The company formally launched around suits, kaftans and custom clothing.'},
-  {year:'2023–2026',title:'800+ custom pieces reported',text:'The founder says more than 800 custom pieces were delivered during the following three years.'}
+  {year:'2023–2026',title:'800+ custom pieces delivered across Nigeria',text:'OVOSKG has delivered more than 800 custom pieces to clients across Nigeria.'}
 ]
 
 export const statusSteps = [
