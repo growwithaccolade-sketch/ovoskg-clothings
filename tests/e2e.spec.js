@@ -5,7 +5,7 @@ test.describe('OVOSKG customer journey', () => {
     await page.goto('/')
     await expect(page.getByRole('heading', { name: /Your presence/i })).toBeVisible()
     await expect(page.getByRole('link', { name: /Start a commission/i }).first()).toBeVisible()
-    await expect(page.getByRole('img', { name: /OVOSKG client in a navy bespoke suit/i })).toBeVisible()
+    await expect(page.getByRole('img', { name: /OVOSKG client in a navy bespoke suit/i }).first()).toBeVisible()
     await expect(page.getByText(/Men and women bespoke/i).first()).toBeVisible()
   })
 
@@ -13,7 +13,7 @@ test.describe('OVOSKG customer journey', () => {
     const routes = [
       ['/collections', /Start with the silhouette/i],
       ['/shop', /Browse like a client/i],
-      ['/lookbook', /Bring references/i],
+      ['/lookbook', /Real OVOSKG clients/i],
       ['/bespoke', /A better brief/i],
       ['/measurements', /Good tailoring starts/i],
       ['/track', /Track the work/i],
@@ -85,7 +85,7 @@ test.describe('OVOSKG customer journey', () => {
     await page.goto('/measurements')
     const inputs = page.locator('input[inputmode="decimal"]')
     await inputs.first().fill('16')
-    await page.getByRole('button', { name: /Save measurement profile/i }).click()
+    await page.getByRole('button', { name: /Save measurement draft/i }).click()
     await expect(page.getByRole('button', { name: /Draft saved/i })).toBeVisible()
   })
 
