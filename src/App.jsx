@@ -130,13 +130,14 @@ function ShortlistDrawer({open,close}){
 function MobileConversionBar(){
   return <div
     data-testid="mobile-sticky-cta"
-    className="mobile-sticky-cta fixed inset-x-3 bottom-3 z-40 grid grid-cols-[1fr_auto] items-center border border-white/10 bg-[#080706]/96 text-white shadow-[0_12px_34px_rgba(0,0,0,.22)] backdrop-blur-md md:hidden"
+    className="mobile-sticky-cta fixed bottom-2 left-2 right-2 z-[70] grid grid-cols-[1.15fr_.85fr] overflow-hidden border border-[#caa177]/55 bg-[#050505]/98 text-white shadow-[0_18px_44px_rgba(0,0,0,.42)] backdrop-blur-xl md:hidden"
   >
-    <Link to="/bespoke" className="flex min-h-12 items-center justify-between px-4 text-[10px] font-semibold uppercase tracking-[.14em] text-white">
-      <span>Start an order</span><ArrowRight size={13} className="text-[#caa177]"/>
+    <Link to="/bespoke" className="flex min-h-[58px] items-center justify-between gap-3 px-4 text-white">
+      <span className="min-w-0"><span className="block text-[7px] font-semibold uppercase tracking-[.18em] text-[#caa177]">Bespoke</span><span className="mt-0.5 block text-[12px] font-semibold uppercase tracking-[.08em]">Start an order</span></span>
+      <ArrowRight size={15} className="shrink-0 text-[#caa177]"/>
     </Link>
-    <a href={wa()} target="_blank" rel="noreferrer" aria-label="WhatsApp OVOSKG" className="grid h-12 w-12 place-items-center border-l border-white/10 text-white/80">
-      <MessageCircle size={16}/>
+    <a href={wa()} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="flex min-h-[58px] items-center justify-center gap-2 border-l border-white/12 px-3 text-[11px] font-semibold text-white">
+      <MessageCircle size={17} className="shrink-0 text-[#56d98c]"/><span>WhatsApp</span>
     </a>
   </div>
 }
@@ -151,32 +152,56 @@ function RouteFrame({children}){
 }
 
 function HomePage(){
+  const heroImage='https://images.unsplash.com/photo-1668202849897-846a0c405763?auto=format&fit=crop&w=2400&q=94'
   return <main>
-    <section id="home-hero" className="bg-ink text-white">
-      <div className="mx-auto grid max-w-[1540px] lg:min-h-[700px] lg:grid-cols-[.92fr_1.08fr]">
-        <div className="flex items-center px-4 py-11 sm:px-7 sm:py-16 md:px-10 lg:px-12 lg:py-24 xl:px-16">
-          <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:.85,ease:[.22,1,.36,1]}} className="w-full max-w-[680px]">
-            <div className="inline-flex max-w-full items-center gap-2 border-b border-white/10 pb-3 text-[8px] font-semibold uppercase tracking-[.12em] text-white/48 sm:text-[9px]"><ShieldCheck size={12} className="shrink-0 text-[#caa177]"/>800+ custom pieces delivered across Nigeria</div>
-            <h1 className="display-tight mt-5 max-w-[650px] font-display text-[clamp(3.05rem,11.7vw,5rem)] font-medium leading-[.84] sm:mt-7 sm:text-[clamp(4.5rem,9vw,6.1rem)] lg:text-[clamp(5.15rem,6vw,7.15rem)]">Made for your body.<br/><span className="italic text-[#caa177]">Ready for the occasion.</span></h1>
-            <p className="mt-5 max-w-[520px] text-[13px] leading-6 text-white/58 sm:mt-7 sm:text-[15px] sm:leading-7">Suits and luxury kaftans for work, weddings and important occasions. OVOSKG handles the fit, cloth and finishing.</p>
-            <div className="mt-7 grid max-w-[390px] gap-2.5 sm:mt-8 sm:flex sm:max-w-none sm:flex-wrap sm:items-center sm:gap-5">
+    <section id="home-hero" className="hero-stage relative overflow-hidden bg-ink text-white">
+      <div className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px bg-white/[.045] lg:block"/>
+      <div className="mx-auto grid max-w-[1480px] lg:min-h-[760px] lg:grid-cols-[.88fr_1.12fr]">
+        <div className="relative z-20 flex items-center px-4 py-12 sm:px-7 sm:py-16 md:px-10 lg:px-12 lg:py-24 xl:px-16">
+          <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:.82,ease:[.22,1,.36,1]}} className="w-full max-w-[660px]">
+            <div className="inline-flex max-w-full items-center gap-2 border-b border-white/10 pb-3 text-[8px] font-semibold uppercase tracking-[.13em] text-white/52 sm:text-[9px]"><ShieldCheck size={12} className="shrink-0 text-[#caa177]"/>800+ custom pieces delivered across Nigeria</div>
+            <h1 className="display-tight mt-6 max-w-[650px] font-display text-[clamp(3.15rem,11.8vw,5.15rem)] font-medium leading-[.82] sm:mt-7 sm:text-[clamp(4.6rem,9vw,6.2rem)] lg:text-[clamp(5.15rem,5.65vw,6.9rem)]">Made for your body.<br/><span className="italic text-[#caa177]">Ready for the occasion.</span></h1>
+            <p className="mt-6 max-w-[510px] text-[13px] leading-6 text-white/62 sm:mt-7 sm:text-[15px] sm:leading-7">Bespoke suits, women’s tailoring and luxury kaftans for work, weddings and important occasions.</p>
+            <div className="mt-7 flex max-w-[430px] flex-col gap-2.5 sm:mt-8 sm:flex-row sm:items-center sm:gap-4">
               <PrimaryLink to="/bespoke" light className="w-full sm:w-auto">Start an order</PrimaryLink>
-              <Link to="/collections" className="inline-flex w-full items-center justify-center gap-2 border border-white/14 px-5 py-3.5 text-[10px] font-semibold uppercase tracking-[.13em] text-white/66 transition hover:border-white/28 hover:text-white sm:w-auto sm:justify-start sm:border-0 sm:px-0 sm:py-3">View collections <ArrowUpRight size={14}/></Link>
+              <Link to="/collections" className="inline-flex w-full items-center justify-center gap-2 border border-white/16 px-5 py-3.5 text-[10px] font-semibold uppercase tracking-[.13em] text-white/72 transition hover:border-white/34 hover:text-white sm:w-auto">View collections <ArrowUpRight size={14}/></Link>
+            </div>
+            <div className="mt-8 hidden items-center gap-6 border-t border-white/10 pt-5 text-[8px] font-semibold uppercase tracking-[.16em] text-white/38 sm:flex">
+              <span>Precision fit</span><span className="h-1 w-1 rounded-full bg-[#caa177]/70"/><span>Clean finishing</span><span className="h-1 w-1 rounded-full bg-[#caa177]/70"/><span>Made to measure</span>
             </div>
           </motion.div>
         </div>
-        <div className="hero-fit-frame relative min-h-[380px] overflow-hidden sm:min-h-[530px] md:min-h-[575px] lg:min-h-[700px]">
-          <img src="https://images.unsplash.com/photo-1668202849897-846a0c405763?auto=format&fit=crop&w=2400&q=94" alt="Nigerian man in a tailored suit" className="hero-fit-image absolute inset-0 h-full w-full object-cover"/>
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/14 via-transparent to-transparent lg:from-black/20"/>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/16 to-transparent lg:hidden"/>
-          <div className="absolute right-0 top-0 hidden h-full w-[118px] border-l border-white/10 bg-black/34 px-6 py-10 backdrop-blur-[2px] lg:flex lg:flex-col lg:justify-between">
-            <div className="h-12 w-px bg-[#caa177]/60"/>
-            <div className="space-y-7 text-[8px] font-semibold uppercase tracking-[.2em] text-white/65">
-              <div>Men’s<br/>suits</div>
-              <div className="h-px w-5 bg-[#caa177]/55"/>
-              <div>Women’s<br/>tailoring</div>
-              <div className="h-px w-5 bg-[#caa177]/55"/>
-              <div>Luxury<br/>kaftans</div>
+
+        <div className="hero-artboard relative min-h-[500px] overflow-hidden sm:min-h-[620px] lg:min-h-[760px]">
+          <div className="hero-main-frame absolute inset-0 lg:inset-y-0 lg:left-0 lg:right-[132px]">
+            <img src={heroImage} alt="Nigerian man in a tailored suit" className="hero-main-image absolute inset-0 h-full w-full object-cover"/>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/26 via-black/4 to-transparent lg:from-black/34"/>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/45 via-black/8 to-transparent"/>
+            <div className="absolute bottom-5 left-5 hidden border-l border-[#caa177]/65 pl-4 lg:block">
+              <div className="text-[8px] font-semibold uppercase tracking-[.2em] text-white/48">Fit in focus</div>
+              <div className="mt-1 font-display text-2xl text-white/90">Shoulder. Lapel. Line.</div>
+            </div>
+          </div>
+
+          <div className="hero-detail-stack absolute right-0 top-0 hidden h-full w-[152px] flex-col border-l border-white/10 bg-[#0b0908] lg:flex">
+            <div className="hero-detail-panel hero-detail-lapel relative flex-1 overflow-hidden border-b border-white/10">
+              <img src={heroImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover"/>
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-14">
+                <div className="text-[8px] font-semibold uppercase tracking-[.18em] text-white/70">Lapel detail</div>
+              </div>
+            </div>
+            <div className="hero-detail-panel hero-detail-cuff relative flex-1 overflow-hidden">
+              <img src={heroImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover"/>
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-14">
+                <div className="text-[8px] font-semibold uppercase tracking-[.18em] text-white/70">Finish</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-mobile-detail absolute bottom-4 right-4 h-[150px] w-[112px] overflow-hidden border border-[#caa177]/45 bg-black shadow-[0_18px_44px_rgba(0,0,0,.28)] sm:bottom-6 sm:right-6 sm:h-[190px] sm:w-[138px] lg:hidden">
+            <img src={heroImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover"/>
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent px-3 pb-3 pt-10">
+              <div className="text-[7px] font-semibold uppercase tracking-[.18em] text-white/78">Tailored detail</div>
             </div>
           </div>
         </div>
@@ -198,7 +223,7 @@ function RemoteFitAssurance({dark=false}){
     ['02','Review','OVOSKG checks the numbers before cutting.'],
     ['03','Fit correction','If the delivered fit is off, the garment is checked against the approved measurements.']
   ]
-  return <section className={dark?'bg-ink text-white':'bg-bone text-ink'}><div className="mx-auto max-w-[1480px] px-4 py-14 sm:px-7 lg:py-20"><div className="grid gap-10 lg:grid-cols-[.36fr_.64fr]"><div><Kicker light={dark}>Ordering from another city?</Kicker><h2 className="mt-3 font-display text-4xl leading-none sm:text-5xl">Remote measurements are checked before production.</h2><p className={`mt-4 max-w-md text-xs leading-6 ${dark?'text-white/45':'text-black/48'}`}>Any alteration or remake terms are stated with your quote before payment.</p></div><div className={`grid gap-px ${dark?'bg-white/10':'bg-black/10'} sm:grid-cols-3`}>{steps.map(([n,title,text])=><motion.div initial={{opacity:0}} whileInView={{opacity:1}} viewport={{once:true}} transition={{duration:.68}} key={n} className={`p-5 sm:p-7 ${dark?'bg-ink':'bg-[#fbf8f2]'}`}><div className="font-display text-3xl text-bronze">{n}</div><b className="mt-5 block text-sm">{title}</b><p className={`mt-2 text-xs leading-5 ${dark?'text-white/42':'text-black/46'}`}>{text}</p></motion.div>)}</div></div></div></section>
+  return <section className={dark?'bg-ink text-white':'bg-bone text-ink'}><div className="mx-auto max-w-[1480px] px-4 py-14 sm:px-7 lg:py-20"><div className="grid gap-10 lg:grid-cols-[.36fr_.64fr]"><div><Kicker light={dark}>Ordering from another city?</Kicker><h2 className="mt-3 max-w-xl font-display text-4xl leading-[.98] sm:text-5xl">Remote measurements are checked before production.</h2><p className={`mt-4 max-w-md text-xs leading-6 ${dark?'text-white/45':'text-black/48'}`}>Any alteration or remake terms are stated with your quote before payment.</p></div><div className={`grid gap-px ${dark?'bg-white/10':'bg-black/10'} sm:grid-cols-3`}>{steps.map(([n,title,text])=><motion.div initial={{opacity:0}} whileInView={{opacity:1}} viewport={{once:true}} transition={{duration:.68}} key={n} className={`p-5 sm:p-7 ${dark?'bg-ink':'bg-[#fbf8f2]'}`}><div className="font-display text-3xl text-bronze">{n}</div><b className="mt-5 block text-sm">{title}</b><p className={`mt-2 text-xs leading-5 ${dark?'text-white/42':'text-black/46'}`}>{text}</p></motion.div>)}</div></div></div></section>
 }
 
 function EntryPaths(){
@@ -207,7 +232,7 @@ function EntryPaths(){
     {n:'02',title:'Still choosing?',text:'Browse suits, women’s tailoring and kaftans.',to:'/collections'},
     {n:'03',title:'Order already placed?',text:'Check the current production stage.',to:'/track'}
   ]
-  return <section className="mx-auto max-w-[1480px] px-4 py-20 sm:px-7 lg:py-32"><div className="grid gap-10 lg:grid-cols-[.58fr_1.42fr]"><div><Kicker>Where to begin</Kicker><h2 className="display-tight mt-4 font-display text-6xl leading-[.88] sm:text-7xl">Choose the next step.</h2></div><div className="grid gap-3">{paths.map(p=><motion.div key={p.n} initial="hidden" whileInView="show" viewport={{once:true,amount:.3}} variants={reveal}><Link to={p.to} className="card-lift group grid min-h-36 grid-cols-[54px_1fr_auto] items-center gap-5 border-b border-black/12 bg-transparent py-6 sm:grid-cols-[72px_1fr_auto] sm:py-7"><div className="font-display text-4xl text-bronze">{p.n}</div><div><h3 className="font-display text-3xl leading-none sm:text-4xl">{p.title}</h3><p className="mt-3 max-w-xl text-xs leading-6 text-black/50 sm:text-sm">{p.text}</p></div><div className="hidden h-12 w-12 place-items-center rounded-full border border-black/12 transition group-hover:bg-ink group-hover:text-white sm:grid"><ArrowUpRight size={16}/></div></Link></motion.div>)}</div></div></section>
+  return <section className="mx-auto max-w-[1480px] px-4 py-20 sm:px-7 lg:py-32"><div className="grid gap-10 lg:grid-cols-[.58fr_1.42fr]"><div><Kicker>Where to begin</Kicker><h2 className="display-tight mt-4 font-display text-6xl leading-[.88] sm:text-7xl">Choose the next step.</h2></div><div className="grid gap-0 border-t border-black/12">{paths.map(p=><motion.div key={p.n} initial="hidden" whileInView="show" viewport={{once:true,amount:.3}} variants={reveal}><Link to={p.to} className="card-lift group grid min-h-36 grid-cols-[54px_1fr_auto] items-center gap-5 border-b border-black/12 bg-transparent px-1 py-6 sm:grid-cols-[72px_1fr_auto] sm:px-2 sm:py-8"><div className="font-display text-4xl text-bronze">{p.n}</div><div><h3 className="font-display text-3xl leading-none sm:text-4xl">{p.title}</h3><p className="mt-3 max-w-xl text-xs leading-6 text-black/50 sm:text-sm">{p.text}</p></div><div className="hidden h-12 w-12 place-items-center rounded-full border border-black/12 transition group-hover:bg-ink group-hover:text-white sm:grid"><ArrowUpRight size={16}/></div></Link></motion.div>)}</div></div></section>
 }
 
 function HomeCollections(){

@@ -117,3 +117,69 @@ input::placeholder,textarea::placeholder{color:rgba(11,10,9,.38)}
     z-index:2;
   }
 }
+
+.hero-stage{
+  background:
+    radial-gradient(circle at 76% 18%,rgba(146,112,79,.12),transparent 27%),
+    #090807;
+}
+.hero-artboard{isolation:isolate}
+.hero-main-frame{clip-path:polygon(4% 0,100% 0,100% 100%,0 100%,0 9%)}
+.hero-main-frame:after{
+  content:'';
+  position:absolute;
+  inset:14px;
+  border:1px solid rgba(202,161,119,.16);
+  pointer-events:none;
+}
+.hero-main-image{
+  object-position:50% 16%;
+  transform:scale(1.1);
+  transform-origin:52% 30%;
+}
+.hero-detail-panel img{max-width:none}
+.hero-detail-lapel img{
+  object-position:57% 30%;
+  transform:scale(2.05);
+  transform-origin:57% 30%;
+}
+.hero-detail-cuff img{
+  object-position:59% 70%;
+  transform:scale(2.3);
+  transform-origin:59% 73%;
+}
+.hero-mobile-detail img{
+  object-position:58% 32%;
+  transform:scale(2.05);
+  transform-origin:58% 32%;
+}
+.mobile-sticky-cta{
+  padding-bottom:env(safe-area-inset-bottom);
+}
+@media (max-width:767px){
+  .mobile-safe{padding-bottom:86px}
+  .hero-main-frame{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+  .hero-main-frame:after{inset:10px}
+  .hero-main-image{
+    object-position:50% 15%;
+    transform:scale(1.08);
+  }
+}
+@media (min-width:768px) and (max-width:1023px){
+  .hero-main-image{
+    object-position:50% 15%;
+    transform:scale(1.08);
+  }
+}
+@media (min-width:1024px){
+  .hero-artboard:before{
+    content:'';
+    position:absolute;
+    left:-26px;
+    top:88px;
+    width:52px;
+    height:1px;
+    background:rgba(202,161,119,.7);
+    z-index:5;
+  }
+}

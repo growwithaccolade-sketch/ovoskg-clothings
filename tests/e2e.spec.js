@@ -145,12 +145,12 @@ test('primary navigation is reduced and excludes Lookbook', async ({ page }) => 
 })
 
 
-test('hero uses fit focused single image', async ({ page }) => {
+test('hero uses layered fit focused imagery', async ({ page }) => {
   await page.goto('/')
-  const hero = page.locator('.hero-fit-frame')
+  const hero = page.locator('#home-hero')
   await expect(hero).toBeVisible()
-  await expect(hero.locator('img.hero-fit-image')).toHaveCount(1)
-  await expect(hero.locator('img')).toHaveCount(1)
+  await expect(hero.locator('img[alt="Nigerian man in a tailored suit"]')).toHaveCount(1)
+  await expect(hero.locator('.hero-detail-panel')).toHaveCount(2)
 })
 
 
@@ -166,7 +166,7 @@ test('mobile hero keeps primary actions visible', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByRole('heading', { name: /Made for your body/i })).toBeVisible()
   await expect(page.getByRole('link', { name: /Start an order/i }).first()).toBeVisible()
-  await expect(page.locator('.hero-fit-frame')).toBeVisible()
+  await expect(page.locator('.hero-artboard')).toBeVisible()
 })
 
 
@@ -176,4 +176,5 @@ test('mobile sticky CTA is immediately available in black with white text', asyn
   const sticky=page.getByTestId('mobile-sticky-cta')
   await expect(sticky).toBeVisible()
   await expect(sticky.getByRole('link', { name: /Start an order/i })).toBeVisible()
+  await expect(sticky.getByRole('link', { name: /WhatsApp/i })).toBeVisible()
 })
