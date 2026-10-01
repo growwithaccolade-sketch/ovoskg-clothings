@@ -336,3 +336,20 @@ test('fabric section exposes sourcing note without inventing a mill', async ({ p
   await page.locator('#materials').scrollIntoViewIfNeeded()
   await expect(page.locator('#materials').getByText(/Exact mill, fibre composition and availability are confirmed with your quote/i)).toBeVisible()
 })
+
+
+test('mobile 800+ trust signal is prominent over the hero image', async ({ page }) => {
+  await page.setViewportSize({width:360,height:800})
+  await page.goto('/')
+  const trust=page.getByTestId('hero-trust-mobile')
+  await expect(trust).toBeVisible()
+  await expect(trust).toContainText('800+ custom pieces delivered across Nigeria')
+  const bg=await trust.evaluate(el=>getComputedStyle(el).backgroundColor)
+  expect(bg).not.toBe('rgba(0, 0, 0, 0)')
+})
+
+test('hero uses a dedicated blend layer around the fashion image', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.locator('.hero-image-blend')).toHaveCount(1)
+  await expect(page.locator('.hero-main-image')).toBeVisible()
+})

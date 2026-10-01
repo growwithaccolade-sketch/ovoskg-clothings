@@ -247,7 +247,7 @@ function HomePage(){
         <div className="hero-copy order-2 relative z-20 mx-4 -mt-[88px] border border-white/10 bg-[#0b0908]/98 px-5 pb-8 pt-7 shadow-[0_28px_65px_rgba(0,0,0,.32)] backdrop-blur sm:mx-6 sm:-mt-24 sm:px-7 sm:pb-11 sm:pt-9 lg:order-1 lg:m-0 lg:flex lg:items-end lg:border-0 lg:bg-transparent lg:px-12 lg:pb-20 lg:pt-24 lg:shadow-none lg:backdrop-blur-none xl:px-16 xl:pb-24">
           <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{duration:.78,ease:[.22,1,.36,1]}} className="w-full max-w-[650px]">
             <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-3">
-              <div className="hidden max-w-full items-center gap-2 text-[8px] font-semibold uppercase tracking-[.13em] text-white/54 sm:text-[9px] lg:inline-flex"><ShieldCheck size={12} className="shrink-0 text-[#caa177]"/>{siteContent.hero.trust}</div>
+              <div data-testid="hero-trust-desktop" className="hidden max-w-full items-center gap-2.5 border border-[#d7b38e]/35 bg-[#f5eadc] px-3.5 py-2 text-[9px] font-semibold uppercase tracking-[.11em] text-[#17120e] shadow-[0_8px_24px_rgba(0,0,0,.12)] lg:inline-flex"><ShieldCheck size={13} className="shrink-0 text-[#8f6b48]"/>{siteContent.hero.trust}</div>
               <div className="hidden text-[8px] font-semibold uppercase tracking-[.18em] text-[#caa177]/70 sm:block lg:hidden">01 / Bespoke</div>
             </div>
             <h1 className="display-tight mt-6 max-w-[650px] font-display text-[clamp(3.25rem,12.5vw,5.25rem)] font-medium leading-[.82] sm:text-[clamp(4.6rem,9vw,6.2rem)] lg:text-[clamp(5.2rem,5.45vw,6.75rem)]">{siteContent.hero.headingPrimary}<br/><span className="italic text-[#caa177]">{siteContent.hero.headingAccent}</span></h1>
@@ -283,11 +283,10 @@ function HomePage(){
         <div className="hero-artboard order-1 relative min-h-[500px] overflow-hidden sm:min-h-[620px] lg:order-2 lg:min-h-[820px] lg:overflow-visible">
           <div className="hero-main-frame absolute inset-0 lg:bottom-8 lg:left-0 lg:right-[82px] lg:top-8">
             <img loading="eager" fetchPriority="high" decoding="async" src={heroImage} alt="Nigerian man in a tailored suit" className="hero-main-image absolute inset-0 h-full w-full object-cover"/>
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/5 lg:from-black/28"/>
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black/58 via-black/8 to-transparent"/>
-            <div className="absolute left-4 right-4 top-4 flex items-center justify-between gap-4 border border-white/12 bg-black/34 px-3.5 py-3 text-white backdrop-blur-sm sm:left-6 sm:right-auto sm:top-6 sm:max-w-[360px] lg:hidden">
-              <div className="inline-flex items-center gap-2 text-[7px] font-semibold uppercase tracking-[.13em] text-white/76"><ShieldCheck size={11} className="shrink-0 text-[#d1aa82]"/>{siteContent.hero.trust}</div>
-              <span className="shrink-0 font-display text-2xl text-[#caa177]">01</span>
+            <div className="hero-image-blend pointer-events-none absolute inset-0"/>
+            <div data-testid="hero-trust-mobile" className="hero-mobile-trust absolute left-4 right-4 top-4 z-10 flex items-center justify-between gap-3 border border-[#e1c4a5]/70 bg-[#f7efe5]/96 px-4 py-3.5 text-[#18120e] shadow-[0_14px_34px_rgba(0,0,0,.22)] backdrop-blur-md sm:left-6 sm:right-auto sm:top-6 sm:max-w-[390px] lg:hidden">
+              <div className="inline-flex items-center gap-2.5 text-[9px] font-bold uppercase tracking-[.09em] leading-4"><span className="grid h-7 w-7 shrink-0 place-items-center bg-[#9a744f] text-white"><ShieldCheck size={14}/></span><span>{siteContent.hero.trust}</span></div>
+              <span className="hidden shrink-0 font-display text-2xl text-[#8f6b48] min-[390px]:block">01</span>
             </div>
           </div>
 
