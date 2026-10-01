@@ -16,16 +16,16 @@ export const collections = [
     title:"Men's bespoke suits",
     short:'Boardrooms, weddings, ceremonies and the days you need to arrive properly.',
     body:'Single breasted, double breasted and occasion tailoring developed around your posture, proportions, fit preference and event.',
-    image:'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1800&q=90',
-    imageAlt:'Man wearing a tailored suit',
-    tags:['Two piece','Three piece','Double breasted','Wedding'],
+    image:'/images/ovoskg/navy-suit-client.jpg',
+    imageAlt:'OVOSKG client in a navy bespoke suit',
+    tags:['Two piece','Three piece','Wedding','Formal'],
     styles:[
-      {name:'Peak Lapel Double Breasted',note:'A stronger chest line with a commanding formal profile.',detail:'Peak lapel · 6 button front',image:'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Notch Lapel Two Piece',note:'The cleanest everyday bespoke starting point.',detail:'Notch lapel · clean trouser',image:'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Three Piece Ceremony',note:'Waistcoat depth for weddings and formal occasions.',detail:'Waistcoat · coordinated finish',image:'https://images.unsplash.com/photo-1548454782-15b189d129ab?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Shawl Collar Evening',note:'A softer tuxedo line for black tie and evening dressing.',detail:'Shawl collar · evening finish',image:'https://images.unsplash.com/photo-1555069519-127aadedf1ee?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Soft Shoulder Business',note:'Less armour, more movement, still intentionally tailored.',detail:'Natural shoulder · lighter structure',image:'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Cream Wedding Direction',note:'Light occasion tailoring with contrast built into the styling.',detail:'Light tone · ceremony styling',image:'https://images.unsplash.com/photo-1598032895397-b9472444bf93?auto=format&fit=crop&w=1200&q=90'}
+      {name:'Navy Three Piece',note:'A clean formal suit direction shown on an OVOSKG client.',detail:'Suit · client work',image:'/images/ovoskg/navy-suit-client.jpg',source:'https://www.instagram.com/reel/DUdXwRGDM2l/'},
+      {name:'Wedding Party Tailoring',note:'A coordinated groom and groomsmen direction from an OVOSKG wedding feature.',detail:'Wedding · group styling',image:'/images/ovoskg/groom-party.jpg',source:'https://www.instagram.com/reel/DcGToFdB3xO/'},
+      {name:'Ceremony Detail',note:'Rich traditional detailing captured during a groom preparation moment.',detail:'Ceremony · detail',image:'/images/ovoskg/groom-detail.jpg',source:'https://www.instagram.com/reel/DcG1_QrBAqK/'},
+      {name:'Traditional Groom Look',note:'A complete traditional wedding direction delivered by OVOSKG.',detail:'Wedding · traditional',image:'/images/ovoskg/traditional-wedding.jpg',source:'https://www.instagram.com/reel/DUdgpx4jDdw/'},
+      {name:'Clean White Custom Set',note:'A lighter custom look that keeps the silhouette simple and intentional.',detail:'Custom · light tone',image:'/images/ovoskg/white-outfit.jpg',source:'https://www.instagram.com/reel/DUszfuXjU5B/'},
+      {name:'White Statement Bespoke',note:'A refined white bespoke direction with distinctive finishing.',detail:'Bespoke · detail',image:'/images/ovoskg/white-bespoke.jpg',source:'https://www.instagram.com/reel/DT2Y_MmjLrV/'}
     ]
   },
   {
@@ -33,17 +33,17 @@ export const collections = [
     index:'02',
     title:"Women's bespoke suits",
     short:'Structure without stiffness. A tailored silhouette built around the woman wearing it.',
-    body:'Custom women’s tailoring for work, events and statement dressing, with fit decisions made around shape, movement and styling preference.',
-    image:'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1800&q=90',
-    imageAlt:'Woman wearing tailored fashion',
-    tags:['Power suit','Occasion','Two piece','Custom'],
+    body:'Women’s commissions are developed through the same OVOSKG fit process: silhouette direction, measurement review, fabric choice, construction and final fit validation.',
+    image:'/images/ovoskg/client-year-collage.jpg',
+    imageAlt:'OVOSKG client archive collage',
+    tags:['Power suit','Occasion','Custom fit','Made to measure'],
     styles:[
-      {name:'Single Breasted Power Suit',note:'A sharp, clean jacket line with controlled waist shaping.',detail:'Single breast · shaped waist',image:'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Double Breasted Statement',note:'More structure and presence for events or executive dressing.',detail:'Double breast · stronger shoulder',image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Waistcoat Set',note:'A layered three piece direction with more styling range.',detail:'Waistcoat · trouser set',image:'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Wide Leg Tailoring',note:'Structured jacket balanced with a longer fluid trouser line.',detail:'Long line · wide leg',image:'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Evening Tuxedo Direction',note:'Dark, refined tailoring for evening and statement events.',detail:'Satin detail · evening cut',image:'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Monochrome Occasion Set',note:'One tone, controlled proportions, stronger overall silhouette.',detail:'Monochrome · custom proportion',image:'https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1200&q=90'}
+      {name:'Silhouette Consultation',note:'Start with the shape you want, then adjust proportion around your own frame.',detail:'Direction · consultation',image:'/images/ovoskg/client-year-collage.jpg',source:'https://www.instagram.com/reel/DS75XmaDJQg/'},
+      {name:'Fit Review',note:'Measurements and visual fit cues are reviewed before the garment moves into production.',detail:'Fit · validation',image:'/images/ovoskg/fitting-boutique.jpg',source:'https://www.instagram.com/reel/Ddqn8dKsHML/'},
+      {name:'Fabric and Finish Review',note:'Colour, handle, detail level and occasion are aligned before approval.',detail:'Fabric · finishing',image:'/images/ovoskg/client-experience.jpg',source:'https://www.instagram.com/reel/DdmN5YyA2Sm/'},
+      {name:'Construction Check',note:'The process remains structured from measurements through finishing.',detail:'Workshop · process',image:'/images/ovoskg/workshop-moment.jpg',source:'https://www.instagram.com/reel/Dcu8GbHo2xi/'},
+      {name:'Occasion Direction',note:'Use OVOSKG’s archive to communicate how formal, restrained or expressive the final piece should feel.',detail:'Occasion · styling',image:'/images/ovoskg/client-year-collage.jpg',source:'https://www.instagram.com/reel/DS75XmaDJQg/'},
+      {name:'Final Fit Conversation',note:'Before handover, fit concerns are reviewed against the approved measurements and design brief.',detail:'Fit · handover',image:'/images/ovoskg/fitting-boutique.jpg',source:'https://www.instagram.com/reel/Ddqn8dKsHML/'}
     ]
   },
   {
@@ -51,41 +51,42 @@ export const collections = [
     index:'03',
     title:"Luxury men's kaftans",
     short:'Clean lines, restrained detail and comfort that still looks intentional.',
-    body:'Kaftans for ceremonies, weekends and formal moments with fabric, embroidery and finishing selected around the client.',
-    image:'https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1800&q=90',
-    imageAlt:'Luxury menswear',
+    body:'Kaftans for ceremonies, weekends and formal moments with fabric, detailing and finishing selected around the client.',
+    image:'/images/ovoskg/groom-detail.jpg',
+    imageAlt:'OVOSKG groom wearing a detailed traditional outfit',
     tags:['Kaftan','Native wear','Ceremony','Custom'],
     styles:[
-      {name:'Minimal Tonal Kaftan',note:'Quiet finishing that lets fabric and fit do the work.',detail:'Tonal finish · clean neckline',image:'https://images.unsplash.com/photo-1610652492500-ded49ceeb378?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Embroidered Front Detail',note:'More visual emphasis through controlled chest embroidery.',detail:'Chest embroidery · tonal thread',image:'https://images.unsplash.com/photo-1598032895397-b9472444bf93?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Contrast Piping Direction',note:'Subtle edge definition for a cleaner graphic finish.',detail:'Contrast piping · minimal embroidery',image:'https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Ceremony White Direction',note:'Formal light tone styling for special events and celebrations.',detail:'Light tone · premium finishing',image:'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Deep Tone Occasion Kaftan',note:'A richer dark palette with restrained decorative detail.',detail:'Deep tone · ceremony finish',image:'https://images.unsplash.com/photo-1548454782-15b189d129ab?auto=format&fit=crop&w=1200&q=90'},
-      {name:'Relaxed Weekend Luxury',note:'A cleaner, softer direction for less formal wear.',detail:'Relaxed cut · lighter structure',image:'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90'}
+      {name:'White Bespoke Direction',note:'A crisp light tone with a strong front detail treatment.',detail:'White · bespoke detail',image:'/images/ovoskg/white-bespoke.jpg',source:'https://www.instagram.com/reel/DT2Y_MmjLrV/'},
+      {name:'Relaxed White Set',note:'A cleaner, easier custom direction for less formal occasions.',detail:'White · relaxed',image:'/images/ovoskg/white-outfit.jpg',source:'https://www.instagram.com/reel/DUszfuXjU5B/'},
+      {name:'Groom Detail Direction',note:'Traditional detailing designed for a wedding moment.',detail:'Groom · embroidery',image:'/images/ovoskg/groom-detail.jpg',source:'https://www.instagram.com/reel/DcG1_QrBAqK/'},
+      {name:'Traditional Wedding Look',note:'Full groom styling with a stronger ceremonial presence.',detail:'Wedding · traditional',image:'/images/ovoskg/traditional-wedding.jpg',source:'https://www.instagram.com/reel/DUdgpx4jDdw/'},
+      {name:'Boutique Fitting',note:'Fit and proportion are checked before the order is signed off.',detail:'Fitting · client',image:'/images/ovoskg/fitting-boutique.jpg',source:'https://www.instagram.com/reel/Ddqn8dKsHML/'},
+      {name:'Client Experience',note:'The service around the garment is part of the OVOSKG standard.',detail:'Service · boutique',image:'/images/ovoskg/client-experience.jpg',source:'https://www.instagram.com/reel/DdmN5YyA2Sm/'}
     ]
   }
 ]
 
 export const pieces = [
-  {id:'signature-two-piece',category:'Suits',gender:'Men',name:'Signature Two Piece',descriptor:'Bespoke commission',image:'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1200&q=90'},
-  {id:'double-breasted-formal',category:'Suits',gender:'Men',name:'Double Breasted Formal',descriptor:'Bespoke commission',image:'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=1200&q=90'},
-  {id:'black-tie',category:'Occasion',gender:'Men',name:'Black Tie Direction',descriptor:'Occasion commission',image:'https://images.unsplash.com/photo-1548454782-15b189d129ab?auto=format&fit=crop&w=1200&q=90'},
-  {id:'women-structured',category:'Women',gender:'Women',name:'Structured Women Tailoring',descriptor:'Bespoke commission',image:'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=90'},
-  {id:'women-evening',category:'Women',gender:'Women',name:'Evening Power Suit',descriptor:'Occasion commission',image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=90'},
-  {id:'kaftan-minimal',category:'Kaftan',gender:'Men',name:'Minimal Kaftan',descriptor:'Custom commission',image:'https://images.unsplash.com/photo-1610652492500-ded49ceeb378?auto=format&fit=crop&w=1200&q=90'},
-  {id:'kaftan-occasion',category:'Kaftan',gender:'Men',name:'Occasion Kaftan',descriptor:'Custom commission',image:'https://images.unsplash.com/photo-1598032895397-b9472444bf93?auto=format&fit=crop&w=1200&q=90'},
-  {id:'ceremony-custom',category:'Occasion',gender:'Unisex',name:'Ceremony Custom',descriptor:'Custom quote',image:'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1200&q=90'}
+  {id:'navy-three-piece',category:'Suits',gender:'Men',name:'Navy Three Piece Client Look',descriptor:'OVOSKG client work',image:'/images/ovoskg/navy-suit-client.jpg'},
+  {id:'wedding-party',category:'Suits',gender:'Men',name:'Wedding Party Tailoring',descriptor:'OVOSKG wedding work',image:'/images/ovoskg/groom-party.jpg'},
+  {id:'groom-detail',category:'Occasion',gender:'Men',name:'Ceremony Detail',descriptor:'OVOSKG groom work',image:'/images/ovoskg/groom-detail.jpg'},
+  {id:'traditional-groom',category:'Occasion',gender:'Men',name:'Traditional Groom Look',descriptor:'OVOSKG wedding work',image:'/images/ovoskg/traditional-wedding.jpg'},
+  {id:'white-custom',category:'Kaftan',gender:'Men',name:'White Custom Set',descriptor:'OVOSKG custom work',image:'/images/ovoskg/white-outfit.jpg'},
+  {id:'white-bespoke',category:'Kaftan',gender:'Men',name:'White Statement Bespoke',descriptor:'OVOSKG custom work',image:'/images/ovoskg/white-bespoke.jpg'},
+  {id:'fitting-room',category:'Details',gender:'Client',name:'Boutique Fitting',descriptor:'OVOSKG fitting process',image:'/images/ovoskg/fitting-boutique.jpg'},
+  {id:'client-service',category:'Details',gender:'Client',name:'Client Experience',descriptor:'OVOSKG boutique service',image:'/images/ovoskg/client-experience.jpg'}
 ]
 
 export const lookbook = [
-  {id:1,category:'Suits',label:'Sharp structure',image:'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=1400&q=90'},
-  {id:2,category:'Women',label:'Power tailoring',image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1400&q=90'},
-  {id:3,category:'Details',label:'Finishing first',image:'https://images.unsplash.com/photo-1555069519-127aadedf1ee?auto=format&fit=crop&w=1400&q=90'},
-  {id:4,category:'Kaftan',label:'Quiet luxury',image:'https://images.unsplash.com/photo-1610652492500-ded49ceeb378?auto=format&fit=crop&w=1400&q=90'},
-  {id:5,category:'Suits',label:'Formal presence',image:'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1400&q=90'},
-  {id:6,category:'Women',label:'Event tailoring',image:'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=90'},
-  {id:7,category:'Occasion',label:'Ceremony direction',image:'https://images.unsplash.com/photo-1548454782-15b189d129ab?auto=format&fit=crop&w=1400&q=90'},
-  {id:8,category:'Details',label:'Texture and form',image:'https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=1400&q=90'}
+  {id:1,category:'Fittings',label:'Fit checked in the boutique',image:'/images/ovoskg/fitting-boutique.jpg',source:'https://www.instagram.com/reel/Ddqn8dKsHML/'},
+  {id:2,category:'Service',label:'The OVOSKG client experience',image:'/images/ovoskg/client-experience.jpg',source:'https://www.instagram.com/reel/DdmN5YyA2Sm/'},
+  {id:3,category:'Weddings',label:'Groom detail',image:'/images/ovoskg/groom-detail.jpg',source:'https://www.instagram.com/reel/DcG1_QrBAqK/'},
+  {id:4,category:'Weddings',label:'Groom and his men',image:'/images/ovoskg/groom-party.jpg',source:'https://www.instagram.com/reel/DcGToFdB3xO/'},
+  {id:5,category:'Kaftan',label:'White custom set',image:'/images/ovoskg/white-outfit.jpg',source:'https://www.instagram.com/reel/DUszfuXjU5B/'},
+  {id:6,category:'Weddings',label:'Traditional groom look',image:'/images/ovoskg/traditional-wedding.jpg',source:'https://www.instagram.com/reel/DUdgpx4jDdw/'},
+  {id:7,category:'Suits',label:'Navy bespoke suit',image:'/images/ovoskg/navy-suit-client.jpg',source:'https://www.instagram.com/reel/DUdXwRGDM2l/'},
+  {id:8,category:'Kaftan',label:'White statement bespoke',image:'/images/ovoskg/white-bespoke.jpg',source:'https://www.instagram.com/reel/DT2Y_MmjLrV/'},
+  {id:9,category:'Archive',label:'Client archive',image:'/images/ovoskg/client-year-collage.jpg',source:'https://www.instagram.com/reel/DS75XmaDJQg/'}
 ]
 
 export const journey = [
