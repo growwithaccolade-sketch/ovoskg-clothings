@@ -111,10 +111,9 @@ function ConversionAnalytics(){
   return null
 }
 
-function Logo({light=false}){
-  return <Link to="/" aria-label="OVOSKG homepage" className="brand-logo inline-flex min-w-0 items-center gap-2.5 sm:gap-3">
-    <svg aria-hidden="true" viewBox="0 0 64 64" className="h-8 w-8 shrink-0 sm:h-10 sm:w-10"><path d="M8 32c0-8.8 5.8-15 13.2-15 5.4 0 8.9 3 12.3 8.3C36.7 20 40.6 17 46 17c7.1 0 10.8 5.3 10.8 12.4S52.8 42 46 42c-5.2 0-9.2-3-12.5-8.2C30.1 39 26.5 42 21.2 42 13.8 42 8 40.8 8 32Zm8 0c0 4.3 2.5 6.6 5.7 6.6 3.3 0 5.5-2.5 8.4-6.6-2.9-4.2-5.1-6.7-8.4-6.7-3.2 0-5.7 2.4-5.7 6.7Zm21.5 0c2.8 4.1 5.2 6.6 8.3 6.6 2.7 0 4.9-2.5 4.9-6.6 0-4.2-2.2-6.7-4.9-6.7-3.2 0-5.5 2.6-8.3 6.7Z" fill="currentColor"/></svg>
-    <span className="leading-none"><span className={`block text-[19px] font-medium tracking-[.08em] sm:text-[25px] ${light?'text-[#caa177]':'text-[#8f6b48]'}`}>OVOSKG</span><span className={`mt-1 block text-[6px] font-semibold uppercase tracking-[.34em] sm:text-[7px] sm:tracking-[.38em] ${light?'text-white/52':'text-black/46'}`}>Clothings</span></span>
+function Logo(){
+  return <Link to="/" aria-label="OVOSKG homepage" className="brand-logo inline-flex min-w-0 items-center">
+    <img src="/ovoskg-logo.webp" alt="OVOSKG Clothings" className="h-[38px] w-auto max-w-[150px] object-contain sm:h-[46px] sm:max-w-[182px] lg:h-[50px] lg:max-w-[198px]" loading="eager" decoding="async"/>
   </Link>
 }
 
