@@ -156,7 +156,7 @@ function HomePage(){
           </motion.div>
         </div>
         <div className="hero-fit-frame relative min-h-[360px] overflow-hidden sm:min-h-[520px] md:min-h-[560px] lg:min-h-[690px]">
-          <img src="/hero-smiling-designer.webp" alt="Smiling man in a brown designer suit" className="hero-fit-image absolute inset-0 h-full w-full object-cover"/>
+          <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Jj44K9vvUC3TezHyyKE7MUf36Z/0afcb8b4-17d6-4f5e-b362-054923e2a0e8.webp" alt="Smiling Black man in a tailored brown designer suit" className="hero-fit-image absolute inset-0 h-full w-full object-cover"/>
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-transparent lg:from-black/16"/>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/16 to-transparent lg:hidden"/>
         </div>
